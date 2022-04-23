@@ -30,6 +30,6 @@ echo "numeros ".$numero1.", ".$numero2."<br>"."la suma es: ".$suma; */
 
 
 //ejer10
-/* $calculo=$numero1*0.05;
+$calculo=$numero1*0.05;
 
-echo "el numero es: ".$numero1." el porcentaje es: ".$calculo; */
+echo "el numero es: ".$numero1." el porcentaje es: ".$calculo;
