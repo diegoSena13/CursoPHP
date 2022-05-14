@@ -7,7 +7,7 @@ require_once 'plantillas/cabecera.php';
         <h5>GRÁFICAS</h5>
     </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
                 <div class="card">

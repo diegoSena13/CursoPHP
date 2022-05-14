@@ -37,19 +37,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php"><i class="bi bi-house-heart"></i>  Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="index.php"><i class="bi bi-house-heart"></i> Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-info-square-fill">  Acerca de</i></a>
+                            <a class="nav-link" href="#"><i class="bi bi-info-square-fill"> Acerca de</i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-people-fill">  contacto</i></a>
+                            <a class="nav-link" href="#"><i class="bi bi-people-fill"> contacto</i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-journal-plus">  Citas</i></a>
+                            <a class="nav-link" href="#"><i class="bi bi-journal-plus"> Citas</i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="panel.php"><i class="bi bi-key-fill">  Login</i></a>
+                            <a class="nav-link btn" data-bs-toggle="modal" data-bs-target="#frmLogin"><i class="bi bi-key-fill"> Login</i></a>
                         </li>
                     </ul>
                 </div>
@@ -153,6 +153,41 @@
             </div>
         </div>
     </div>
+
+    <!-- esta es la modal del login -->
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="frmLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login del sistema</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="usuario" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="usuarioHelp">
+                        <div id="usuarioHelp" class="form-text">Ingrese su usuario registrado en el sistema</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <a href="frmRegistroPaciente.php">¿Aun no tiene cuenta? Registrese aqui</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cierre modal del login -->
 
 
 
