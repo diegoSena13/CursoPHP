@@ -3,6 +3,7 @@
 //conexion a la base de datos tradicional
 
 //usuario y clave de mysql
+session_start(); //activa la configuracion de arreglos para almacenar las sesiones
 $usuario='root';
 $password='';
 

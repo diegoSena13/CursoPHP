@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 
@@ -59,8 +60,9 @@
             <div class="col-md-5">
                 <div class="card bg-dark mt-3 text-white tetx-center">
                 <h5 class="modal-title" id="exampleModalLabel">Registro de pacientes</h5>
+                <?php echo $resultado;?>
                     <div class="card-body">
-                        <form method="POST" action="./crud/insertarContacto.php">
+                        <form method="POST" action="app/insertarPaciente.php">
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">nombre</label>
                                 <input type="text" class="form-control" name="nombre" id="nombre">
@@ -95,7 +97,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="eps_paciente" class="form-label">E.P.S</label>
-                            <input type="text" class="form-control" name="eps_paciente" id="eps_paciente">
+                            <input type="text" class="form-control" name="epsPaciente" id="epsPaciente">
                         </div>
                         <div class="mb-3">
                             <label for="usuario" class="form-label">usuario del sistema</label>
