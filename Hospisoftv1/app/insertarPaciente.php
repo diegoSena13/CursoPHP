@@ -30,6 +30,14 @@ echo '<pre>';
 echo var_dump($sentencia->rowCount());
 echo '<pre>'; */
 
-$resultado=$_SESSION['Insercion exitosa'];
+if($sentencia->rowCount()>=1){
+    $_SESSION['tipo']="primary";
+    $_SESSION['mensaje']="operacion exitosa";
 
+
+}else{
+    $_SESSION['tipo']="danger";
+    $_SESSION['mensaje']="ha ocurrido un error en la insercion";
+
+}
 header('Location:../frmRegistroPaciente.php');
