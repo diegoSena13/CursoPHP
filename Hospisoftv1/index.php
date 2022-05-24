@@ -168,21 +168,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="usuario" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="usuarioHelp">
-                        <div id="usuarioHelp" class="form-text">Ingrese su usuario registrado en el sistema</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <a href="frmRegistroPaciente.php">¿Aun no tiene cuenta? Registrese aqui</a>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
+                    <form action="app/validarIngresoPaciente.php" method="post">
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="usuarioHelp">
+                            <div id="usuarioHelp" class="form-text">Ingrese su usuario registrado en el sistema</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <a href="frmRegistroPaciente.php">¿Aun no tiene cuenta? Registrese aqui</a>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="reset" class="btn btn-secondary" data-bs-dismiss="modal" value="Cancelar"> 
+                            <input type="submit" class="btn btn-primary" value="Guardar">
+                        </div>
+                    </form>
             </div>
         </div>
     </div>

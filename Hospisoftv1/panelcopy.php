@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuarioActivo'])) {
+    header('Location: index.php');
+}else{
+
+
 require_once 'plantillas/cabecera.php';
 ?>
 <!-- inicio del contenido -->
@@ -50,4 +56,5 @@ require_once 'plantillas/cabecera.php';
 
 <?php
 require_once 'plantillas/footer.php';
+}
 ?>
