@@ -42,3 +42,10 @@ me sirve para configurar el servidor web (apache) OJO existe otro servidor y es 
 # SEGUNDO SPRINT
 
 lireria de reportes en pdf fpdf
+
+# segundo sprint
+
+libreria de reportes en pdf fpdf
+registro de citas(llaves compuestas)
+listar la historia clinica por cada paciente
+listar medicos por especialidad

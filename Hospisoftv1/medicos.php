@@ -50,13 +50,13 @@ require_once 'plantillas/cabecera.php';
                     foreach ($resultado as $datos) {
                     ?>
                         <tr>
-                            <td> <?php echo $datos->id_medico; ?> </td>
-                            <td> <?php echo $datos->nombre_medico; ?> </td>
-                            <td> <?php echo $datos->apellidos_medico; ?> </td>
+                            <td> <?php echo $datos->idMedico; ?> </td>
+                            <td> <?php echo $datos->nombreMedico; ?> </td>
+                            <td> <?php echo $datos->apellidosMedico; ?> </td>
                             <td> <?php echo $datos->email; ?> </td>
                             <td> <?php echo $datos->especialidad; ?> </td>
-                            <td><a type="button" class="btn btn-primary" href="frmEditar.php?id=<?php echo $datos->id_medico; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                            <td><a type="button" class="btn btn-danger" href="app/eliminarMedico.php?id=<?php echo $datos->id_medico; ?>"><i class="bi bi-trash"></i></a></td>
+                            <td><a type="button" class="btn btn-primary" href="frmEditar.php?id=<?php echo $datos->idMedico; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                            <td><a type="button" class="btn btn-danger" href="app/eliminarMedico.php?id=<?php echo $datos->idMedico; ?>"><i class="bi bi-trash"></i></a></td>
                         </tr>
                     <?php
                     };

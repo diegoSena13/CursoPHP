@@ -5,7 +5,7 @@ $id = $_GET['id'];
 
 
 require_once 'app/bd.php';
-$sql = 'SELECT *FROM medico where id_medico=?';
+$sql = 'SELECT *FROM medico where idMedico=?';
 $sentencia = $pdo->prepare($sql); //prepara consulta
 $sentencia->execute([$id]);
 $resultado = $sentencia->fetch(PDO::FETCH_OBJ); //devuelve la fila con el resultado de la consulta
@@ -37,15 +37,15 @@ echo'</pre>'; */
                 <form action="app/actualizarMedico.php" method="POST">
                     <div class="mb-3">
                         <label for="id" class="form-label">id</label>
-                        <input type="text" class="form-control" value="<?php echo $resultado->id_medico; ?>" readonly name="id" id="id">
+                        <input type="text" class="form-control" value="<?php echo $resultado->idMedico; ?>" readonly name="id" id="id">
                     </div>
                     <div class="mb-3">
                         <label for="nombre" class="form-label">nombre</label>
-                        <input type="text" class="form-control" value="<?php echo $resultado->nombre_medico; ?>" name="nombre" id="nombre">
+                        <input type="text" class="form-control" value="<?php echo $resultado->nombreMedico; ?>" name="nombre" id="nombre">
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">apellido</label>
-                        <input type="text" class="form-control" value="<?php echo $resultado->apellidos_medico; ?>" name="apellidos" id="apellidos">
+                        <input type="text" class="form-control" value="<?php echo $resultado->apellidosMedico; ?>" name="apellidos" id="apellidos">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">email</label>
