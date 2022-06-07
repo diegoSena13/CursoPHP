@@ -52,7 +52,7 @@
                             <a class="nav-link btn" data-bs-toggle="modal" data-bs-target="#frmLogin"><i class="bi bi-key-fill"> Login</i></a>
                         </li>
                     </ul>
-                    <a class="nav-link text-ligth" data-bs-toggle="modal" data-bs-target="#frmLoginmedico"><i class="bi bi-person-rolodex">  Medico</i></a>
+                    <a class="nav-link text-ligth" data-bs-toggle="modal" data-bs-target="#frmLoginmedico"><i class="bi bi-person-rolodex"> Medico</i></a>
                 </div>
             </div>
         </nav>
@@ -169,7 +169,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="app/validarIngresoMedico.php" method="post">
+                    <form action="app/validarIngresoMedico.php" method="POST">
                         <div class="mb-3">
                             <label for="usuario" class="form-label">Identificacion</label>
                             <input type="text" class="form-control" id="identificacion" name="identificacion" aria-describedby="usuarioHelp">
@@ -180,12 +180,12 @@
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <a href="frmRegistroPaciente.php">¿Aun no tiene cuenta? Registrese aqui</a>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="reset" class="btn btn-secondary" data-bs-dismiss="modal" value="Cancelar"> 
-                            <input type="submit" class="btn btn-primary" value="Guardar">
-                        </div>
-                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-secondary" data-bs-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-primary" value="Guardar">
+                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -212,12 +212,12 @@
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <a href="frmRegistroPaciente.php">¿Aun no tiene cuenta? Registrese aqui</a>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="reset" class="btn btn-secondary" data-bs-dismiss="modal" value="Cancelar"> 
-                            <input type="submit" class="btn btn-primary" value="Guardar">
-                        </div>
-                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-secondary" data-bs-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-primary" value="Guardar">
+                </div>
+                </form>
             </div>
         </div>
     </div>
