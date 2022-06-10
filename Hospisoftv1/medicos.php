@@ -28,6 +28,10 @@ require_once 'plantillas/cabecera.php';
                             <label for="especialidad" class="form-label">Especialidad</label>
                             <input type="text" class="form-control" name="especialidad" id="especialidad">
                         </div>
+                        <div class="mb-3">
+                            <label for="contraseña" class="form-label">contraseña</label>
+                            <input type="text" class="form-control" name="contraseña" id="contraseña">
+                        </div>
                         <button type="submit" class="btn btn-primary">Ingresar</button>
                     </form>
                 </div>

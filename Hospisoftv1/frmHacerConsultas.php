@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuarioActivo'])) {
 
 
     require_once 'app/listarMedicos.php';
-    require_once 'plantillas/cabeceraP.php';
+    require_once 'plantillas/cabeceraM.php';
 ?>
     <!-- inicio del contenido -->
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -33,7 +33,7 @@ if (!isset($_SESSION['usuarioActivo'])) {
                                 <h5 class="card-title">Datos Generales</h5>
                                 <div class="mb-3">
                                     <label for="fecha" class="form-label">fecha</label>
-                                    <input type="datetime" class="form-control" id="fecha" name="fecha"> 
+                                    <input type="datetime" class="form-control" id="fecha" name="fecha">
                                 </div>
                                 <div class="mb-3">
                                     <label for="medico" class="form-label">medico</label>
@@ -83,7 +83,7 @@ if (!isset($_SESSION['usuarioActivo'])) {
                                 <h5 class="card-title">Chequeo Basico</h5>
                                 <div class="mb-3">
                                     <label for="presionAlta" class="form-label">presion alta</label>
-                                    <input type="number" class="form-control" id="presionAlta" name="presionAlta"> 
+                                    <input type="number" class="form-control" id="presionAlta" name="presionAlta">
                                 </div>
                                 <div class="mb-3">
                                     <label for="presionBaja" class="form-label">presion baja</label>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['usuarioActivo'])) {
                                 <div class="mb-3">
                                     <label for="saturacion" class="form-label">saturacion</label>
                                     <input type="number" class="form-control" id="saturacion" name="saturacion">
-                                </div>   
+                                </div>
                             </div>
                         </div>
                         <div class="card">
@@ -105,14 +105,14 @@ if (!isset($_SESSION['usuarioActivo'])) {
                                     <textarea class="form-control" placeholder="Leave a comment here" id="diagnosticoMedico" name="diagnosticoMedico"></textarea>
                                     <label class="form-check-label" for="exampleCheck1">diagnostico medico</label>
                                 </div>
-                                   
+
                                 <input type="text" name="idPaciente" id="idPaciente" readonly value="<?php echo $_SESSION['idUsuario']; ?>">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </main>
