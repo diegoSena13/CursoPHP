@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>esta es la vista del medico</h1>
+    <?php var_dump($data) ?>
 </body>
 </html>
