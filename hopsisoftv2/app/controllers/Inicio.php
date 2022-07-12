@@ -9,6 +9,6 @@ class Inicio extends Controller{
     public function index()
     {
         $data=[];  //temporal porque no hay datos
-        $this->getView('Inicio',$data);
+        $this->renderView('Inicio',$data);
     }
 }

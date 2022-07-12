@@ -14,9 +14,9 @@ class Controller{
          return new $model();
     }
 
-    //cargamos la vista correspondiente
+    //cargamos la vista correspondiente orenderizamos la vista
 
-    public function getView($view,$data=[]){
+    public function renderView($view,$data=[]){
         if(file_exists('../app/views/'.$view. '.php')){
             require_once '../app/views/' . $view . '.php';
         }
