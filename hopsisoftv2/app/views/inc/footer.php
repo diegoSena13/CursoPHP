@@ -11,7 +11,7 @@
 </footer>
 
 
-    <script src="<?php echo URLROOT; ?>/docs/5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo URLROOT; ?>js/bootstrap.bundle.min.js"></script>
 
       
   </body>

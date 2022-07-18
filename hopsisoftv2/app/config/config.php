@@ -8,9 +8,10 @@ constantes
 define('APPROOT',dirname(dirname(__FILE__)));
 //echo APPROOT;
 //url de la app
-define('URLROOT','http://localhost/MVC/');
+// define('URLROOT','http://eldominio.com/');
+define('URLROOT','http://localhost/CursoPHP/hopsisoftv2/');
 //nombre de la aplicacion
-define('SITENAME','MICROFRAMEWORK MVC');
+define('SITENAME','Aplicacion hospital Version MVC');
 //credenciales para la base de datos
 
 

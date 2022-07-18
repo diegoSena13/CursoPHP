@@ -14,7 +14,7 @@
 
     
 
-<link href="<?php echo URLROOT  ;?>/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+<link href="<?php echo URLROOT;  ?>css/bootstrap.min.css" rel="stylesheet" >
 
     <!-- Favicons --> 
 <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">

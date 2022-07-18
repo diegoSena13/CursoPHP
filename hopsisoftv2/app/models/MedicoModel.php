@@ -8,7 +8,7 @@ class MedicoModel
     {
         $this->db=new Dbase;
     }
-    public function listarMedicos(){
+    public function listar(){
         $this->db->query("select * from medico");
         $resultSet= $this->db->getAll();
         return $resultSet;
