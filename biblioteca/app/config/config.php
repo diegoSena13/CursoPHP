@@ -8,7 +8,7 @@ constantes
 define('APPROOT',dirname(dirname(__FILE__)));
 //echo APPROOT;
 //url de la app
-define('URLROOT','http://localhost/Biblioteca/');
+define('URLROOT','http://localhost/CursoPHP/Biblioteca/');
 //nombre de la aplicacion
 define('SITENAME','biblioteca-69');
 //credenciales para la base de datos
@@ -18,6 +18,6 @@ define('SITENAME','biblioteca-69');
 define('DB_HOST','localhost'); //cambiarla en el deploy
 define('DB_USER','root'); //usuario de la bd
 define('DB_PASSWORD',''); //contraseña de la base de datos
-define('DB_NAME','hospisoft'); //nombre de la bd
+define('DB_NAME','biblioteca'); //nombre de la bd
 
 //echo URLROOT.DB_HOST;
