@@ -1,21 +1,16 @@
 <?php
 
-class Dashboard extends Controller{
+class Libro extends Controller{
     public function __construct()
     {
-        
+        $this->LibroModel = $this->loadModel('LibroModel');
     }
 
     public function index()
     {
-        $data=[];  //temporal porque no hay datos
-        $this->renderView('dashboard/dashboard',$data);
-    }
-    public function cargarEstudiante()
-    {
         //$data=[];
-        $data=$this->EstudianteModel->listarEstudiantes();  //temporal porque no hay datos
-        $this->renderView('estudiante/estudianteInicio',$data);
+        $data=$this->LibroModel->listarLibro();  //temporal porque no hay datos
+        $this->renderView('libro/libroInicio',$data);
     }
     public function cargarEditorial()
     {

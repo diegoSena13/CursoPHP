@@ -97,19 +97,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT;?>Dashboard/cargarEstudiante">
+            <a class="nav-link" href="<?php echo URLROOT;?>Estudiante/index">
               <span  class="align-text-bottom"><i class="bi bi-person-lines-fill"></i></span>
               Estudiante
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?php echo URLROOT;?>Libro/index">
               <span  class="align-text-bottom"><i class="bi bi-book"></i></span>
               Libros
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?php echo URLROOT;?>Editorial/index">
               <span data-feather="users" class="align-text-bottom"></span>
               Editorial
 

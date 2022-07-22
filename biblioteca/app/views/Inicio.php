@@ -78,7 +78,7 @@
         </div>
         <div class="col-4">
         <main class="form-signin w-100 m-auto">
-  <form action="<?php echo URLROOT; ?>Dashboard/carga">
+  <form action="<?php echo URLROOT; ?>Dashboard/index">
     <img class="mb-4" src="<?php echo URLROOT; ?>media/education_books_library_icon_149685.png" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 

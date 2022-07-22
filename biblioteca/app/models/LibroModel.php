@@ -9,12 +9,12 @@ class LibroModel
         $this->db=new Dbase;
     }
     public function listarLibro(){
-        $this->db->query("select * from cliente");
+        $this->db->query("SELECT * FROM `libro`");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
     public function InsertarLibro(){
-        $this->db->query("insert into cliente (idUsuario,nombre,apellido1,apellido2,correo,telefono,direccion) values ()");
+        $this->db->query("insert into libro (id,titulo,autor,descripcion,categoria,editorial,fechaSalidadLibro,cantidad,existencia,editorial_nit) values ()");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
