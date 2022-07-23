@@ -12,10 +12,10 @@ class Editorial extends Controller{
         $data=$this->EditorialModel->listarEditorial();  //temporal porque no hay datos
         $this->renderView('editorial/editorialInicio',$data);
     }
-    public function cargarEditorial()
+    public function addEditorial()
     {
         $data=[];  //temporal porque no hay datos
-        $this->renderView('dashboard/dashboard',$data);
+        $this->renderView('editorial/insertarEditorial',$data);
     }
     public function cargarLibro()
     {

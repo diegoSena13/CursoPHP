@@ -12,10 +12,10 @@ class Libro extends Controller{
         $data=$this->LibroModel->listarLibro();  //temporal porque no hay datos
         $this->renderView('libro/libroInicio',$data);
     }
-    public function cargarEditorial()
+    public function addLibro()
     {
         $data=[];  //temporal porque no hay datos
-        $this->renderView('dashboard/dashboard',$data);
+        $this->renderView('libro/insertarLibro',$data);
     }
     public function cargarLibro()
     {

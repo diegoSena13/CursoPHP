@@ -12,10 +12,10 @@ class Estudiante extends Controller{
         $data=$this->EstudianteModel->listarEstudiantes();  //temporal porque no hay datos
         $this->renderView('estudiante/estudianteInicio',$data);
     }
-    public function cargarEditorial()
+    public function addEstudiante()
     {
         $data=[];  //temporal porque no hay datos
-        $this->renderView('dashboard/dashboard',$data);
+        $this->renderView('estudiante/insertarEstudiante',$data);
     }
     public function cargarLibro()
     {
