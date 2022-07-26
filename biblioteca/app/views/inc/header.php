@@ -88,7 +88,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      
+
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color:#f5f5f5;">
         <div class="position-sticky pt-3 sidebar-sticky">
           <ul class="nav flex-column">
@@ -117,16 +117,22 @@
               <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Editorial/index">
                 <span data-feather="users" class="align-text-bottom"><i class="bi bi-building"></i></span>
                 Editorial
-
               </a>
             </li>
             <br>
             <li class="nav-item">
-            <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Prestamo/Control">
-              <span data-feather="bar-chart-2" class="align-text-bottom"> <i class="bi bi-clipboard2-check"></i></span>
-               Prestamos
-            </a>
-          </li>
+              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Prestamo/index">
+                <span data-feather="bar-chart-2" class="align-text-bottom"> <i class="bi bi-clipboard2-check"></i></span>
+                Prestamos
+              </a>
+            </li>
+            <br>
+            <li class="nav-item">
+              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Prestamo/index">
+                <span data-feather="bar-chart-2" class="align-text-bottom"><i class="bi bi-bricks"></i></span>
+                Penalizacion
+              </a>
+            </li>
             <!-- 
           <li class="nav-item">
             <a class="nav-link" href="#">

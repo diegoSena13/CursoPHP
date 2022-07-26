@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.101.0">
-  <title>Signin Template · Bootstrap v5.2</title>
+  <title><?php echo SITENAME; ?></title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
@@ -72,7 +72,7 @@
   <link href="<?php echo URLROOT; ?>css/signin.css" rel="stylesheet">
 </head>
 
-<body class="text-center">
+<body class="text-center" style="background-image:url(<?php echo URLROOT; ?>media/13663.jpg);">
   <div class="container-fluid">
     <div class="row">
       <div class="col-4">
@@ -80,25 +80,25 @@
       </div>
       <div class="col-4">
         <main class="form-signin w-100 m-auto">
-          <form action="<?php echo URLROOT; ?>Dashboard/index">
+          <form action="<?php echo URLROOT; ?>Dashboard/login" method="POST">
             <img class="mb-4" src="<?php echo URLROOT; ?>media/education_books_library_icon_149685.png" alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 fw-bold">Please sign in</h1>
 
             <div class="form-floating">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
               <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
               <label for="floatingPassword">Password</label>
             </div>
 
             <div class="checkbox mb-3">
-              <label>
+              <label class="text-white">
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>
-            <input class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <input class="w-100 btn btn-lg btn-primary text-white" type="submit">Ingresar</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
           </form>
         </main>

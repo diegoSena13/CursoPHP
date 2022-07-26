@@ -12,7 +12,7 @@
 
         <div class="card">
             <div class="card-body">
-                <form action="" method="">
+                <form action="" method="POST">
                     <div class="row">
                         <div class="col">
                             <input type="text" class="form-control" placeholder="# Identificación" aria-label="identificacion">
