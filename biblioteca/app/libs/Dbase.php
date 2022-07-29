@@ -79,7 +79,7 @@ class Dbase
     public function getOne()
     {
         $this->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+        return $this->stmt->fetch(PDO::FETCH_OBJ);
     }
     //para la paginacion se necesita contar el numero de registros de la consulta
 

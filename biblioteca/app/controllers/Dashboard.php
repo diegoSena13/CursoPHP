@@ -14,7 +14,7 @@ class Dashboard extends Controller{
     public function login()
     {
         //$data=[];
-        $data=$this->EstudianteModel->listarEstudiantes();  //temporal porque no hay datos
+        $data=[];  //temporal porque no hay datos
         $this->renderView('estudiante/estudianteInicio',$data);
     }
 }

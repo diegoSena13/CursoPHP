@@ -13,4 +13,11 @@ class MedicoModel
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
+    public function getOne($nit)
+    {
+        $this->db->query("SELECT * FROM `editorial` WHERE nit=:nit");
+        $this->db->bind(':nit', $nit);
+        $resultSet = $this->db->getOne();
+        return $resultSet;
+    }
 }

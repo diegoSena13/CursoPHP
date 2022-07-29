@@ -6,7 +6,7 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <div class="col-2">
-                <h1>Registro de Prestamos</h1>
+                <h1>Editar Prestamos</h1>
             </div>
         </div>
 
@@ -72,7 +72,8 @@
                         <br>
             </div>
             <br>
-            <input type="submit" class="btn btn-danger" value="Registrar">
+            <input type="button" class="btn btn-danger" value="Cancelar">
+            <input type="submit" class="btn btn-danger" value="Editar">
             </form>
         </div>
     </main>

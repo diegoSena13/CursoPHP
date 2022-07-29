@@ -23,11 +23,11 @@
             </thead>
             <tbody>
               <tr>
-                <?php foreach ($data as $librogg) :; ?>
-                  <td><?php echo $libro->id; ?></td>
-                  <td><?php echo $libro->titulo; ?></td>
-                  <td><?php echo $libro->autor; ?></td>
-                  <td><?php echo $libro->descripcion; ?></td>
+                <?php foreach ($data as $penalizacion) :; ?>
+                  <td><?php echo $penalizacion->nombre; ?></td>
+                  <td><?php echo $penalizacion->estado; ?></td>
+                  <td><?php echo $penalizacion->correo; ?></td>
+                  <td><?php echo $penalizacion->tiempoPena; ?></td>
                   <td><button type="button" class="btn btn-primary">Editar</button></td>
                   <td><button type="button" class="btn btn-danger">Eliminar</button></td>
               </tr>

@@ -13,6 +13,13 @@ class LibroModel
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
+    public function getOne($nit)
+    {
+        $this->db->query("SELECT * FROM `libro` WHERE id=:id");
+        $this->db->bind(':nit', $nit);
+        $resultSet = $this->db->getOne();
+        return $resultSet;
+    }
     public function InsertarLibro(){
         $this->db->query("insert into libro (id,titulo,autor,descripcion,categoria,editorial,fechaSalidadLibro,cantidad,existencia,editorial_nit) values ()");
         $resultSet= $this->db->getAll();

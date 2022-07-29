@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <div class="card">
         <div class="card-body">
-          <h1 class="text-center">Control de Prestamo</h1>
+          <h1 class="text-center">Control de Usuarios</h1>
           <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Busqueda ¿?" aria-label="buscar">
         <button class="btn btn-outline-success" type="submit">Buscar</button>

@@ -9,12 +9,7 @@ class PrestamoModel
         $this->db=new Dbase;
     }
     public function listarPrestamo(){
-        $this->db->query("select * from ");
-        $resultSet= $this->db->getAll();
-        return $resultSet;
-    }
-    public function insertarPrestamo(){
-        $this->db->query("select * from medico");
+        $this->db->query("select * from detallePrestamo ");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }

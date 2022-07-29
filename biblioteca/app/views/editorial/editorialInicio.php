@@ -9,7 +9,7 @@
         <div class="card-body">
           <h1 class="text-center">EDITORIAL</h1>
           <br>
-          <a class="btn btn-success" href="<?php echo URLROOT; ?>Editorial/addEditorial">
+          <a class="btn btn-success" href="<?php echo URLROOT; ?>Editorial/addForm">
             Insertar
           </a>
           <table class="table table-striped">
@@ -32,8 +32,8 @@
                   <td><?php echo $editorial->generosProduce; ?></td>
                   <td><?php echo $editorial->tipo; ?></td>
                   <td><?php echo $editorial->ubicacion; ?></td>
-                  <td><button type="button" class="btn btn-primary">Editar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                  <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Editorial/editarEditorial/<?php echo $editorial->nit;  ?>">Editar</a></td>
+                  <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Editorial/eliminarEditorial/<?php echo $editorial->nit;  ?>">Eliminar</button></td>
               </tr>
             <?php endforeach ?>
             </tbody>

@@ -128,7 +128,7 @@
             </li>
             <br>
             <li class="nav-item">
-              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Prestamo/index">
+              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>penalizacion/index">
                 <span data-feather="bar-chart-2" class="align-text-bottom"><i class="bi bi-bricks"></i></span>
                 Penalizacion
               </a>
