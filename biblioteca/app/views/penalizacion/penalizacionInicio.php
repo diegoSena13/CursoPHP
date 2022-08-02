@@ -8,28 +8,31 @@
       <div class="card">
         <div class="card-body">
           <h1 class="text-center">Control de Penalización</h1>
-          <form class="d-flex" role="search">
+          <a class="btn btn-success" href="<?php echo URLROOT; ?>Penalizacion/addForm">
+            Insertar
+          </a>
+          <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Busqueda ¿?" aria-label="buscar">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+        <button class="btn btn-outline-success" type="submit">Buscar</button> 
+      </form>-->
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Nombre</th>
+                <th>ID</th>
                 <th>Estado</th>
-                <th>Correo</th>
-                <th>Tiempo de Penelización</th>
+                <th>Nombre Estudiante</th>
+                <th>Correo Estudiante</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <?php foreach ($data as $penalizacion) :; ?>
-                  <td><?php echo $penalizacion->nombre; ?></td>
+                  <td><?php echo $penalizacion->idPenalizacion; ?></td>
                   <td><?php echo $penalizacion->estado; ?></td>
-                  <td><?php echo $penalizacion->correo; ?></td>
-                  <td><?php echo $penalizacion->tiempoPena; ?></td>
-                  <td><button type="button" class="btn btn-primary">Editar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                  <td><?php echo $penalizacion->nombreCliente; ?></td>
+                  <td><?php echo $penalizacion->correoCliente; ?></td>
+                  <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Penalizacion/editarPenalizacion/<?php echo $penalizacion->idPenalizacion;  ?>">Editar</a></td>
+                  <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Penalizacion/eliminarPenalizacion/<?php echo $penalizacion->idPenalizacion;  ?>">Eliminar</a></td>
               </tr>
             <?php endforeach ?>
             </tbody>

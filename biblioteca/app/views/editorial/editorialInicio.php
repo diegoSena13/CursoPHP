@@ -12,6 +12,9 @@
           <a class="btn btn-success" href="<?php echo URLROOT; ?>Editorial/addForm">
             Insertar
           </a>
+          <a class="btn btn-success" href="<?php echo URLROOT; ?>Editorial/imprimirReporte">
+            Reporte
+          </a>
           <table class="table table-striped">
             <thead>
               <tr>

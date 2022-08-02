@@ -1,89 +1,95 @@
 <?php
 
-class Editorial extends Controller
+class Estudiante extends Controller
 {
     public function __construct()
     {
-        $this->EditorialModel = $this->loadModel('EditorialModel');
+        $this->EstudianteModel = $this->loadModel('EstudianteModel');
     }
 
     public function index()
     {
         //$data=[];
-        $data = $this->EditorialModel->listarEditorial();  //temporal porque no hay datos
-        $this->renderView('editorial/editorialInicio', $data);
+        $data = $this->EstudianteModel->listarEstudiantes();  //temporal porque no hay datos
+        $this->renderView('Estudiante/estudianteInicio', $data);
     }
     public function addForm()
     {
         $data = [];  //temporal porque no hay datos
-        $this->renderView('editorial/insertarEditorial', $data);
+        $this->renderView('Estudiante/insertarEstudiante', $data);
     }
-    public function cargarEditorial()
+    public function cargarEstudiante()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data = [
-                'nit' => $_POST['nit'],
+                'idUsuario' => $_POST['idUsuario'],
                 'nombre' => $_POST['nombre'],
-                'generosProduce' => $_POST['generosProduce'],
-                'tipo' => $_POST['tipo'],
-                'ubicacion' => $_POST['ubicacion']
+                'apellido1' => $_POST['apellido1'],
+                'apellido2' => $_POST['apellido2'],
+                'correo' => $_POST['correo'],
+                'telefono' => $_POST['telefono'],
+                'direccion' => $_POST['direccion']
             ];
-            $resultado = $this->EditorialModel->InsertarEditorial($data);
+            $resultado = $this->EstudianteModel->insertarEstudiante($data);
             if ($resultado) {
                 $data = [
                     'mensaje' => 'insercion exitosa'
                 ];
-                $this->renderView('editorial/insertarEditorial', $data);
+                $this->renderView('Estudiante/insertarEstudiante', $data);
             } else {
                 $data = [
                     'mensaje' => 'error en la insercion'
                 ];
-                $this->renderView('editorial/insertarEditorial', $data);
+                $this->renderView('Estudiante/insertarEstudiante', $data);
             }
         } else {
             echo 'Atención! los datos no fueron enviados de un formulario';
         }
     }
 
-    public function editarEditorial($nit)
+    public function editarEstudiante($idUsuario)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
-                'nit' => $nit,  //$id
+                'idUsuario' => $_POST['idUsuario'],
                 'nombre' => $_POST['nombre'],
-                'generosProduce' => $_POST['generosProduce'],
-                'tipo' => $_POST['tipo'],
-                'ubicacion' => $_POST['ubicacion']
+                'apellido1' => $_POST['apellido1'],
+                'apellido2' => $_POST['apellido2'],
+                'correo' => $_POST['correo'],
+                'telefono' => $_POST['telefono'],
+                'direccion' => $_POST['direccion']
             ];
 
-            if ($this->EditorialModel->EditarEditorial($data)) {
+            if ($this->EstudianteModel->editarEstudiante($data)) {
                 $data = [];
                 $this->renderView('dashboard/dashboard', $data);
             } else {
                 die('ocurrió un error en la inserción !');
             };
         } else {
-            $editorial = $this->EditorialModel->getOne($nit);
+            $estudiante = $this->EstudianteModel->getOne($idUsuario);
             $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
+                'idUsuario' => $estudiante->idUsuario,
+                'nombre' => $estudiante->nombre,
+                'apellido1' => $estudiante->apellido1,
+                'apellido2' => $estudiante->apellido2,
+                'correo' => $estudiante->correo,
+                'telefono' => $estudiante->telefono,
+                'direccion' => $estudiante->direccion
             ];
-            $this->renderView('editorial/editarEditorial', $data);
+            $this->renderView('estudiante/editarEstudiante', $data);
         }
     }
 
 
-    public function eliminarEditorial($nit)
+    public function eliminarEstudiante($idUsuario)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
-                'nit' => $nit
+                'idUsuario' => $idUsuario
             ];
 
-            if ($this->EditorialModel->EliminarEditorial($data)) {
+            if ($this->EstudianteModel->eliminarEstudiante($data)) {
                 // echo 'borrado';
                 $data = [];
                 $this->renderView('dashboard/dashboard', $data);
@@ -91,15 +97,24 @@ class Editorial extends Controller
                 die('ocurrió un error !');
             };
         } else {
-            $editorial = $this->EditorialModel->getOne($nit);
+            $estudiante = $this->EstudianteModel->getOne($idUsuario);
             $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
+                'idUsuario' => $estudiante->idUsuario,
+                'nombre' => $estudiante->nombre,
+                'apellido1' => $estudiante->apellido1,
+                'apellido2' => $estudiante->apellido2,
+                'correo' => $estudiante->correo,
+                'telefono' => $estudiante->telefono,
+                'direccion' => $estudiante->direccion
             ];
-            $this->renderView('editorial/eliminarEditorial', $data);
+            $this->renderView('estudiante/eliminarEstudiante', $data);
         }
+    }
+
+    public function imprimirReporte()
+    {
+        $data = $this->EstudianteModel->listarEstudiantes();
+        //$data = [];
+        $this->renderView('estudiante/rptEstudiante', $data);
     }
 }

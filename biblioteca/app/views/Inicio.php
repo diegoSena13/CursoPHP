@@ -80,7 +80,7 @@
       </div>
       <div class="col-4">
         <main class="form-signin w-100 m-auto">
-          <form action="" method="">
+          <form action="<?php echo URLROOT ?>Dashboard/Login" method="post">
             <img class="mb-4" src="<?php echo URLROOT; ?>media/education_books_library_icon_149685.png" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-bold">Please sign in</h1>
 
@@ -98,7 +98,7 @@
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>
-            <a class="btn btn-primary" href="Dashboard/index">Ingresar</a>
+            <input type="submit" class="btn btn-danger" value="Ingresar">
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
           </form>
         </main>

@@ -12,34 +12,34 @@
 
         <div class="card">
             <div class="card-body">
-                <form action="<?php echo URLROOT ?> Editorial/cargarEditorial" method="POST">
+                <form action="<?php echo URLROOT ?> Estudiante/cargarEstudiante" method="POST">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="# Identificación" aria-label="identificacion">
+                            <input type="text" class="form-control" name="idUsuario" placeholder="# Identificación" aria-label="identificacion">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nombre" aria-label="nombre">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" aria-label="nombre">
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Primer Apellido" aria-label="1erApellido">
+                            <input type="text" class="form-control" name="apellido1" placeholder="Primer Apellido" aria-label="1erApellido">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Segundo Apellido" aria-label="2doApellido">
+                            <input type="text" class="form-control" name="apellido2" placeholder="Segundo Apellido" aria-label="2doApellido">
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Correo" aria-label="correo">
+                            <input type="email" class="form-control" name="correo" placeholder="Correo" aria-label="correo">
                         </div>
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Telefono" aria-label="telefono">
+                            <input type="text" class="form-control" name="telefono" placeholder="Telefono" aria-label="telefono">
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="email" class="form-control" placeholder="Dirección" aria-label="direccion">
+                            <input type="email" class="form-control" name="direccion" placeholder="Dirección" aria-label="direccion">
                         </div>
                     </div><br>
                     <input type="submit" class="btn btn-danger" value="Registrar">

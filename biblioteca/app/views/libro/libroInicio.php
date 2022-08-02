@@ -11,6 +11,9 @@
           <a class="btn btn-success" href="<?php echo URLROOT; ?>libro/addLibro">
             Insertar
           </a>
+          <a class="btn btn-success" href="<?php echo URLROOT; ?>Libro/imprimirReporte">
+            Reporte
+          </a>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -41,8 +44,8 @@
                   <td><?php echo $libro->cantidad; ?></td>
                   <td><?php echo $libro->existencia; ?></td>
                   <td><?php echo $libro->editorial_nit; ?></td>
-                  <td><button type="button" class="btn btn-primary">Editar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                  <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Libro/editarLibro/<?php echo $libro->id;  ?>">Editar</a></td>
+                  <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Libro/eliminarLibro/<?php echo $libro->id;  ?>">Eliminar</a></td>
               </tr>
             <?php endforeach ?>
             </tbody>

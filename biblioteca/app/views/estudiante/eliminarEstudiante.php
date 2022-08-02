@@ -12,38 +12,38 @@
 
         <div class="card">
             <div class="card-body">
-                <form action="" method="POST">
+            <form action="<?php echo URLROOT; ?>Estudiante/eliminarEstudiante/<?php echo $data['idUsuario']; ?>" method="POST">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="# Identificación" aria-label="identificacion">
+                            <input type="text" class="form-control" name="idUsuario" placeholder="# Identificación" value="<?php echo $data['idUsuario']; ?>" aria-label="identificacion">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nombre" aria-label="nombre">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="<?php echo $data['nombre']; ?>" aria-label="nombre">
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Primer Apellido" aria-label="1erApellido">
+                            <input type="text" class="form-control" name="apellido1" placeholder="Primer Apellido" value="<?php echo $data['apellido1']; ?>" aria-label="1erApellido">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Segundo Apellido" aria-label="2doApellido">
+                            <input type="text" class="form-control" name="apellido2" placeholder="Segundo Apellido" value="<?php echo $data['apellido2']; ?>" aria-label="2doApellido">
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Correo" aria-label="correo">
+                            <input type="email" class="form-control" name="correo" placeholder="Correo" value="<?php echo $data['correo']; ?>" aria-label="correo">
                         </div>
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Telefono" aria-label="telefono">
+                            <input type="text" class="form-control" name="telefono" placeholder="Telefono" value="<?php echo $data['telefono']; ?>" aria-label="telefono">
                         </div>
                     </div><br>
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="email" class="form-control" placeholder="Dirección" aria-label="direccion">
+                            <input type="text" class="form-control" name="direccion" placeholder="Dirección" value="<?php echo $data['direccion']; ?>" aria-label="direccion">
                         </div>
                     </div><br>
-                    <input type="button" class="btn btn-danger" value="Cancelar">
-                    <input type="submit" class="btn btn-danger" value="Eliminar">
+                    <button type="reset" class="btn btn-secondary btn-sm ms-1">Cancelar</button>
+                    <button type="submit" class="btn btn-success  btn-sm ms-1">Enviar</button>
 
             </div>
 

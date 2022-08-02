@@ -1,89 +1,86 @@
 <?php
 
-class Editorial extends Controller
+class Penalizacion extends Controller
 {
     public function __construct()
     {
-        $this->EditorialModel = $this->loadModel('EditorialModel');
+        $this->PenalizacionModel = $this->loadModel('PenalizacionModel');
     }
 
     public function index()
     {
         //$data=[];
-        $data = $this->EditorialModel->listarEditorial();  //temporal porque no hay datos
-        $this->renderView('editorial/editorialInicio', $data);
+        $data = $this->PenalizacionModel->listarPenalizacion();  //temporal porque no hay datos
+        $this->renderView('Penalizacion/penalizacionInicio', $data);
     }
-    public function addForm()
+    public function addForm() 
     {
         $data = [];  //temporal porque no hay datos
-        $this->renderView('editorial/insertarEditorial', $data);
+        $this->renderView('Penalizacion/insertarPenalizacion', $data);
     }
-    public function cargarEditorial()
+    public function cargarPenalizacion()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data = [
-                'nit' => $_POST['nit'],
-                'nombre' => $_POST['nombre'],
-                'generosProduce' => $_POST['generosProduce'],
-                'tipo' => $_POST['tipo'],
-                'ubicacion' => $_POST['ubicacion']
+                'idPenalizacion' => $_POST['idPenalizacion'],
+                'estado' => $_POST['estado'],
+                'nombreCliente' => $_POST['nombreCliente'],
+                'correoCliente' => $_POST['correoCliente']   
             ];
-            $resultado = $this->EditorialModel->InsertarEditorial($data);
+            $resultado = $this->PenalizacionModel->InsertarPenalizacion($data);
             if ($resultado) {
                 $data = [
                     'mensaje' => 'insercion exitosa'
                 ];
-                $this->renderView('editorial/insertarEditorial', $data);
+                $this->renderView('Penalizacion/insertarPenalizacion', $data);
             } else {
                 $data = [
                     'mensaje' => 'error en la insercion'
                 ];
-                $this->renderView('editorial/insertarEditorial', $data);
+                $this->renderView('Penalizacion/insertarPenalizacion', $data);
             }
         } else {
             echo 'Atención! los datos no fueron enviados de un formulario';
         }
     }
 
-    public function editarEditorial($nit)
+    public function editarPenalizacion($idPenalizacion)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
-                'nit' => $nit,  //$id
-                'nombre' => $_POST['nombre'],
-                'generosProduce' => $_POST['generosProduce'],
-                'tipo' => $_POST['tipo'],
-                'ubicacion' => $_POST['ubicacion']
+                'idPenalizacion' => $idPenalizacion,  //$id
+                'estado' => $_POST['estado'],
+                'nombreCliente' => $_POST['nombreCliente'],
+                'correoCliente' => $_POST['correoCliente']
             ];
 
-            if ($this->EditorialModel->EditarEditorial($data)) {
+            if ($this->PenalizacionModel->EditarPenalizacion($data)) {
                 $data = [];
                 $this->renderView('dashboard/dashboard', $data);
             } else {
                 die('ocurrió un error en la inserción !');
             };
         } else {
-            $editorial = $this->EditorialModel->getOne($nit);
+            $penalizacion = $this->PenalizacionModel->getOne($idPenalizacion);
             $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
+                'idPenalizacion' => $penalizacion->idPenalizacion,
+                'estado' => $penalizacion->estado,
+                'nombreCliente' => $penalizacion->nombreCliente,
+                'correoCliente' => $penalizacion->correoCliente
             ];
-            $this->renderView('editorial/editarEditorial', $data);
+            $this->renderView('Penalizacion/editarPenalizacion', $data);
         }
     }
 
 
-    public function eliminarEditorial($nit)
+    public function eliminarPenalizacion($idPenalizacion)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
-                'nit' => $nit
+                'idPenalizacion' => $idPenalizacion
             ];
 
-            if ($this->EditorialModel->EliminarEditorial($data)) {
+            if ($this->PenalizacionModel->EliminarPenalizacion($data)) {
                 // echo 'borrado';
                 $data = [];
                 $this->renderView('dashboard/dashboard', $data);
@@ -91,15 +88,21 @@ class Editorial extends Controller
                 die('ocurrió un error !');
             };
         } else {
-            $editorial = $this->EditorialModel->getOne($nit);
+            $penalizacion = $this->PenalizacionModel->getOne($idPenalizacion);
             $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
+                'idPenalizacion' => $penalizacion->idPenalizacion,
+                'estado' => $penalizacion->estado,
+                'nombreCliente' => $penalizacion->nombreCliente,
+                'correoCliente' => $penalizacion->correoCliente
             ];
-            $this->renderView('editorial/eliminarEditorial', $data);
+            $this->renderView('Penalizacion/eliminarPenalizacion', $data);
         }
+    }
+
+    public function imprimirReporte()
+    {
+        $data = $this->EditorialModel->listarEditorial();
+        //$data = [];
+        $this->renderView('editorial/rptEditorial', $data);
     }
 }

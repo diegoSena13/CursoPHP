@@ -13,7 +13,7 @@ class Editorial extends Controller
         $data = $this->EditorialModel->listarEditorial();  //temporal porque no hay datos
         $this->renderView('editorial/editorialInicio', $data);
     }
-    public function addForm()
+    public function addForm() 
     {
         $data = [];  //temporal porque no hay datos
         $this->renderView('editorial/insertarEditorial', $data);
@@ -101,5 +101,12 @@ class Editorial extends Controller
             ];
             $this->renderView('editorial/eliminarEditorial', $data);
         }
+    }
+
+    public function imprimirReporte()
+    {
+        $data = $this->EditorialModel->listarEditorial();
+        //$data = [];
+        $this->renderView('editorial/rptEditorial', $data);
     }
 }

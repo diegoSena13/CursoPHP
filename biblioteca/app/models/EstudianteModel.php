@@ -9,7 +9,7 @@ class EstudianteModel
         $this->db=new Dbase;
     }
     public function listarEstudiantes(){
-        $this->db->query("SELECT * FROM `cliente`");
+        $this->db->query("SELECT * FROM cliente");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
@@ -22,7 +22,7 @@ class EstudianteModel
     }
     public function insertarEstudiante($data)
     {
-        $this->db->query("INSERT INTO cliente(idUsuario,nombre,apellido1,apellido2,correo,telefono,direccion) VALUES (idUsuario:,:nombre,:apellido1,:apellido2,:correo,:telefono,:direccion) ");
+        $this->db->query("INSERT INTO cliente(idUsuario,nombre,apellido1,apellido2,correo,telefono,direccion) VALUES (:idUsuario,:nombre,:apellido1,:apellido2,:correo,:telefono,:direccion) ");
         //bindiamos
         $this->db->bind(':idUsuario', $data['idUsuario']);
         $this->db->bind(':nombre', $data['apellido1']);

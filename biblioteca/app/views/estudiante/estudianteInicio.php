@@ -8,14 +8,18 @@
       <div class="card">
         <div class="card-body">
         <h1 class="text-center">ESTUDIANTE</h1>
-          <a class="btn btn-success" href="<?php echo URLROOT; ?>Estudiante/addEstudiante">
+          <a class="btn btn-success" href="<?php echo URLROOT; ?>Estudiante/addForm">
             Insertar
+          </a>
+          <a class="btn btn-success" href="<?php echo URLROOT; ?>Estudiante/imprimirReporte">
+            Reporte
           </a>
           <table class="table table-striped">
             <thead>
               <tr>
                 <th>id</th>
                 <th>Nombre</th>
+                <th>Apellido</th>
                 <th>Apellido</th>
                 <th>correo</th>
                 <th>telefono</th>
@@ -30,11 +34,12 @@
                   <td><?php echo $estudiante->idUsuario; ?></td>
                   <td><?php echo $estudiante->nombre; ?></td>
                   <td><?php echo $estudiante->apellido1; ?></td>
+                  <td><?php echo $estudiante->apellido2; ?></td>
                   <td><?php echo $estudiante->correo; ?></td>
                   <td><?php echo $estudiante->telefono; ?></td>
                   <td><?php echo $estudiante->direccion; ?></td>
-                  <td><button type="button" class="btn btn-primary">Editar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                  <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Estudiante/editarEstudiante/<?php echo $estudiante->idUsuario;  ?>">Editar</a></td>
+                  <td><a class="btn btn-danger btn-sm" href="<?php echo URLROOT; ?>Estudiante/eliminarEstudiante/<?php echo $estudiante->idUsuario;  ?>">Eliminar</a></td>
               </tr>
             <?php endforeach ?>
             </tbody>

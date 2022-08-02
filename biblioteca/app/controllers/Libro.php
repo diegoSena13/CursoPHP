@@ -4,16 +4,16 @@ class Libro extends Controller
 {
     public function __construct()
     {
-        $this->EditorialModel = $this->loadModel('EditorialModel');
+        $this->LibroModel = $this->loadModel('LibroModel');
     }
 
     public function index()
     {
         //$data=[];
-        $data = $this->EditorialModel->listarEditorial();  //temporal porque no hay datos
+        $data = $this->LibroModel->listarLibro();  //temporal porque no hay datos
         $this->renderView('Libro/libroInicio', $data);
     }
-    public function addForm()
+    public function addLibro()
     {
         $data = [];  //temporal porque no hay datos
         $this->renderView('Libro/insertarLibro', $data);
@@ -22,73 +22,83 @@ class Libro extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data = [
-                'id' => $_POST['nit'],
-                'titulo' => $_POST['nombre'],
-                'autoruce' => $_POST['generosProduce'],
-                'descripcion' => $_POST['tipo'],
-                'categoria' => $_POST['ubicacion']
-                'editorial' => $_POST['ubicacion']
-                'fechaSalidadLibro' => $_POST['ubicacion']
-                'cantidad' => $_POST['ubicacion']
-                'existencia' => $_POST['ubicacion']
-                'ff' => $_POST['ubicacion']
+                'id' => $_POST['id'],
+                'titulo' => $_POST['titulo'],
+                'autor' => $_POST['autor'],
+                'descripcion' => $_POST['descripcion'],
+                'categoria' => $_POST['categoria'],
+                'editorial' => $_POST['editorial'],
+                'fechaSalidadLibro' => $_POST['fechaSalidadLibro'],
+                'cantidad' => $_POST['cantidad'],
+                'existencia' => $_POST['existencia'],
+                'editorial_nit' => $_POST['editorial_nit'] 
             ];
-            $resultado = $this->EditorialModel->InsertarLibro($data);
+            $resultado = $this->LibroModel->InsertarLibro($data);
             if ($resultado) {
                 $data = [
                     'mensaje' => 'insercion exitosa'
                 ];
-                $this->renderView('editorial/insertarEditorial', $data);
+                $this->renderView('Libro/insertarLibro', $data);
             } else {
                 $data = [
                     'mensaje' => 'error en la insercion'
                 ];
-                $this->renderView('editorial/insertarEditorial', $data);
+                $this->renderView('Libro/insertarLibro', $data);
             }
         } else {
             echo 'Atención! los datos no fueron enviados de un formulario';
         }
     }
 
-    public function editarEditorial($nit)
+    public function editarLibro($id)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
-                'nit' => $nit,  //$id
-                'nombre' => $_POST['nombre'],
-                'generosProduce' => $_POST['generosProduce'],
-                'tipo' => $_POST['tipo'],
-                'ubicacion' => $_POST['ubicacion']
+                'id' => $id,  //$id
+                'titulo' => $_POST['titulo'],
+                'autor' => $_POST['autor'],
+                'descripcion' => $_POST['descripcion'],
+                'categoria' => $_POST['categoria'],
+                'editorial' => $_POST['editorial'],
+                'fechaSalidadLibro' => $_POST['fechaSalidadLibro'],
+                'cantidad' => $_POST['cantidad'],
+                'existencia' => $_POST['existencia'],
+                'editorial_nit' => $_POST['editorial_nit']
             ];
 
-            if ($this->EditorialModel->EditarEditorial($data)) {
+            if ($this->LibroModel->EditarLibro($data)) {
                 $data = [];
                 $this->renderView('dashboard/dashboard', $data);
             } else {
                 die('ocurrió un error en la inserción !');
             };
         } else {
-            $editorial = $this->EditorialModel->getOne($nit);
+            $libro = $this->LibroModel->getOne($id);
             $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
+                'id' => $libro->id,
+                'titulo' => $libro->titulo,
+                'autor' => $libro->autor,
+                'descripcion' => $libro->descripcion,
+                'categoria' => $libro->categoria,
+                'editorial' => $libro->editorial,
+                'fechaSalidadLibro' => $libro->fechaSalidadLibro,
+                'cantidad' => $libro->cantidad,
+                'existencia' => $libro->existencia,
+                'editorial_nit' => $libro->editorial_nit
             ];
-            $this->renderView('editorial/editarEditorial', $data);
+            $this->renderView('Libro/editarLibro', $data);
         }
     }
 
 
-    public function eliminarEditorial($nit)
+    public function eliminarLibro($id)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
-                'nit' => $nit
+                'id' => $id
             ];
 
-            if ($this->EditorialModel->EliminarEditorial($data)) {
+            if ($this->LibroModel->Eliminarlibro($data)) {
                 // echo 'borrado';
                 $data = [];
                 $this->renderView('dashboard/dashboard', $data);
@@ -96,15 +106,27 @@ class Libro extends Controller
                 die('ocurrió un error !');
             };
         } else {
-            $editorial = $this->EditorialModel->getOne($nit);
+            $libro = $this->LibroModel->getOne($id);
             $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
+                'id' => $libro->id,
+                'titulo' => $libro->titulo,
+                'autor' => $libro->autor,
+                'descripcion' => $libro->descripcion,
+                'categoria' => $libro->categoria,
+                'editorial' => $libro->editorial,
+                'fechaSalidadLibro' => $libro->fechaSalidadLibro,
+                'cantidad' => $libro->cantidad,
+                'existencia' => $libro->existencia,
+                'editorial_nit' => $libro->editorial_nit
             ];
-            $this->renderView('editorial/eliminarEditorial', $data);
+            $this->renderView('Libro/eliminarLibro', $data);
         }
+    }
+
+    public function imprimirReporte()
+    {
+        $data = $this->LibroModel->listarLibro();
+        //$data = [];
+        $this->renderView('libro/rptLibro', $data);
     }
 }
