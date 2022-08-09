@@ -8,72 +8,25 @@ class UsuarioModel
     {
         $this->db=new Dbase;
     }
-    public function listarEstudiantes(){
-        $this->db->query("SELECT * FROM cliente");
-        $resultSet= $this->db->getAll();
-        return $resultSet;
-    }
-    public function getOne($data)
+    // función para consultar en la base de datos si existe el usuario
+    public function Login()
     {
-        $this->db->query("SELECT * FROM usuario where correo =:correo and telefono=:telefono");
-        $this->db->bind(':correo', $data['correo']);
-        $this->db->bind(':telefono', $data['telefono']);
-        $resultSet = $this->db->getOne();
-        return $resultSet;
-    }
-    public function insertarEstudiante($data)
-    {
-        $this->db->query("INSERT INTO cliente(idUsuario,nombre,apellido1,apellido2,correo,telefono,direccion) VALUES (:idUsuario,:nombre,:apellido1,:apellido2,:correo,:telefono,:direccion) ");
-        //bindiamos
-        $this->db->bind(':idUsuario', $data['idUsuario']);
-        $this->db->bind(':nombre', $data['apellido1']);
-        $this->db->bind(':apellido1', $data['apellido1']);
-        $this->db->bind(':apellido2', $data['apellido2']);
-        $this->db->bind(':correo', $data['correo']);
-        $this->db->bind(':telefono', $data['telefono']);
-        $this->db->bind(':direccion', $data['direccion']);
-        //verificamos la ejecucion correcta del query
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
+        $correo = $_POST['correo'];
+        $telefono = $_POST['telefono'];
+
+        $this->db->query("SELECT * FROM usuario
+        INNER JOIN rol on usuario.rol_idRol = rol.idRol
+        where correo='$correo' and telefono='$telefono'");
+      /*   $this->db->bind(':correo', $data['correo']);
+        $this->db->bind(':telefono', $data['telefono']); */
+
+        $cantidad= $this->db->rowCount();
+        if ($cantidad > 0){
+            $resultSet = $this->db->getOne();
+            return $resultSet;
+        } else{
+            return "vacio";
         }
-    }
-    public function editarEstudiante($data)
-    {
-        $this->db->query('UPDATE cliente SET idUsuario=:idUsuario,
-        nombre=:nombre,apellido1=:apellido1,
-        apellido2=:apellido2,correo=:correo,telefono=:telefono,direccion=:direccion WHERE idUsuario=:idUsuario      
-        ');
-        //vinculacion de los datos
-        $this->db->bind(':idUsuario', $data['idUsuario']);
-        $this->db->bind(':nombre', $data['nombre']);
-        $this->db->bind(':apellido1', $data['apellido1']);
-        $this->db->bind(':apellido2', $data['apellido2']);
-        $this->db->bind(':correo', $data['correo']);
-        $this->db->bind(':telefono', $data['telefono']);
-        $this->db->bind(':direccion', $data['direccion']);
-
-        // ejecucion de la consulta
-
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public function eliminarEstudiante($data)
-    {
-        $this->db->query('DELETE FROM cliente WHERE idUsuario = :idUsuario');
-        //vinculacion de los datos
-        $this->db->bind(':idUsuario', $data['idUsuario']);
-
-        // ejecucion de la consulta
-
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+        
     }
 }

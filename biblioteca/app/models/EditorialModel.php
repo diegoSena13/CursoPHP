@@ -8,12 +8,14 @@ class EditorialModel
     {
         $this->db = new Dbase;
     }
+    // función para traer todos los editoriales
     public function listarEditorial()
     {
         $this->db->query("SELECT * FROM `editorial`");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
+    // funcion para traer un editorial
     public function getOne($nit)
     {
         $this->db->query("SELECT * FROM `editorial` WHERE nit=:nit");
@@ -21,6 +23,7 @@ class EditorialModel
         $resultSet = $this->db->getOne();
         return $resultSet;
     }
+    // función para insertar un editorial
     public function InsertarEditorial($data)
     {
         $this->db->query("insert into editorial (nit,nombre,generosProduce,tipo,ubicacion) values (:nit,:nombre,:generosProduce,:tipo,:ubicacion)");
@@ -36,6 +39,7 @@ class EditorialModel
             return false;
         }
     }
+    // función para editar un editorial
     public function EditarEditorial($data)
     {
         $this->db->query('UPDATE editorial SET nombre=:nombre,
@@ -57,6 +61,7 @@ class EditorialModel
             return false;
         }
     }
+    //función para eliminar un editorial
     public function EliminarEditorial($data)
     {
         $this->db->query('DELETE FROM editorial WHERE nit = :nit');

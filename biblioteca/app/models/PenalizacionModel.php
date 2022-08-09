@@ -8,12 +8,14 @@ class PenalizacionModel
     {
         $this->db = new Dbase;
     }
+    // función para traer todas las penalizaciones
     public function listarPenalizacion()
     {
         $this->db->query("SELECT * FROM `penalizacion`");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
+    // función para traer una penalización
     public function getOne($idPenalizacion)
     {
         $this->db->query("SELECT * FROM `penalizacion` WHERE idPenalizacion=:idPenalizacion");
@@ -21,6 +23,7 @@ class PenalizacionModel
         $resultSet = $this->db->getOne();
         return $resultSet;
     }
+    // función para insertar una penalización
     public function InsertarEditorial($data)
     {
         $this->db->query("insert into penalizacion (idPenalizacion,estado,nombreCliente,correoCliente) values (:idPenalizacion,:estado,:nombreCliente,:correoCliente)");
@@ -35,6 +38,7 @@ class PenalizacionModel
             return false;
         }
     }
+    // función para editar una penalización
     public function EditarPenalizacion($data)
     {
         $this->db->query('UPDATE penalizacion SET idPenalizacion=:idPenalizacion,
@@ -55,6 +59,7 @@ class PenalizacionModel
             return false;
         }
     }
+    // función para eliminar una penalización
     public function EliminarPenalizacion($data)
     {
         $this->db->query('DELETE FROM penalizacion WHERE idPenalizacion = :idPenalizacion');

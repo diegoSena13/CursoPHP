@@ -8,11 +8,13 @@ class LibroModel
     {
         $this->db=new Dbase;
     }
+    // función para traer todos los libros
     public function listarLibro(){
         $this->db->query("SELECT * FROM libro");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
+    // función para traer un libro
     public function getOne($id)
     {
         $this->db->query("SELECT * FROM `libro` WHERE id=:id");
@@ -20,6 +22,7 @@ class LibroModel
         $resultSet = $this->db->getOne();
         return $resultSet;
     }
+    // función para insertar un libro
     public function InsertarLibro($data){
         $this->db->query("insert into libro (id,titulo,autor,descripcion,categoria,editorial,fechaSalidadLibro,cantidad,existencia,editorial_nit) values (:id,:titulo,:autor,:descripcion,:categoria,:editorial,:fechaSalidadLibro,:cantidad,:existencia,:editorial_nit)");
         $this->db->bind(':id', $data['id']);
@@ -39,6 +42,7 @@ class LibroModel
             return false;
         }
     }
+    // función para editar un libro
     public function EditarLibro($data){
         $this->db->query('UPDATE libro SET id=:id, titulo=:titulo,
         autor=:autor,descripcion=:descripcion,
@@ -64,6 +68,7 @@ class LibroModel
             return false;
         }
     }
+    // función para eliminar un libro
     public function Eliminarlibro($data){
         $this->db->query('DELETE FROM libro WHERE id = :id');
         //vinculacion de los datos

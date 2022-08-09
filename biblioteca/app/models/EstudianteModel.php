@@ -8,11 +8,13 @@ class EstudianteModel
     {
         $this->db=new Dbase;
     }
+    // función para traer todos los estudiantes
     public function listarEstudiantes(){
         $this->db->query("SELECT * FROM cliente");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
+    // función para traer un estudiante
     public function getOne($id)
     {
         $this->db->query("SELECT * FROM cliente where idUsuario =:id");
@@ -20,6 +22,7 @@ class EstudianteModel
         $resultSet = $this->db->getOne();
         return $resultSet;
     }
+    // función para insertar un estudiante
     public function insertarEstudiante($data)
     {
         $this->db->query("INSERT INTO cliente(idUsuario,nombre,apellido1,apellido2,correo,telefono,direccion) VALUES (:idUsuario,:nombre,:apellido1,:apellido2,:correo,:telefono,:direccion) ");
@@ -38,6 +41,7 @@ class EstudianteModel
             return false;
         }
     }
+    // función para editar un estudiante
     public function editarEstudiante($data)
     {
         $this->db->query('UPDATE cliente SET idUsuario=:idUsuario,
@@ -61,6 +65,7 @@ class EstudianteModel
             return false;
         }
     }
+    // función para eliminar un estudiante
     public function eliminarEstudiante($data)
     {
         $this->db->query('DELETE FROM cliente WHERE idUsuario = :idUsuario');

@@ -14,7 +14,7 @@ class Controller{
          return new $model();
     }
 
-    //cargamos la vista correspondiente orenderizamos la vista
+    //cargamos la vista correspondiente o renderizamos la vista
 
     public function renderView($view,$data=[]){
         if(file_exists('../app/views/'.$view. '.php')){
