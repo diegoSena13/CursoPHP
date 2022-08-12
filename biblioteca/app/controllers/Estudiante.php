@@ -136,4 +136,14 @@ class Estudiante extends Controller
           // renderisamos la vista
         $this->renderView('estudiante/rptEstudiante', $data);
     }
+
+    public function search()
+    {
+        $data = [
+            "nombre" => $_POST['nombre']
+        ];
+
+        $data = $this->EstudianteModel->search($data);
+        $this->renderView('estudiante/estudianteInicio', $data);
+    }
 }

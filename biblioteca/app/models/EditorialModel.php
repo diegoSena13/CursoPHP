@@ -76,4 +76,13 @@ class EditorialModel
             return false;
         }
     }
+
+    public function search($data)
+    {
+        $this->db->query("SELECT * FROM editorial WHERE nombre LIKE CONCAT(:nombre,'%')");
+        $nombre = $data['nombre'];
+        $this->db->bind(':nombre', $nombre);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
 }

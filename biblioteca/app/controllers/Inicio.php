@@ -16,17 +16,14 @@ class Inicio extends Controller{
         $data=[
             'correo' => $_POST['correo'],
             'telefono' => $_POST['telefono'],
-        ]
-       /*  $data = $this->UsuarioModel->Login(); 
-        
-        if ($data == "vacio"){
-            $this->renderView('inicio',$this->data);
-        }else{
+        ];
+        if ($datos=$this->UsuarioModel->Login($data)) {
             session_start();
-            $_SESSION["iniciar"] = $data;
-            $_SESSION["rol"] = $data->rol;
-            $_SESSION["idPrestador"];
-            $this->renderView('dashboard/dashboard',$data);
-        }*/
+            $_SESSION['nombre']=$datos->nombre;
+            $data = [];
+            $this->renderView('dashboard/dashboard', $data);
+        } else {
+            $this->renderView('Inicio');
+        };
     }
 }

@@ -77,6 +77,7 @@
     <div class="row">
       <div class="col-4">
       </div>
+      <?php echo var_dump(isset($_SESSION['nombre'])); ?>
       <div class="col-4">
         <main class="form-signin w-100 m-auto">
           <form action="<?php echo URLROOT ?>Inicio/openMenu" method="post">

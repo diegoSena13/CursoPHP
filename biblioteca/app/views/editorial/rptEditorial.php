@@ -10,6 +10,7 @@ $pdf = new PDF_MC_Table();
 
 //Agregamos la primera página al documento pdf
 $pdf->AddPage();
+$pdf->AliasNbPages();
 
 //Seteamos el inicio del margen superior en 25 pixeles 
 $y_axis_initial = 25;
@@ -49,5 +50,7 @@ foreach ($data as $editorial) {
     $pdf->Row(array($nit, utf8_decode($nombre), utf8_decode($generosProduce), utf8_decode($tipo), $ubicacion));
 };
 
+
+$pdf->footer();
 //Mostramos el documento pdf
 $pdf->Output('I');

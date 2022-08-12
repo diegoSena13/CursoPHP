@@ -80,4 +80,12 @@ class EstudianteModel
             return false;
         }
     }
+    public function search($data)
+    {
+        $this->db->query("SELECT * FROM cliente WHERE nombre LIKE CONCAT(:nombre,'%')");
+        $nombre = $data['nombre'];
+        $this->db->bind(':nombre', $nombre);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
 }

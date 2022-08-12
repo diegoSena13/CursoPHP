@@ -82,4 +82,13 @@ class LibroModel
             return false;
         }
     }
+
+    public function search($data)
+    {
+        $this->db->query("SELECT * FROM libro WHERE titulo LIKE CONCAT(:titulo,'%')");
+        $titulo = $data['titulo'];
+        $this->db->bind(':titulo', $titulo);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
 }

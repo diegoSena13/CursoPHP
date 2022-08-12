@@ -126,4 +126,14 @@ class Editorial extends Controller
         // renderisamos la vista
         $this->renderView('editorial/rptEditorial', $data);
     }
+
+    public function search()
+    {
+        $data = [
+            "nombre" => $_POST['nombre']
+        ];
+
+        $data = $this->EditorialModel->search($data);
+        $this->renderView('editorial/editorialInicio', $data);
+    }
 }

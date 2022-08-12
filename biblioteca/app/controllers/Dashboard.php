@@ -12,20 +12,12 @@ class Dashboard extends Controller{
         $this->renderView('dashboard/dashboard',$data);
     }
     // función para ingresar al aplicativo
-    public function login()
+    public function signOut()
     {
-        //$data=[];
-        $data=[
-            'correo' => $_POST['correo'],
-            'telefono' => $_POST['telefono']
-        ];  //temporal porque no hay datos
+
+        session_unset();
         
-        if ($this->UsuarioModel->getOne($data)) {
-            // $_SESSION['nombre'] = $usuario->idUsuario;
-            $data = [];
-            $this->renderView('dashboard/dashboard', $data);
-        } else {
-            $this->renderView('Inicio');
-        };
+        $data = [];
+        $this->renderView('Inicio', $data);
     }
 }

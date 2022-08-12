@@ -14,6 +14,12 @@
           <a class="btn btn-success" href="<?php echo URLROOT; ?>Libro/imprimirReporte">
             Reporte
           </a>
+          <form action="<?php echo URLROOT; ?>Libro/search" method="POST">
+            <div class="input-group mb-2 w-50">
+              <input type="text" class="form-control form-control-sm " placeholder="titulo ..." aria-label="Recipient's username" aria-describedby="button-addon2" name="titulo">
+              <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+          </form>
           <table class="table table-striped">
             <thead>
               <tr>

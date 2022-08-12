@@ -1,3 +1,8 @@
+<?php 
+error_reporting(0);
+session_start();
+?>
+
 </head>
 
 <head>
@@ -69,20 +74,22 @@
   </style>
 
 
-  <!-- Custom styles for this template -->
-  <link href="dashboard.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="background-color:#f5f5f5;">
-    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-        <use xlink:href="#bootstrap" />
-      </svg>
-    </a>
+<!-- Custom styles for this template -->
+<link href="dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="background-color:#f5f5f5;">
+  <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+      <use xlink:href="#bootstrap" />
+    </svg>
+  </a>
+  
 
     <h1>Biblioteca</h1>
 
     <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2">sign out</button>
+      <p class="fs-3 fw-bold"><?php echo($_SESSION['nombre'])?></p>
+      <a class="btn btn-dark" href="<?php echo URLROOT; ?>Dashboard/signOut">Salir</a>
     </div>
   </header>
 

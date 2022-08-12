@@ -148,4 +148,14 @@ class Libro extends Controller
         // renderisamos la vista
         $this->renderView('libro/rptLibro', $data);
     }
+
+    public function search()
+    {
+        $data = [
+            "titulo" => $_POST['titulo']
+        ];
+
+        $data = $this->LibroModel->search($data);
+        $this->renderView('libro/libroInicio', $data);
+    }
 }
