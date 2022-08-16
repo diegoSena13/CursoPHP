@@ -1,6 +1,6 @@
 <?php
 
-class Editorial extends Controller
+class Prestamo extends Controller
 {
     public function __construct()
     {
@@ -102,4 +102,4 @@ class Editorial extends Controller
             $this->renderView('editorial/eliminarEditorial', $data);
         }
     }
-}
+} 

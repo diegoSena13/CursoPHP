@@ -1,32 +1,32 @@
 <?php
 
 //modelo correspondiente
-class PenalizacionModel
+class PrestamoModel
 {
     private $db;
     public function __construct()
     {
         $this->db = new Dbase;
     }
-    // función para traer todas las penalizaciones
-    public function listarPenalizacion()
+    // función para traer el emcabezado del prestamo
+    public function listarPrestamo()
     {
-        $this->db->query("SELECT * FROM `penalizacion`");
+        $this->db->query("SELECT * FROM `encabezadoprestamo` INNER JOIN `encabezadoprestamo` ON encabezadoprestamo.consecutivo =detalleprestamo .consecutivo;");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
     // función para traer una penalización
-    public function getOne($idPenalizacion)
+    public function getOne($consecutivo)
     {
-        $this->db->query("SELECT * FROM `penalizacion` WHERE idPenalizacion=:idPenalizacion");
-        $this->db->bind(':idPenalizacion', $idPenalizacion);
+        $this->db->query("SELECT * FROM `encabezadoprestamo` WHERE consecutivo=:consecutivo");
+        $this->db->bind(':consecutivo', $consecutivo);
         $resultSet = $this->db->getOne();
         return $resultSet;
     }
     // función para insertar una penalización
-    public function InsertarPenalizacion($data)
+    public function InsertarPrestamo($data)
     {
-        $this->db->query("insert into penalizacion (idPenalizacion,estado,nombreCliente,correoCliente) values (:idPenalizacion,:estado,:nombreCliente,:correoCliente)");
+        $this->db->query("insert into encabezadoprestamo (consecutivo,fecha,nombreCliente,correoCliente,telefonoCliente,DireccionCliente,usuario_idUsuario) values (:idPenalizacion,:estado,:nombreCliente,:correoCliente)");
         $this->db->bind(':idPenalizacion', $data['idPenalizacion']);
         $this->db->bind(':estado', $data['estado']);
         $this->db->bind(':nombreCliente', $data['nombreCliente']);

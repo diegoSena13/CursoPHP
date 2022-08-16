@@ -20,7 +20,11 @@ class Libro extends Controller
     // función para taer la vista insertarLibro
     public function addLibro()
     {
-        $data = [];  //temporal porque no hay datos
+        $resultado=$this->LibroModel->fk();
+        $data = [
+            'nit' => $resultado->nit,
+            'nombre' => $resultado->nombre
+        ];
         // renderisamos la vista
         $this->renderView('Libro/insertarLibro', $data);
     }

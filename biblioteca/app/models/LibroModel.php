@@ -14,6 +14,12 @@ class LibroModel
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
+
+    public function fk(){
+        $this->db->query("SELECT * FROM editorial");
+        $resultSet= $this->db->getAll();
+        return $resultSet;
+    }
     // función para traer un libro
     public function getOne($id)
     {

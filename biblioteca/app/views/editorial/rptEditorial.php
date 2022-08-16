@@ -5,12 +5,16 @@
 require_once  APPROOT . '\views\fpdf184\PDF_MC_Table_ok.php';
 
 
+
+
+
 //Instanciamos la clase para generar el documento pdf
 $pdf = new PDF_MC_Table();
 
 //Agregamos la primera página al documento pdf
 $pdf->AddPage();
 $pdf->AliasNbPages();
+
 
 //Seteamos el inicio del margen superior en 25 pixeles 
 $y_axis_initial = 25;
@@ -30,6 +34,7 @@ $pdf->Cell(50, 6, utf8_decode('nombre'), 1, 0, 'C', 1);
 $pdf->Cell(50, 6, utf8_decode('generos produce'), 1, 0, 'C', 1);
 $pdf->Cell(50, 6, utf8_decode('tipo'), 1, 0, 'C', 1);
 $pdf->Cell(20, 6, 'ubicacion', 1, 0, 'C', 1);
+
 
 $pdf->Ln(10);
 

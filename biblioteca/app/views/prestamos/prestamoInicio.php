@@ -15,28 +15,25 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>libros</th>
-                <th>Estudiante</th>
-                <th>Estado</th>
-                <th>Existencias</th>
-                <th>Cantidad</th>
-                <th>Fecha del Prestamo</th>
-                <th>Fecha devolución</th>
+                <th>Consecutivo</th>
+                <th>Fecha</th>
+                <th>Nombre Estudiante</th>
+                <th>Correo Estudiante</th>
+                <th>Telefono Estudiante</th>
+                <th>Direccion Estudiante</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <?php foreach ($data as $librogg) :; ?>
-                  <td><?php echo $libro->id; ?></td>
-                  <td><?php echo $libro->titulo; ?></td>
-                  <td><?php echo $libro->autor; ?></td>
-                  <td><?php echo $libro->descripcion; ?></td>
-                  <td><?php echo $libro->categoria; ?></td>
-                  <td><?php echo $libro->editorial; ?></td>
-                  <td><?php echo $libro->fechaSalidadLibro; ?></td>
-                  <td><?php echo $libro->cantidad; ?></td>
-                  <td><?php echo $libro->existencia; ?></td>
-                  <td><?php echo $libro->editorial_nit; ?></td>
+                <?php foreach ($data as $emcabezadoPrestamo) :; ?>
+                  <td><?php echo $emcabezadoPrestamo->consecutivo; ?></td>
+                  <td><?php echo $emcabezadoPrestamo->fecha; ?></td>
+                  <td><?php echo $emcabezadoPrestamo->nombreCliente; ?></td>
+                  <td><?php echo $emcabezadoPrestamo->correoCliente; ?></td>
+                  <td><?php echo $emcabezadoPrestamo->telefonoCliente; ?></td>
+                  <td><?php echo $emcabezadoPrestamo->direccionCliente; ?></td>
+                  <td><?php echo $libremcabezadoPrestamoo->usuario_idUsuario; ?></td>
                   <td><button type="button" class="btn btn-primary">Editar</button></td>
                   <td><button type="button" class="btn btn-danger">Eliminar</button></td>
               </tr>
