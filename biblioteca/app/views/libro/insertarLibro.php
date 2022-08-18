@@ -35,10 +35,19 @@
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Seleccione Categoría</label>
                             <select name="categoria" class="form-select" aria-label="categoria">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="">Científicos</option>
+                                <option value="">Literatura y lingüísticos</option>
+                                <option value="">De viaje</option>
+                                <option value="">Biografías</option>
+                                <option value="">Libro de texto</option>
+                                <option value="">Libros de gran formato (coffee table book)</option>
+                                <option value="">De referencia o consulta</option>
+                                <option value="">Monografías</option>
+                                <option value="">Recreativos</option>
+                                <option value="">Poéticos</option>
+                                <option value="">Juveniles</option>
+                                <option value="">Ficción</option>
+                                <option value="">Comedia</option>
                             </select>
                         </div>
                         <div class="col">

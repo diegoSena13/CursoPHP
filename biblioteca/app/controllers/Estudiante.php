@@ -11,9 +11,20 @@ class Estudiante extends Controller
      // función para traer todo los estudiantes y mostrarlos en la vista estudianteInicio
     public function index()
     {
-        //$data=[];
-        // traemos la data
-        $data = $this->EstudianteModel->listarEstudiantes();  //temporal porque no hay datos
+        $perPage = 15;
+        $totalCount = $this->EstudianteModel->totalEstudiantes();
+        $pagination = new Paginator($currentPage, $perPage, $totalCount);
+        $offset = $pagination->offset();
+        $estudiante = $this->EstudianteModel->totalPages($perPage, $offset);
+
+        $data = [
+            'estudiante' => $estudiante, 
+            'previous' => $pagination->previous(),
+            'next' => $pagination->next(),
+            'total' => $pagination->totalPages(),
+            'currentPage' => $currentPage
+
+        ];
         // renderisamos la vista
         $this->renderView('Estudiante/estudianteInicio', $data);
     }

@@ -35,21 +35,34 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <?php foreach ($data as $estudiante) :; ?>
-                  <td><?php echo $estudiante->idUsuario; ?></td>
-                  <td><?php echo $estudiante->nombre; ?></td>
-                  <td><?php echo $estudiante->apellido1; ?></td>
-                  <td><?php echo $estudiante->apellido2; ?></td>
-                  <td><?php echo $estudiante->correo; ?></td>
-                  <td><?php echo $estudiante->telefono; ?></td>
-                  <td><?php echo $estudiante->direccion; ?></td>
-                  <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Estudiante/editarEstudiante/<?php echo $estudiante->idUsuario;  ?>">Editar</a></td>
-                  <td><a class="btn btn-danger btn-sm" href="<?php echo URLROOT; ?>Estudiante/eliminarEstudiante/<?php echo $estudiante->idUsuario;  ?>">Eliminar</a></td>
-              </tr>
-            <?php endforeach ?>
+              <?php foreach ($data as $index => $fila) :; ?>
+                <?php foreach ($fila as $index2 => $estudiante) :; ?>
+                  <tr>
+                    <td><?php echo $estudiante->idUsuario; ?></td>
+                    <td><?php echo $estudiante->nombre; ?></td>
+                    <td><?php echo $estudiante->apellido1; ?></td>
+                    <td><?php echo $estudiante->apellido2; ?></td>
+                    <td><?php echo $estudiante->correo; ?></td>
+                    <td><?php echo $estudiante->telefono; ?></td>
+                    <td><?php echo $estudiante->direccion; ?></td>
+                    <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Estudiante/editarEstudiante/<?php echo $estudiante->idUsuario;  ?>">Editar</a></td>
+                    <td><a class="btn btn-danger btn-sm" href="<?php echo URLROOT; ?>Estudiante/eliminarEstudiante/<?php echo $estudiante->idUsuario;  ?>">Eliminar</a></td>
+                  </tr>
+                <?php endforeach; ?>
+              <?php endforeach; ?>
             </tbody>
           </table>
+          <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
+                        <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
+                            <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
+                                    <?php echo $index; ?>
+                                </a></li>
+                        <?php endfor; ?>
+                        <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Estudiante/<?php echo $data["next"]; ?>">Siguiente</a></li>
+                    </ul>
+                </nav>
         </div>
       </div>
 

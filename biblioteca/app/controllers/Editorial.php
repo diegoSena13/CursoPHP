@@ -9,10 +9,22 @@ class Editorial extends Controller
         $this->EditorialModel = $this->loadModel('EditorialModel');
     }
  // función para traer todo los editoriales y mostrarlos en la vista editorialInicio
-    public function index()
+    public function index($currentPage = 1)
     {
-        // traemos la data
-        $data = $this->EditorialModel->listarEditorial();
+        $perPage = 15;
+        $totalCount = $this->EditorialModel->totalEditoriales();
+        $pagination = new Paginator($currentPage, $perPage, $totalCount);
+        $offset = $pagination->offset();
+        $editorial = $this->EditorialModel->totalPages($perPage, $offset);
+
+        $data = [
+            'editorial' => $editorial, 
+            'previous' => $pagination->previous(),
+            'next' => $pagination->next(),
+            'total' => $pagination->totalPages(),
+            'currentPage' => $currentPage
+
+        ];
         // renderisamos la vista
         $this->renderView('editorial/editorialInicio', $data);
     }

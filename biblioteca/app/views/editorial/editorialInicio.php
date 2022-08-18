@@ -35,19 +35,32 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <?php foreach ($data as $editorial) :; ?>
-                  <td><?php echo $editorial->nit; ?></td>
-                  <td><?php echo $editorial->nombre; ?></td>
-                  <td><?php echo $editorial->generosProduce; ?></td>
-                  <td><?php echo $editorial->tipo; ?></td>
-                  <td><?php echo $editorial->ubicacion; ?></td>
-                  <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Editorial/editarEditorial/<?php echo $editorial->nit;  ?>">Editar</a></td>
-                  <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Editorial/eliminarEditorial/<?php echo $editorial->nit;  ?>">Eliminar</button></td>
-              </tr>
-            <?php endforeach ?>
+              <?php foreach ($data as $index => $fila) :; ?>
+                <?php foreach ($fila as $index2 => $editorial) :; ?>
+                  <tr>
+                    <td><?php echo $editorial->nit; ?></td>
+                    <td><?php echo $editorial->nombre; ?></td>
+                    <td><?php echo $editorial->generosProduce; ?></td>
+                    <td><?php echo $editorial->tipo; ?></td>
+                    <td><?php echo $editorial->ubicacion; ?></td>
+                    <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Editorial/editarEditorial/<?php echo $editorial->nit;  ?>">Editar</a></td>
+                    <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Editorial/eliminarEditorial/<?php echo $editorial->nit;  ?>">Eliminar</button></td>
+                  </tr>
+                <?php endforeach; ?>
+              <?php endforeach; ?>
             </tbody>
           </table>
+          <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
+                        <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
+                            <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
+                                    <?php echo $index; ?>
+                                </a></li>
+                        <?php endfor; ?>
+                        <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Editorial/<?php echo $data["next"]; ?>">Siguiente</a></li>
+                    </ul>
+                </nav>
         </div>
       </div>
 
