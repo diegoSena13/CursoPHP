@@ -14,25 +14,25 @@
             <div class="card-body">
                 <form action="<?php echo URLROOT ?> Libro/cargarLibro" method="post">
                     <div class="row">
-                    <div class="col">
+                        <div class="col">
                             <input type="text" name="id" class="form-control" placeholder="ID" aria-label="id">
                         </div>
                         <div class="col">
                             <input type="text" name="titulo" class="form-control" placeholder="Titulo" aria-label="titulo">
                         </div>
-                        
+
                     </div><br>
                     <div class="row">
-                    <div class="col">
+                        <div class="col">
                             <input type="text" name="autor" class="form-control" placeholder="Autor" aria-label="autor">
                         </div>
                         <div class="col">
-                            <input type="text" name="descripcion"  class="form-control" placeholder="Descripción" aria-label="descripcion">
+                            <input type="text" name="descripcion" class="form-control" placeholder="Descripción" aria-label="descripcion">
                         </div>
-                        
+
                     </div><br>
                     <div class="row">
-                    <div class="col">
+                        <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Seleccione Categoría</label>
                             <select name="categoria" class="form-select" aria-label="categoria">
                                 <option selected>Open this select menu</option>
@@ -44,35 +44,33 @@
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Seleccione el Editorial</label>
                             <select name="editorial" class="form-select" aria-label="editorial">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <?php foreach ($data as $editorial) :; ?>
+                                    <option value=""><?php echo $editorial->nombre;?></option>
+                                <?php endforeach ?>
                             </select>
                         </div>
-                        
+
                     </div><br>
                     <div class="row">
-                    <div class="col">
+                        <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Fecha de Lanzamiento</label>
                             <input type="date" name="fechaSalidadLibro" id="fechaSalidadLibro">
                         </div>
                         <div class="col">
                             <input type="text" name="cantidad" class="form-control" placeholder="Cantidad" aria-label="cantidad">
                         </div>
-                        
+
                     </div><br>
                     <div class="row">
-                    <div class="col">
+                        <div class="col">
                             <input type="text" name="existencia" class="form-control" placeholder="Existencia" aria-label="existencia">
                         </div>
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Seleccione NIT del Editorial</label>
                             <select name="editorial_nit" class="form-select" aria-label="NitEditorial">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <?php foreach ($data as $editorial) :; ?>
+                                    <option value=""><?php echo $editorial->nit;?></option>
+                                <?php endforeach ?>
                             </select>
                         </div><br>
 
