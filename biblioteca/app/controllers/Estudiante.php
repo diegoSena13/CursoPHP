@@ -2,14 +2,14 @@
 // controlador correpondiente
 class Estudiante extends Controller
 {
-     // contructor base clase libs-Controller
+    // contructor base clase libs-Controller
     public function __construct()
     {
         // clase modelo
         $this->EstudianteModel = $this->loadModel('EstudianteModel');
     }
-     // función para traer todo los estudiantes y mostrarlos en la vista estudianteInicio
-    public function index()
+    // función para traer todo los estudiantes y mostrarlos en la vista estudianteInicio
+    public function index($currentPage = 1)
     {
         $perPage = 15;
         $totalCount = $this->EstudianteModel->totalEstudiantes();
@@ -18,7 +18,7 @@ class Estudiante extends Controller
         $estudiante = $this->EstudianteModel->totalPages($perPage, $offset);
 
         $data = [
-            'estudiante' => $estudiante, 
+            'estudiante' => $estudiante,
             'previous' => $pagination->previous(),
             'next' => $pagination->next(),
             'total' => $pagination->totalPages(),
@@ -32,7 +32,7 @@ class Estudiante extends Controller
     public function addForm()
     {
         $data = [];  //temporal porque no hay datos
-          // renderisamos la vista
+        // renderisamos la vista
         $this->renderView('Estudiante/insertarEstudiante', $data);
     }
     // función que trae e inserta los datos del estudiante
@@ -55,13 +55,13 @@ class Estudiante extends Controller
                 $data = [
                     'mensaje' => 'insercion exitosa'
                 ];
-                  // renderisamos la vista
+                // renderisamos la vista
                 $this->renderView('Estudiante/insertarEstudiante', $data);
             } else {
                 $data = [
                     'mensaje' => 'error en la insercion'
                 ];
-                  // renderisamos la vista
+                // renderisamos la vista
                 $this->renderView('Estudiante/insertarEstudiante', $data);
             }
         } else {
@@ -85,7 +85,7 @@ class Estudiante extends Controller
             // editamos la data
             if ($this->EstudianteModel->editarEstudiante($data)) {
                 $data = [];
-                  // renderisamos la vista
+                // renderisamos la vista
                 $this->renderView('dashboard/dashboard', $data);
             } else {
                 die('ocurrió un error en la inserción !');
@@ -101,7 +101,7 @@ class Estudiante extends Controller
                 'telefono' => $estudiante->telefono,
                 'direccion' => $estudiante->direccion
             ];
-              // renderisamos la vista
+            // renderisamos la vista
             $this->renderView('estudiante/editarEstudiante', $data);
         }
     }
@@ -118,7 +118,7 @@ class Estudiante extends Controller
             if ($this->EstudianteModel->eliminarEstudiante($data)) {
                 // echo 'borrado';
                 $data = [];
-                  // renderisamos la vista
+                // renderisamos la vista
                 $this->renderView('dashboard/dashboard', $data);
             } else {
                 die('ocurrió un error !');
@@ -134,7 +134,7 @@ class Estudiante extends Controller
                 'telefono' => $estudiante->telefono,
                 'direccion' => $estudiante->direccion
             ];
-              // renderisamos la vista
+            // renderisamos la vista
             $this->renderView('estudiante/eliminarEstudiante', $data);
         }
     }
@@ -144,7 +144,7 @@ class Estudiante extends Controller
         // traemos la data
         $data = $this->EstudianteModel->listarEstudiantes();
         //$data = [];
-          // renderisamos la vista
+        // renderisamos la vista
         $this->renderView('estudiante/rptEstudiante', $data);
     }
 

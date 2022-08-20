@@ -51,16 +51,16 @@
             </tbody>
           </table>
           <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
-                        <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
-                            <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
-                                    <?php echo $index; ?>
-                                </a></li>
-                        <?php endfor; ?>
-                        <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Editorial/<?php echo $data["next"]; ?>">Siguiente</a></li>
-                    </ul>
-                </nav>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
+              <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
+                <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
+                    <?php echo $index; ?>
+                  </a></li>
+              <?php endfor; ?>
+              <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Editorial/<?php echo $data["next"]; ?>">Siguiente</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
 

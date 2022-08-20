@@ -6,7 +6,7 @@ class EditorialModel
     private $db;
     public function __construct()
     {
-        $this->db = new Dbase;
+        $this->db = new Dbase; 
     }
     // función para traer todos los editoriales
     public function listarEditorial()

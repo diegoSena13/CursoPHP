@@ -38,24 +38,37 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <?php foreach ($data as $libro) :; ?>
-                  <td><?php echo $libro->id; ?></td>
-                  <td><?php echo $libro->titulo; ?></td>
-                  <td><?php echo $libro->autor; ?></td>
-                  <td><?php echo $libro->descripcion; ?></td>
-                  <td><?php echo $libro->categoria; ?></td>
-                  <td><?php echo $libro->editorial; ?></td>
-                  <td><?php echo $libro->fechaSalidadLibro; ?></td>
-                  <td><?php echo $libro->cantidad; ?></td>
-                  <td><?php echo $libro->existencia; ?></td>
-                  <td><?php echo $libro->editorial_nit; ?></td>
-                  <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Libro/editarLibro/<?php echo $libro->id;  ?>">Editar</a></td>
-                  <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Libro/eliminarLibro/<?php echo $libro->id;  ?>">Eliminar</a></td>
-              </tr>
-            <?php endforeach ?>
+              <?php foreach ($data as $index => $fila) :; ?>
+                  <?php foreach ($fila as $index2 => $libro) :; ?>
+                    <tr>
+                      <td><?php echo $libro->id; ?></td>
+                      <td><?php echo $libro->titulo; ?></td>
+                      <td><?php echo $libro->autor; ?></td>
+                      <td><?php echo $libro->descripcion; ?></td>
+                      <td><?php echo $libro->categoria; ?></td>
+                      <td><?php echo $libro->editorial; ?></td>
+                      <td><?php echo $libro->fechaSalidadLibro; ?></td>
+                      <td><?php echo $libro->cantidad; ?></td>
+                      <td><?php echo $libro->existencia; ?></td>
+                      <td><?php echo $libro->editorial_nit; ?></td>
+                      <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Libro/editarLibro/<?php echo $libro->id;  ?>">Editar</a></td>
+                      <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Libro/eliminarLibro/<?php echo $libro->id;  ?>">Eliminar</a></td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php endforeach; ?>
             </tbody>
           </table>
+          <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
+                        <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
+                            <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
+                                    <?php echo $index; ?>
+                                </a></li>
+                        <?php endfor; ?>
+                        <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Libro/<?php echo $data["next"]; ?>">Siguiente</a></li>
+                    </ul>
+                </nav>
         </div>
       </div>
 

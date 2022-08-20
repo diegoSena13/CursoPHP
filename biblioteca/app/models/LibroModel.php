@@ -97,4 +97,28 @@ class LibroModel
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
+
+    public function totalLibros()
+    {
+        $this->db->query("SELECT COUNT(id) as numevents FROM libro");
+        $resultSet = $this->db->getOne();
+        return  $resultSet;
+    }
+
+
+    /**
+     * totalPages
+     * devuelve el total de paginas de acuerdo al limite y al offset
+     * @param  mixed $perPage
+     * @param  mixed $offset
+     * @return void
+     */
+    public function totalPages($perPage, $offset)
+    {
+        $this->db->query("SELECT * from libro ORDER BY id ASC LIMIT :limit OFFSET :offset");
+        $this->db->bind(":limit", $perPage);
+        $this->db->bind(":offset", $offset);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
 }

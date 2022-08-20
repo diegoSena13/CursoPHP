@@ -17,7 +17,7 @@ class Editorial extends Controller
         $offset = $pagination->offset();
         $editorial = $this->EditorialModel->totalPages($perPage, $offset);
 
-        $data = [
+        $data = [ 
             'editorial' => $editorial, 
             'previous' => $pagination->previous(),
             'next' => $pagination->next(),
