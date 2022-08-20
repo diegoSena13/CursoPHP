@@ -7,8 +7,13 @@ class Estudiante extends Controller
     {
         // clase modelo
         $this->EstudianteModel = $this->loadModel('EstudianteModel');
-    }
-    // función para traer todo los estudiantes y mostrarlos en la vista estudianteInicio
+    }  
+    /**
+     * index
+     * función para traer todo los estudiantes y mostrarlos en la vista estudianteInicio  
+     * @param  mixed $currentPage
+     * @return void
+     */
     public function index($currentPage = 1)
     {
         $perPage = 15;
@@ -27,15 +32,23 @@ class Estudiante extends Controller
         ];
         // renderisamos la vista
         $this->renderView('Estudiante/estudianteInicio', $data);
-    }
-    // función para taer la vista insertarEstudiante
+    }    
+    /**
+     * addForm
+     * función para taer la vista insertarEstudiante
+     * @return void
+     */
     public function addForm()
     {
         $data = [];  //temporal porque no hay datos
         // renderisamos la vista
         $this->renderView('Estudiante/insertarEstudiante', $data);
-    }
-    // función que trae e inserta los datos del estudiante
+    }    
+    /**
+     * cargarEstudiante
+     * función que trae e inserta los datos del estudiante
+     * @return void
+     */
     public function cargarEstudiante()
     {
         // verificamos el metodo POST y traemos la data
@@ -67,8 +80,13 @@ class Estudiante extends Controller
         } else {
             echo 'Atención! los datos no fueron enviados de un formulario';
         }
-    }
-    // función para traer y editar un editorial
+    }   
+    /**
+     * editarEstudiante
+     * función para traer y editar un editorial 
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function editarEstudiante($idUsuario)
     {
         // verificamos el metodo POST y traemos la data
@@ -104,9 +122,13 @@ class Estudiante extends Controller
             // renderisamos la vista
             $this->renderView('estudiante/editarEstudiante', $data);
         }
-    }
-
-    // función para eliminar un estudiante 
+    }      
+    /**
+     * eliminarEstudiante
+     * función para eliminar un estudiante
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function eliminarEstudiante($idUsuario)
     {
         // verificamos el metodo POST y traemos la data
@@ -137,8 +159,12 @@ class Estudiante extends Controller
             // renderisamos la vista
             $this->renderView('estudiante/eliminarEstudiante', $data);
         }
-    }
-    // función imprimir reporte
+    } 
+    /**
+     * imprimirReporte
+     * función imprimir reporte    
+     * @return void
+     */
     public function imprimirReporte()
     {
         // traemos la data
@@ -147,7 +173,12 @@ class Estudiante extends Controller
         // renderisamos la vista
         $this->renderView('estudiante/rptEstudiante', $data);
     }
-
+    
+    /**
+     * search
+     * función para buscar 
+     * @return void
+     */
     public function search()
     {
         $data = [

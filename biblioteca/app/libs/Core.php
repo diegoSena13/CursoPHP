@@ -13,7 +13,12 @@ class Core
     protected $defaultController = 'Inicio';
     protected $defaultMethod = 'index';
     protected $parameters = [];
-
+    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct()
     {
         $url = $this->getUrl();
@@ -40,11 +45,12 @@ class Core
         //3.0 obtenemos los parametros que pasemos por la url
         $this->parameters = $url ? array_values($url) : [];
         call_user_func_array([$this->defaultController, $this->defaultMethod], $this->parameters); //asigna los parametros usamdo una funcion callback
-    }
-    /*
-     * toma la ruta, la vuelve un arreglo y posteriormente en una ruta abreviada
-     *@return $url
-     **/
+    }    
+    /**
+     * getUrl
+     *  toma la ruta, la vuelve un arreglo y posteriormente en una ruta abreviada
+     * @return $url
+     */
     public function getUrl()
     {
 

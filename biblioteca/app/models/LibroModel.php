@@ -8,19 +8,35 @@ class LibroModel
     {
         $this->db=new Dbase;
     }
-    // función para traer todos los libros
+    //  
+    /**
+     * listarLibro
+     * función para traer todos los libros   
+     * @return void
+     */
     public function listarLibro(){
         $this->db->query("SELECT * FROM libro");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
-
+    
+    /**
+     * fk
+     * funcion para traer los nits y el nombre de las editoriales
+     * @return void
+     */
     public function fk(){
         $this->db->query("SELECT * FROM editorial");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
-    // función para traer un libro
+    //    
+    /**
+     * getOne
+     * función para traer un libro 
+     * @param  mixed $id
+     * @return void
+     */
     public function getOne($id)
     {
         $this->db->query("SELECT * FROM `libro` WHERE id=:id");
@@ -28,7 +44,13 @@ class LibroModel
         $resultSet = $this->db->getOne();
         return $resultSet;
     }
-    // función para insertar un libro
+    //     
+    /**
+     * InsertarLibro
+     * función para insertar un libro
+     * @param  mixed $data
+     * @return void
+     */
     public function InsertarLibro($data){
         $this->db->query("insert into libro (id,titulo,autor,descripcion,categoria,editorial,fechaSalidadLibro,cantidad,existencia,editorial_nit) values (:id,:titulo,:autor,:descripcion,:categoria,:editorial,:fechaSalidadLibro,:cantidad,:existencia,:editorial_nit)");
         $this->db->bind(':id', $data['id']);
@@ -48,7 +70,13 @@ class LibroModel
             return false;
         }
     }
-    // función para editar un libro
+    //     
+    /**
+     * EditarLibro
+     * función para editar un libro
+     * @param  mixed $data
+     * @return void
+     */
     public function EditarLibro($data){
         $this->db->query('UPDATE libro SET id=:id, titulo=:titulo,
         autor=:autor,descripcion=:descripcion,
@@ -74,7 +102,13 @@ class LibroModel
             return false;
         }
     }
-    // función para eliminar un libro
+    //     
+    /**
+     * Eliminarlibro
+     * función para eliminar un libro
+     * @param  mixed $data
+     * @return void
+     */
     public function Eliminarlibro($data){
         $this->db->query('DELETE FROM libro WHERE id = :id');
         //vinculacion de los datos
@@ -88,7 +122,13 @@ class LibroModel
             return false;
         }
     }
-
+    
+    /**
+     * search
+     * funcion para buscar libros por el nombre
+     * @param  mixed $data
+     * @return void
+     */
     public function search($data)
     {
         $this->db->query("SELECT * FROM libro WHERE titulo LIKE CONCAT(:titulo,'%')");
@@ -97,7 +137,12 @@ class LibroModel
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
-
+    
+    /**
+     * totalLibros
+     * funcion para contar el numero de libros por id
+     * @return void
+     */
     public function totalLibros()
     {
         $this->db->query("SELECT COUNT(id) as numevents FROM libro");

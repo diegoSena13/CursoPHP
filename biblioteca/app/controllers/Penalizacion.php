@@ -7,8 +7,12 @@ class Penalizacion extends Controller
     {
            // clase modelo
         $this->PenalizacionModel = $this->loadModel('PenalizacionModel');
-    }
-       // función para traer todo las penalizaciones y mostrarlos en la vista penalizacionInicio
+    } 
+    /**
+     * index
+     * función para traer todo las penalizaciones y mostrarlos en la vista penalizacionInicio    
+     * @return void
+     */
     public function index()
     {
         //$data=[];
@@ -16,15 +20,23 @@ class Penalizacion extends Controller
         $data = $this->PenalizacionModel->listarPenalizacion();  //temporal porque no hay datos
         // renderisamos la vista
         $this->renderView('Penalizacion/penalizacionInicio', $data);
-    }
-    // función para taer la vista insertarPenalizacion
+    }    
+    /**
+     * addForm
+     * función para taer la vista insertarPenalizacion
+     * @return void
+     */
     public function addForm() 
     {
         $data = [];  //temporal porque no hay datos
         // renderisamos la vista
         $this->renderView('Penalizacion/insertarPenalizacion', $data);
-    }
-      // función que trae e inserta los datos del libro
+    }    
+    /**
+     * cargarPenalizacion
+     * función que trae e inserta los datos del libro
+     * @return void
+     */
     public function cargarPenalizacion()
     {
           // verificamos el metodo POST y traemos la data
@@ -53,8 +65,13 @@ class Penalizacion extends Controller
         } else {
             echo 'Atención! los datos no fueron enviados de un formulario';
         }
-    }
-    // función para traer y editar una penalización
+    }     
+    /**
+     * editarPenalizacion
+     * función para traer y editar una penalización
+     * @param  mixed $idPenalizacion
+     * @return void
+     */
     public function editarPenalizacion($idPenalizacion)
     {
         // verificamos el metodo POST y traemos la data
@@ -84,9 +101,13 @@ class Penalizacion extends Controller
             // renderisamos la vista
             $this->renderView('Penalizacion/editarPenalizacion', $data);
         }
-    }
-
-    // función para eliminar una penalización
+    }    
+    /**
+     * eliminarPenalizacion
+     * función para eliminar una penalización
+     * @param  mixed $idPenalizacion
+     * @return void
+     */
     public function eliminarPenalizacion($idPenalizacion)
     {
           // verificamos el metodo POST y traemos la data
@@ -114,8 +135,12 @@ class Penalizacion extends Controller
             // renderisamos la vista
             $this->renderView('Penalizacion/eliminarPenalizacion', $data);
         }
-    }
-    // función imprimir reporte
+    }    
+    /**
+     * imprimirReporte
+     * función imprimir reporte
+     * @return void
+     */
     public function imprimirReporte()
     {
         // traemos la data

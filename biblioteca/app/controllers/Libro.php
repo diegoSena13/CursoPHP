@@ -8,7 +8,13 @@ class Libro extends Controller
         // clase modelo
         $this->LibroModel = $this->loadModel('LibroModel');
     }
-    // función para traer todo los libros y mostrarlos en la vista libroInicio
+    //  
+    /**
+     * index
+     * función para traer todo los libros y mostrarlos en la vista libroInicio   
+     * @param  mixed $currentPage
+     * @return void
+     */
     public function index($currentPage = 1)
     {
         $perPage = 15;
@@ -27,14 +33,24 @@ class Libro extends Controller
         ];
         $this->renderView('Libro/libroInicio', $data);
     }
-    // función para taer la vista insertarLibro
+    //    
+    /**
+     * addLibro
+     * función para taer la vista insertarLibro 
+     * @return void
+     */
     public function addLibro()
     {
         $data = $this->LibroModel->fk();
         // renderisamos la vista
         $this->renderView('Libro/insertarLibro', $data);
     }
-    // función que trae e inserta los datos del libro
+    //    
+    /**
+     * cargarLibro
+     * función que trae e inserta los datos del libro 
+     * @return void
+     */
     public function cargarLibro()
     {
         // verificamos el metodo POST y traemos la data
@@ -70,7 +86,13 @@ class Libro extends Controller
             echo 'Atención! los datos no fueron enviados de un formulario';
         }
     }
-    // función para traer y editar un libro
+    // 
+    /**
+     * editarLibro
+     * función para traer y editar un libro    
+     * @param  mixed $id
+     * @return void
+     */
     public function editarLibro($id)
     {
         // verificamos el metodo POST y traemos la data
@@ -114,7 +136,13 @@ class Libro extends Controller
         }
     }
 
-    // función para eliminar un libro
+    //    
+    /**
+     * eliminarLibro
+     * función para eliminar un libro 
+     * @param  mixed $id
+     * @return void
+     */
     public function eliminarLibro($id)
     {
         // verificamos el metodo POST y traemos la data
@@ -149,7 +177,12 @@ class Libro extends Controller
             $this->renderView('Libro/eliminarLibro', $data);
         }
     }
-    // función imprimir reporte
+    //     
+    /**
+     * imprimirReporte
+     * función imprimir reporte
+     * @return void
+     */
     public function imprimirReporte()
     {
         // traemos la data
@@ -158,7 +191,12 @@ class Libro extends Controller
         // renderisamos la vista
         $this->renderView('libro/rptLibro', $data);
     }
-
+    
+    /**
+     * search
+     * funcion para buscar
+     * @return void
+     */
     public function search()
     {
         $data = [

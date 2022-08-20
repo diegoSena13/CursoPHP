@@ -7,8 +7,13 @@ class UsuarioModel
     public function __construct()
     {
         $this->db=new Dbase;
-    }
-    // función para consultar en la base de datos si existe el usuario
+    }  
+    /**
+     * Login
+     * función para consultar en la base de datos si existe el usuario   
+     * @param  mixed $data
+     * @return void
+     */
     public function Login($data)
     {
         $this->db->query("SELECT * FROM usuario

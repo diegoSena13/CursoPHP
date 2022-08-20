@@ -7,23 +7,37 @@ class PenalizacionModel
     public function __construct()
     {
         $this->db = new Dbase;
-    }
-    // función para traer todas las penalizaciones
+    }    
+    /**
+     * listarPenalizacion
+     * función para traer todas las penalizaciones
+     * @return void
+     */
     public function listarPenalizacion()
     {
         $this->db->query("SELECT * FROM `penalizacion`");
         $resultSet = $this->db->getAll();
         return $resultSet;
-    }
-    // función para traer una penalización
+    }    
+    /**
+     * getOne
+     * función para traer una penalización 
+     * @param  mixed $idPenalizacion
+     * @return void
+     */
     public function getOne($idPenalizacion)
     {
         $this->db->query("SELECT * FROM `penalizacion` WHERE idPenalizacion=:idPenalizacion");
         $this->db->bind(':idPenalizacion', $idPenalizacion);
         $resultSet = $this->db->getOne();
         return $resultSet;
-    }
-    // función para insertar una penalización
+    }  
+    /**
+     * InsertarPenalizacion
+     * función para insertar una penalización  
+     * @param  mixed $data
+     * @return void
+     */
     public function InsertarPenalizacion($data)
     {
         $this->db->query("insert into penalizacion (idPenalizacion,estado,nombreCliente,correoCliente) values (:idPenalizacion,:estado,:nombreCliente,:correoCliente)");
@@ -37,8 +51,13 @@ class PenalizacionModel
         } else {
             return false;
         }
-    }
-    // función para editar una penalización
+    }     
+    /**
+     * EditarPenalizacion
+     * función para editar una penalización
+     * @param  mixed $data
+     * @return void
+     */
     public function EditarPenalizacion($data)
     {
         $this->db->query('UPDATE penalizacion SET idPenalizacion=:idPenalizacion,
@@ -58,8 +77,13 @@ class PenalizacionModel
         } else {
             return false;
         }
-    }
-    // función para eliminar una penalización
+    }     
+    /**
+     * EliminarPenalizacion
+     * función para eliminar una penalización
+     * @param  mixed $data
+     * @return void
+     */
     public function EliminarPenalizacion($data)
     {
         $this->db->query('DELETE FROM penalizacion WHERE idPenalizacion = :idPenalizacion');

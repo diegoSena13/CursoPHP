@@ -14,8 +14,12 @@ class Dbase
     private $dbh;  //para almacenar la conexion
     private $stmt;  // para los resultados de los querys statement
     private $error;  //para los errores
-
-    //hacemos la conexion
+   
+    /**
+     * __construct
+     * hacemos la conexion 
+     * @return void
+     */
     public function __construct()
     {
 
@@ -33,7 +37,15 @@ class Dbase
     //le deben llegar 3 parametros a la consulta
     //el parametro, el valor adjunto y el tipo de parametro
     //@return parametro
-
+    
+    /**
+     * bind
+     *
+     * @param  mixed $parameter
+     * @param  mixed $value
+     * @param  mixed $type
+     * @return void
+     */
     public function bind($parameter,$value,$type=null)
     {
         if(is_null($type)){

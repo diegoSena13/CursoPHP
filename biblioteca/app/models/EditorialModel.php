@@ -8,22 +8,40 @@ class EditorialModel
     {
         $this->db = new Dbase; 
     }
-    // función para traer todos los editoriales
+    
+    /** 
+     * listarEditorial
+     * función para traer todos los editoriales
+     *
+     * @return void
+     */
     public function listarEditorial()
     {
         $this->db->query("SELECT * FROM `editorial`");
         $resultSet = $this->db->getAll();
         return $resultSet;
-    }
-    // funcion para traer un editorial
-    public function getOne($nit)
+    }    
+     /**
+      * getOne
+      * funcion para traer un editorial
+      *
+      * @param  mixed $nit
+      * @return void
+      */
+     public function getOne($nit)
     {
         $this->db->query("SELECT * FROM `editorial` WHERE nit=:nit");
         $this->db->bind(':nit', $nit);
         $resultSet = $this->db->getOne();
         return $resultSet;
     }
-    // función para insertar un editorial
+    /**
+     * InsertarEditorial
+     * función para insertar un editorial
+     *
+     * @param  mixed $data
+     * @return void
+     */
     public function InsertarEditorial($data)
     {
         $this->db->query("insert into editorial (nit,nombre,generosProduce,tipo,ubicacion) values (:nit,:nombre,:generosProduce,:tipo,:ubicacion)");
@@ -39,7 +57,13 @@ class EditorialModel
             return false;
         }
     }
-    // función para editar un editorial
+    //    
+    /**
+     * EditarEditorial
+     * función para editar un editorial 
+     * @param  mixed $data
+     * @return void
+     */
     public function EditarEditorial($data)
     {
         $this->db->query('UPDATE editorial SET nombre=:nombre,
@@ -60,8 +84,13 @@ class EditorialModel
         } else {
             return false;
         }
-    }
-    //función para eliminar un editorial
+    } 
+    /**
+     * EliminarEditorial
+     * función para eliminar un editorial 
+     * @param  mixed $data
+     * @return void
+     */
     public function EliminarEditorial($data)
     {
         $this->db->query('DELETE FROM editorial WHERE nit = :nit');
@@ -76,7 +105,13 @@ class EditorialModel
             return false;
         }
     }
-
+    
+    /**
+     * search
+     * funcion para buscar editoriales por nombre
+     * @param  mixed $data
+     * @return void
+     */
     public function search($data)
     {
         $this->db->query("SELECT * FROM editorial WHERE nombre LIKE CONCAT(:nombre,'%')");
@@ -85,7 +120,12 @@ class EditorialModel
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
-
+    
+    /**
+     * totalEditoriales
+     * 
+     * @return void
+     */
     public function totalEditoriales()
     {
         $this->db->query("SELECT COUNT(nit) as numevents FROM editorial");

@@ -7,23 +7,37 @@ class PrestamoModel
     public function __construct()
     {
         $this->db = new Dbase;
-    }
-    // función para traer el emcabezado del prestamo
+    }   
+    /**
+     * listarPrestamo
+     * función para traer el emcabezado del prestamo 
+     * @return void
+     */
     public function listarPrestamo()
     {
         $this->db->query("SELECT * FROM `encabezadoprestamo` INNER JOIN `encabezadoprestamo` ON encabezadoprestamo.consecutivo =detalleprestamo .consecutivo;");
         $resultSet = $this->db->getAll();
         return $resultSet;
-    }
-    // función para traer una penalización
+    }     
+    /**
+     * getOne
+     * función para traer una penalización
+     * @param  mixed $consecutivo
+     * @return void
+     */
     public function getOne($consecutivo)
     {
         $this->db->query("SELECT * FROM `encabezadoprestamo` WHERE consecutivo=:consecutivo");
         $this->db->bind(':consecutivo', $consecutivo);
         $resultSet = $this->db->getOne();
         return $resultSet;
-    }
-    // función para insertar una penalización
+    }     
+    /**
+     * InsertarPrestamo
+     * función para insertar una penalización
+     * @param  mixed $data
+     * @return void
+     */
     public function InsertarPrestamo($data)
     {
         $this->db->query("insert into encabezadoprestamo (consecutivo,fecha,nombreCliente,correoCliente,telefonoCliente,DireccionCliente,usuario_idUsuario) values (:idPenalizacion,:estado,:nombreCliente,:correoCliente)");
@@ -37,8 +51,13 @@ class PrestamoModel
         } else {
             return false;
         }
-    }
-    // función para editar una penalización
+    }   
+    /**
+     * EditarPenalizacion
+     * función para editar una penalización 
+     * @param  mixed $data
+     * @return void
+     */
     public function EditarPenalizacion($data)
     {
         $this->db->query('UPDATE penalizacion SET idPenalizacion=:idPenalizacion,
@@ -58,8 +77,13 @@ class PrestamoModel
         } else {
             return false;
         }
-    }
-    // función para eliminar una penalización
+    }   
+    /**
+     * EliminarPenalizacion
+     * función para eliminar una penalización  
+     * @param  mixed $data
+     * @return void
+     */
     public function EliminarPenalizacion($data)
     {
         $this->db->query('DELETE FROM penalizacion WHERE idPenalizacion = :idPenalizacion');

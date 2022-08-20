@@ -7,22 +7,36 @@ class EstudianteModel
     public function __construct()
     {
         $this->db=new Dbase;
-    }
-    // función para traer todos los estudiantes
+    }   
+    /**
+     * listarEstudiantes
+     * función para traer todos los estudiantes
+     * @return void
+     */
     public function listarEstudiantes(){
         $this->db->query("SELECT * FROM cliente");
         $resultSet= $this->db->getAll();
         return $resultSet;
-    }
-    // función para traer un estudiante
+    }  
+    /**
+     * getOne
+     * función para traer un estudiante 
+     * @param  mixed $id
+     * @return void
+     */
     public function getOne($id)
     {
         $this->db->query("SELECT * FROM cliente where idUsuario =:id");
         $this->db->bind(':id', $id);
         $resultSet = $this->db->getOne();
         return $resultSet;
-    }
-    // función para insertar un estudiante
+    }  
+    /**
+     * insertarEstudiante
+     * función para insertar un estudiante  
+     * @param  mixed $data
+     * @return void
+     */
     public function insertarEstudiante($data)
     {
         $this->db->query("INSERT INTO cliente(idUsuario,nombre,apellido1,apellido2,correo,telefono,direccion) VALUES (:idUsuario,:nombre,:apellido1,:apellido2,:correo,:telefono,:direccion) ");
@@ -41,7 +55,13 @@ class EstudianteModel
             return false;
         }
     }
-    // función para editar un estudiante
+      
+    /**
+     * editarEstudiante
+     * función para editar un estudiante  
+     * @param  mixed $data
+     * @return void
+     */
     public function editarEstudiante($data)
     {
         $this->db->query('UPDATE cliente SET idUsuario=:idUsuario,
@@ -65,7 +85,12 @@ class EstudianteModel
             return false;
         }
     }
-    // función para eliminar un estudiante
+    /**
+     * eliminarEstudiante
+     * función para eliminar un estudiante  
+     * @param  mixed $data
+     * @return void
+     */
     public function eliminarEstudiante($data)
     {
         $this->db->query('DELETE FROM cliente WHERE idUsuario = :idUsuario');
@@ -79,7 +104,13 @@ class EstudianteModel
         } else {
             return false;
         }
-    }
+    }    
+    /**
+     * search
+     * busca todos los datos de un usuario de la tabla cliente por nombre
+     * @param  mixed $data
+     * @return void
+     */
     public function search($data)
     {
         $this->db->query("SELECT * FROM cliente WHERE nombre LIKE CONCAT(:nombre,'%')");
@@ -88,7 +119,12 @@ class EstudianteModel
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
-
+    
+    /**
+     * totalEstudiantes
+     * devuelve el conteo de idUsuario de la tabla cliente
+     * @return void
+     */
     public function totalEstudiantes()
     {
         $this->db->query("SELECT COUNT(idUsuario) as numevents FROM cliente");

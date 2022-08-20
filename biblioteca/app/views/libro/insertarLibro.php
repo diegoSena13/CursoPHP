@@ -54,7 +54,7 @@
                             <label for="formGroupExampleInput" class="form-label">Seleccione el Editorial</label>
                             <select name="editorial" class="form-select" aria-label="editorial">
                                 <?php foreach ($data as $editorial) :; ?>
-                                    <option value=""><?php echo $editorial->nombre;?></option>
+                                    <option value=""><?php echo $editorial->nombre; ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -77,8 +77,8 @@
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Seleccione NIT del Editorial</label>
                             <select name="editorial_nit" class="form-select" aria-label="NitEditorial">
-                            <?php foreach ($data as $editorial) :; ?>
-                                    <option value=""><?php echo $editorial->nit;?></option>
+                                <?php foreach ($data as $editorial) :; ?>
+                                    <option value="<?php echo $editorial->nit; ?>"><?php echo $editorial->nit; ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div><br>

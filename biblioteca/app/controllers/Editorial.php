@@ -8,7 +8,13 @@ class Editorial extends Controller
         // clase modelo
         $this->EditorialModel = $this->loadModel('EditorialModel');
     }
- // función para traer todo los editoriales y mostrarlos en la vista editorialInicio
+ // función para traer todo los editoriales y mostrarlos en la vista editorialInicio    
+    /**
+     * index
+     * funcion para cargar la tabla editorial con su paginacion
+     * @param  mixed $currentPage
+     * @return void
+     */
     public function index($currentPage = 1)
     {
         $perPage = 15;
@@ -28,13 +34,23 @@ class Editorial extends Controller
         // renderisamos la vista
         $this->renderView('editorial/editorialInicio', $data);
     }
-// función para traer la vista insertarEditorial
+//    
+    /**
+     * addForm
+     * función para traer la vista insertarEditorial 
+     * @return void
+     */
     public function addForm() 
     {
         $data = [];  //temporal porque no hay datos
         $this->renderView('editorial/insertarEditorial', $data);
     }
-    // función que trae e inserta los datos del editorial
+    //     
+    /**
+     * cargarEditorial
+     * función que trae e inserta los datos del editorial
+     * @return void
+     */
     public function cargarEditorial()
     {
         // verificamos el metodo POST y traemos la data
@@ -65,7 +81,13 @@ class Editorial extends Controller
             echo 'Atención! los datos no fueron enviados de un formulario';
         }
     }
-// función que para traer y editar un editorial
+//    
+    /**
+     * editarEditorial
+     * función que para traer y editar un editorial 
+     * @param  mixed $nit
+     * @return void
+     */
     public function editarEditorial($nit)
     {
         // verificamos el metodo POST y traemos la data
@@ -99,7 +121,13 @@ class Editorial extends Controller
         }
     }
 
-    // función para eliminar un editorial
+    //    
+    /**
+     * eliminarEditorial
+     * función para eliminar un editorial 
+     * @param  mixed $nit
+     * @return void
+     */
     public function eliminarEditorial($nit)
     {
         // verificamos el metodo POST y traemos la data
@@ -129,7 +157,12 @@ class Editorial extends Controller
             $this->renderView('editorial/eliminarEditorial', $data);
         }
     }
-    // función imprimir reporte
+    //  
+    /**
+     * imprimirReporte
+     * función imprimir reporte   
+     * @return void
+     */
     public function imprimirReporte()
     {
         // traemos la data
@@ -138,7 +171,12 @@ class Editorial extends Controller
         // renderisamos la vista
         $this->renderView('editorial/rptEditorial', $data);
     }
-
+    
+    /**
+     * search
+     * controlador para buscar
+     * @return void
+     */
     public function search()
     {
         $data = [
