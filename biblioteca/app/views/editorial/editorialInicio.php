@@ -24,7 +24,7 @@
             <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
           </div>
         </form>
-        <table class="table table-striped">
+        <table class="table table-responsive">
           <thead>
             <tr>
               <th>nit</th>
@@ -80,6 +80,8 @@
 
 
 </main>
+
+
 
 
 

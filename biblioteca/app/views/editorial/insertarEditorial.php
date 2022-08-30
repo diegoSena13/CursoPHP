@@ -40,11 +40,16 @@
                             <input type="text" name="ubicacion" class="form-control" placeholder="Ubicación" aria-label="ubicacion">
                         </div>
                     </div><br>
-                    <input type="submit" class="btn btn-danger" value="Registrar">
+                    <input type="submit" class="btn btn-danger" value="Registrar" id="Registrar">
             </div>
 
             </form>
         </div>
     </main>
+
+
+    <script src="<?php echo URLROOT; ?>css/sweetalert2.min.css"></script>
+    <script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
+    <script src="<?php echo URLROOT; ?>js/editorial.js"></script>
 
     <?php require_once APPROOT . "/views/inc/footer.php" ?>
