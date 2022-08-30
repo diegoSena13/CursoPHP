@@ -1,70 +1,72 @@
 <?php require_once APPROOT . "/views/inc/header.php" ?>
 
-<body>
-  <!-- <div class="container-fluid">
+
+<!-- <div class="container-fluid">
   <div class="row"> -->
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <div class="card">
-        <div class="card-body">
-          <h1 class="text-center">EDITORIAL</h1>
-          <br>
-          <a class="btn btn-success" href="<?php echo URLROOT; ?>Editorial/addForm">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center">EDITORIAL</h1>
+        <br>
+        <div>
+          <a class="btn btn-sm btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/addForm"><i class="bi bi-person-plus"></i>
             Insertar
           </a>
-          <a class="btn btn-success" href="<?php echo URLROOT; ?>Editorial/imprimirReporte">
+          <a class="btn btn-sm btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/imprimirReporte"><i class="bi bi-filetype-pdf"></i>
             Reporte
           </a>
-          <br>
-          <form action="<?php echo URLROOT; ?>Editorial/search" method="POST">
-            <div class="input-group mb-2 w-50">
-              <input type="text" class="form-control form-control-sm " placeholder="Nombre ..." aria-label="Recipient's username" aria-describedby="button-addon2" name="nombre">
-              <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
-            </div>
-          </form>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>nit</th>
-                <th>Nombre</th>
-                <th>generos</th>
-                <th>tipo</th>
-                <th>ubicacion</th>
-                <th>Accion</th>
-                <th>Accion</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($data as $index => $fila) :; ?>
-                <?php foreach ($fila as $index2 => $editorial) :; ?>
-                  <tr>
-                    <td><?php echo $editorial->nit; ?></td>
-                    <td><?php echo $editorial->nombre; ?></td>
-                    <td><?php echo $editorial->generosProduce; ?></td>
-                    <td><?php echo $editorial->tipo; ?></td>
-                    <td><?php echo $editorial->ubicacion; ?></td>
-                    <td><a class="btn btn-primary btn-sm" href="<?php echo URLROOT; ?>Editorial/editarEditorial/<?php echo $editorial->nit;  ?>">Editar</a></td>
-                    <td><a class="btn btn-danger" href="<?php echo URLROOT; ?>Editorial/eliminarEditorial/<?php echo $editorial->nit;  ?>">Eliminar</button></td>
-                  </tr>
-                <?php endforeach; ?>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
-              <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
-                <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
-                    <?php echo $index; ?>
-                  </a></li>
-              <?php endfor; ?>
-              <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Editorial/<?php echo $data["next"]; ?>">Siguiente</a></li>
-            </ul>
-          </nav>
         </div>
+        <br>
+        <form action="<?php echo URLROOT; ?>Editorial/search" method="POST">
+          <div class="input-group mb-2 w-50">
+            <input type="text" class="form-control form-control-sm " placeholder="Nombre ..." aria-label="Recipient's username" aria-describedby="button-addon2" name="nombre">
+            <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
+          </div>
+        </form>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>nit</th>
+              <th>Nombre</th>
+              <th>generos</th>
+              <th>tipo</th>
+              <th>ubicacion</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($data as $index => $fila) :; ?>
+              <?php foreach ($fila as $index2 => $editorial) :; ?>
+                <tr>
+                  <td><?php echo $editorial->nit; ?></td>
+                  <td><?php echo $editorial->nombre; ?></td>
+                  <td><?php echo $editorial->generosProduce; ?></td>
+                  <td><?php echo $editorial->tipo; ?></td>
+                  <td><?php echo $editorial->ubicacion; ?></td>
+                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/editarEditorial/<?php echo $editorial->nit;  ?>"><i class="bi bi-pencil-square"></i></a></td>
+                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/eliminarEditorial/<?php echo $editorial->nit;  ?>"><i class="bi bi-trash"></i></button></td>
+                </tr>
+              <?php endforeach; ?>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
+            <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
+              <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
+                  <?php echo $index; ?>
+                </a></li>
+            <?php endfor; ?>
+            <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Editorial/<?php echo $data["next"]; ?>">Siguiente</a></li>
+          </ul>
+        </nav>
       </div>
+    </div>
 
-      <!--  <div class="btn-toolbar mb-2 mb-md-0">
+    <!--  <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
@@ -74,11 +76,11 @@
             This week
           </button>
         </div> -->
-    </div>
+  </div>
 
 
-  </main>
+</main>
 
 
 
-  <?php require_once APPROOT . "/views/inc/footer.php" ?>
+<?php require_once APPROOT . "/views/inc/footer.php" ?>

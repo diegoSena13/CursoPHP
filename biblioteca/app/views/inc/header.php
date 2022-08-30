@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(0);
 session_start();
 ?>
@@ -74,114 +74,80 @@ session_start();
   </style>
 
 
-<!-- Custom styles for this template -->
-<link href="dashboard.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="background-color:#f5f5f5;">
-  <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-      <use xlink:href="#bootstrap" />
-    </svg>
-  </a>
-  
-
-    <h1>Biblioteca</h1>
-
-    <div class="col-md-3 text-end">
-      <p class="fs-3 fw-bold"><?php echo($_SESSION['nombre'])?></p>
-      <a class="btn btn-dark" href="<?php echo URLROOT; ?>Dashboard/signOut">Salir</a>
+  <!-- Custom styles for this template -->
+  <link href="dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <header class="navbar sticky-top flex-md-nowrap p-0 shadow" style="background-color:#cb9ca1;">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">BIBLIOTECA</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap">
+        <p class=""><?php echo ($_SESSION['nombre']) ?></p>
+        <a class="nav-link px-3" href="<?php echo URLROOT; ?>Dashboard/signOut">Salir</a>
+      </div>
     </div>
+
+
+
   </header>
 
   <div class="container-fluid">
     <div class="row">
 
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color:#f5f5f5;">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color:#ffcdd2;">
         <div class="position-sticky pt-3 sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="btn btn-dark d-grid gap-2" aria-current="page" href="<?php echo URLROOT; ?>Dashboard/dashboard">
+              <a class="nav-link" aria-current="page" href="<?php echo URLROOT; ?>Dashboard/dashboard">
                 <span data-feather="home" class="align-text-bottom"><i class="bi bi-infinity"></i></span>
                 Inicio
               </a>
             </li>
             <br>
             <li class="nav-item">
-              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Estudiante/index">
+              <a class="nav-link" href="<?php echo URLROOT; ?>Estudiante/index">
                 <span class="align-text-bottom"><i class="bi bi-person-lines-fill"></i></span>
                 Estudiante
               </a>
             </li>
             <br>
             <li class="nav-item">
-              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Libro/index">
+              <a class="nav-link" href="<?php echo URLROOT; ?>Libro/index">
                 <span class="align-text-bottom"><i class="bi bi-book"></i></span>
                 Libros
               </a>
             </li>
             <br>
             <li class="nav-item">
-              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Editorial/index">
+              <a class="nav-link" href="<?php echo URLROOT; ?>Editorial/index">
                 <span data-feather="users" class="align-text-bottom"><i class="bi bi-building"></i></span>
                 Editorial
               </a>
             </li>
             <br>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+              <span>Saved reports</span>
+              <a class="link-secondary" href="#" aria-label="Add a new report">
+                <span data-feather="plus-circle" class="align-text-bottom"></span>
+              </a>
+            </h6>
+            <br>
             <li class="nav-item">
-              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>Prestamo/index">
+              <a class="nav-link" href="<?php echo URLROOT; ?>Prestamo/index">
                 <span data-feather="bar-chart-2" class="align-text-bottom"> <i class="bi bi-clipboard2-check"></i></span>
                 Prestamos
               </a>
             </li>
             <br>
             <li class="nav-item">
-              <a class="btn btn-dark d-grid gap-2" href="<?php echo URLROOT; ?>penalizacion/index">
+              <a class="nav-link" href="<?php echo URLROOT; ?>penalizacion/index">
                 <span data-feather="bar-chart-2" class="align-text-bottom"><i class="bi bi-bricks"></i></span>
                 Penalizacion
               </a>
             </li>
-            <!-- 
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers" class="align-text-bottom"></span>
-              Integrations
-            </a>
-          </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-          <span>Saved reports</span>
-          <a class="link-secondary" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle" class="align-text-bottom"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" class="align-text-bottom"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" class="align-text-bottom"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" class="align-text-bottom"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" class="align-text-bottom"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul> -->
         </div>
       </nav>
 
-<body>
+<body style="background-color:#e0e0e0;">
