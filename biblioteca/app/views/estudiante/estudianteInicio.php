@@ -24,49 +24,28 @@
             <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
           </div>
         </form>
-        <table class="table table-striped">
+        <table class="table table-striped" id="tblEstudiantes">
           <thead>
             <tr>
-              <th>id</th>
               <th>Nombre</th>
-              <th>Apellido</th>
               <th>Apellido</th>
               <th>correo</th>
               <th>telefono</th>
               <th>direccion</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($data as $index => $fila) :; ?>
-              <?php foreach ($fila as $index2 => $estudiante) :; ?>
-                <tr>
-                  <td><?php echo $estudiante->idUsuario; ?></td>
-                  <td><?php echo $estudiante->nombre; ?></td>
-                  <td><?php echo $estudiante->apellido1; ?></td>
-                  <td><?php echo $estudiante->apellido2; ?></td>
-                  <td><?php echo $estudiante->correo; ?></td>
-                  <td><?php echo $estudiante->telefono; ?></td>
-                  <td><?php echo $estudiante->direccion; ?></td>
-                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Estudiante/editarEstudiante/<?php echo $estudiante->idUsuario;  ?>"><i class="bi bi-pencil-square"></i></a></td>
-                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Estudiante/eliminarEstudiante/<?php echo $estudiante->idUsuario;  ?>"><i class="bi bi-trash"></i></a></td>
-                </tr>
-              <?php endforeach; ?>
-            <?php endforeach; ?>
+            <tfoot>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>correo</th>
+                <th>telefono</th>
+                <th>direccion</th>
+              </tr>
+            </tfoot>
           </tbody>
         </table>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
-            <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
-              <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
-                  <?php echo $index; ?>
-                </a></li>
-            <?php endfor; ?>
-            <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Estudiante/<?php echo $data["next"]; ?>">Siguiente</a></li>
-          </ul>
-        </nav>
       </div>
     </div>
 
@@ -84,6 +63,10 @@
 
 
 </main>
+<script src="<?php echo URLROOT; ?>js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo URLROOT; ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="<?php echo URLROOT; ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo URLROOT; ?>js/estudiante.js"></script>
 
 
 

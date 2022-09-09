@@ -14,25 +14,17 @@ class Estudiante extends Controller
      * @param  mixed $currentPage
      * @return void
      */
-    public function index($currentPage = 1)
+    public function index()
     {
-        $perPage = 15;
-        $totalCount = $this->EstudianteModel->totalEstudiantes();
-        $pagination = new Paginator($currentPage, $perPage, $totalCount);
-        $offset = $pagination->offset();
-        $estudiante = $this->EstudianteModel->totalPages($perPage, $offset);
-
-        $data = [
-            'estudiante' => $estudiante,
-            'previous' => $pagination->previous(),
-            'next' => $pagination->next(),
-            'total' => $pagination->totalPages(),
-            'currentPage' => $currentPage
-
-        ];
+        $data = [];
         // renderisamos la vista
         $this->renderView('Estudiante/estudianteInicio', $data);
-    }    
+    }
+    public function dataTable()
+    {
+        $estudiante=$this->EstudianteModel->getTable();
+        echo json_encode($estudiante);
+    }  
     /**
      * addForm
      * función para taer la vista insertarEstudiante

@@ -16,7 +16,7 @@ session_start();
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
 
   <link href="<?php echo URLROOT;  ?>css/bootstrap.min.css" rel="stylesheet">
-
+  <link href="<?php echo URLROOT;  ?>Datatables-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
 
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 

@@ -24,7 +24,7 @@
             <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
           </div>
         </form>
-        <table class="table table-responsive">
+        <table class="table table-responsive" id="tblEditorial">
           <thead>
             <tr>
               <th>nit</th>
@@ -32,37 +32,20 @@
               <th>generos</th>
               <th>tipo</th>
               <th>ubicacion</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($data as $index => $fila) :; ?>
-              <?php foreach ($fila as $index2 => $editorial) :; ?>
-                <tr>
-                  <td><?php echo $editorial->nit; ?></td>
-                  <td><?php echo $editorial->nombre; ?></td>
-                  <td><?php echo $editorial->generosProduce; ?></td>
-                  <td><?php echo $editorial->tipo; ?></td>
-                  <td><?php echo $editorial->ubicacion; ?></td>
-                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/editarEditorial/<?php echo $editorial->nit;  ?>"><i class="bi bi-pencil-square"></i></a></td>
-                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/eliminarEditorial/<?php echo $editorial->nit;  ?>"><i class="bi bi-trash"></i></button></td>
-                </tr>
-              <?php endforeach; ?>
-            <?php endforeach; ?>
+            <tfoot>
+              <tr>
+                <th>nit</th>
+                <th>Nombre</th>
+                <th>generos</th>
+                <th>tipo</th>
+                <th>ubicacion</th>
+              </tr>
+            </tfoot>
           </tbody>
-        </table>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
-            <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
-              <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
-                  <?php echo $index; ?>
-                </a></li>
-            <?php endfor; ?>
-            <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Editorial/<?php echo $data["next"]; ?>">Siguiente</a></li>
-          </ul>
-        </nav>
+        </table> 
       </div>
     </div>
 
@@ -80,9 +63,9 @@
 
 
 </main>
-
-
-
-
+<script src="<?php echo URLROOT; ?>js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo URLROOT; ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="<?php echo URLROOT; ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo URLROOT; ?>js/editorial.js"></script>
 
 <?php require_once APPROOT . "/views/inc/footer.php" ?>

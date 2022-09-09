@@ -18,6 +18,12 @@ class EstudianteModel
         $resultSet= $this->db->getAll();
         return $resultSet;
     }  
+    public function getTable()
+    {
+        $this->db->query("SELECT nombre,apellido1,correo,telefono,direccion FROM `cliente`");
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
     /**
      * getOne
      * función para traer un estudiante 

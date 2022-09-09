@@ -24,55 +24,30 @@
             <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
           </div>
         </form>
-        <table class="table table-striped">
+        <table class="table table-striped" id="tblLibro">
           <thead>
             <tr>
-              <th>id</th>
               <th>titulo</th>
               <th>autor</th>
               <th>descripcion</th>
               <th>categoria</th>
-              <th>editorial</th>
-              <th>fechaSalidadLibro</th>
               <th>cantidad</th>
               <th>existencia</th>
-              <th>editorial_nit</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($data as $index => $fila) :; ?>
-              <?php foreach ($fila as $index2 => $libro) :; ?>
-                <tr>
-                  <td><?php echo $libro->id; ?></td>
-                  <td><?php echo $libro->titulo; ?></td>
-                  <td><?php echo $libro->autor; ?></td>
-                  <td><?php echo $libro->descripcion; ?></td>
-                  <td><?php echo $libro->categoria; ?></td>
-                  <td><?php echo $libro->editorial; ?></td>
-                  <td><?php echo $libro->fechaSalidadLibro; ?></td>
-                  <td><?php echo $libro->cantidad; ?></td>
-                  <td><?php echo $libro->existencia; ?></td>
-                  <td><?php echo $libro->editorial_nit; ?></td>
-                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Libro/editarLibro/<?php echo $libro->id;  ?>"><i class="bi bi-pencil-square"></i></a></td>
-                  <td><a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>Libro/eliminarLibro/<?php echo $libro->id;  ?>"><i class="bi bi-trash"></i></a></td>
-                </tr>
-              <?php endforeach; ?>
-            <?php endforeach; ?>
+            <tfoot>
+              <tr>
+                <th>titulo</th>
+                <th>autor</th>
+                <th>descripcion</th>
+                <th>categoria</th>
+                <th>cantidad</th>
+                <th>existencia</th>
+              </tr>
+            </tfoot>
           </tbody>
         </table>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
-            <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
-              <li class="page-item"><a class="page-link" href=" <?php echo $index; ?>">
-                  <?php echo $index; ?>
-                </a></li>
-            <?php endfor; ?>
-            <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Libro/<?php echo $data["next"]; ?>">Siguiente</a></li>
-          </ul>
-        </nav>
       </div>
     </div>
 
@@ -90,6 +65,10 @@
 
 
 </main>
+<script src="<?php echo URLROOT; ?>js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo URLROOT; ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="<?php echo URLROOT; ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo URLROOT; ?>js/libro.js"></script>
 
 
 

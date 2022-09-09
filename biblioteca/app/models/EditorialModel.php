@@ -17,10 +17,16 @@ class EditorialModel
      */
     public function listarEditorial()
     {
-        $this->db->query("SELECT * FROM `editorial`");
+        $this->db->query("SELECT nit FROM `editorial`");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }    
+    public function getTable()
+    {
+        $this->db->query("SELECT nit,nombre,generosProduce,tipo,ubicacion FROM `editorial`");
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
      /**
       * getOne
       * funcion para traer un editorial

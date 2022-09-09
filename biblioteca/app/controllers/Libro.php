@@ -15,23 +15,16 @@ class Libro extends Controller
      * @param  mixed $currentPage
      * @return void
      */
-    public function index($currentPage = 1)
+    public function index()
     {
-        $perPage = 15;
-        $totalCount = $this->LibroModel->totalLibros();
-        $pagination = new Paginator($currentPage, $perPage, $totalCount);
-        $offset = $pagination->offset();
-        $libro = $this->LibroModel->totalPages($perPage, $offset);
 
-        $data = [
-            'libro' => $libro,
-            'previous' => $pagination->previous(),
-            'next' => $pagination->next(),
-            'total' => $pagination->totalPages(),
-            'currentPage' => $currentPage
-
-        ];
+        $data = [];
         $this->renderView('Libro/libroInicio', $data);
+    }
+    public function dataTable()
+    {
+        $libro=$this->LibroModel->getTable();
+        echo json_encode($libro);
     }
     //    
     /**

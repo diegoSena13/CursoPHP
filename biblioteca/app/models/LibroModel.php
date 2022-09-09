@@ -30,6 +30,12 @@ class LibroModel
         $resultSet= $this->db->getAll();
         return $resultSet;
     }
+    public function getTable()
+    {
+        $this->db->query("SELECT titulo,autor,descripcion,categoria,cantidad,existencia FROM `libro`");
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
     //    
     /**
      * getOne

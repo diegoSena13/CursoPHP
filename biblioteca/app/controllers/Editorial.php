@@ -15,24 +15,25 @@ class Editorial extends Controller
      * @param  mixed $currentPage
      * @return void
      */
-    public function index($currentPage = 1)
+    public function index()
     {
-        $perPage = 15;
-        $totalCount = $this->EditorialModel->totalEditoriales();
-        $pagination = new Paginator($currentPage, $perPage, $totalCount);
-        $offset = $pagination->offset();
-        $editorial = $this->EditorialModel->totalPages($perPage, $offset);
+        
 
-        $data = [ 
-            'editorial' => $editorial, 
-            'previous' => $pagination->previous(),
-            'next' => $pagination->next(),
-            'total' => $pagination->totalPages(),
-            'currentPage' => $currentPage
-
-        ];
+        $data = [];
         // renderisamos la vista
         $this->renderView('editorial/editorialInicio', $data);
+    }
+
+    /**
+     * dataTable
+     * devuelve la data en un objeto json, esto es necesario para que js lo capture y lo manipule en el frontend
+     * @return void
+     */
+
+    public function dataTable()
+    {
+        $Editorial=$this->EditorialModel->getTable();
+        echo json_encode($Editorial);
     }
 //    
     /**
