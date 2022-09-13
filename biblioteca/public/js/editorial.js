@@ -38,9 +38,16 @@ function modalEditar(nit, nombre) {
     <form action="" method="post" >
         <p>deseas editar la editorial ${nombre}?</p>
         <input type="hidden" value="${nit}">
-        <button type="submit" class="btn btn-primary">Confirmar</button>
-        <button type="reset" class="btn btn-danger">Cancelar</button>   
+        <button type="submit" class="btn btn-primary" id="confirmarEdit">Confirmar</button>
+        <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>   
     </form>
     `;
   preguntaEditar.innerHTML = fila;
 }
+
+
+let confirmarEdit = document.getElementById("confirmarEdit");
+
+confirmarEdit.addEventListener("click",()=>{
+    
+})
