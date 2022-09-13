@@ -2,7 +2,7 @@
 error_reporting(0);
 session_start();
 ?>
-
+<html lang="es"></html>
 </head>
 
 <head>

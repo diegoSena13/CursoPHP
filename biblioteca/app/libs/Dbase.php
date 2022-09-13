@@ -24,7 +24,7 @@ class Dbase
     {
 
         //FIXME: agregar opciones mysql
-        $dsn = "mysql:host=".$this->host.";dbname=".$this->bdatos;
+        $dsn = "mysql:host=".$this->host.";dbname=".$this->bdatos.";charset=utf8";
         try {
             $this->dbh= new PDO($dsn,$this->user,$this->password);
         } catch (PDOException $error) {

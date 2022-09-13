@@ -32,20 +32,25 @@
               <th>generos</th>
               <th>tipo</th>
               <th>ubicacion</th>
+              <th>editar</th>
+              <th>eliminar</th>
             </tr>
           </thead>
           <tbody>
-            <tfoot>
-              <tr>
-                <th>nit</th>
-                <th>Nombre</th>
-                <th>generos</th>
-                <th>tipo</th>
-                <th>ubicacion</th>
-              </tr>
-            </tfoot>
+
           </tbody>
-        </table> 
+          <tfoot>
+            <tr>
+              <th>nit</th>
+              <th>Nombre</th>
+              <th>generos</th>
+              <th>tipo</th>
+              <th>ubicacion</th>
+              <th>editar</th>
+              <th>eliminar</th>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </div>
 
@@ -61,6 +66,23 @@
         </div> -->
   </div>
 
+
+  <!-- Modal editar -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Editorial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="preguntaEditar">
+
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
 
 </main>
 <script src="<?php echo URLROOT; ?>js/bootstrap.bundle.min.js"></script>
