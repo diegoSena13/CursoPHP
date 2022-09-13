@@ -12,7 +12,7 @@
 
         <div class="card">
             <div class="card-body">
-                <form action="<?php echo URLROOT ?> Editorial/cargarEditorial" method="post">
+                <form action="" method="post">
                     <div class="row">
                         <div class="col">
                             <input type="text" name="nit" class="form-control" placeholder="NIT" aria-label="nit">
@@ -46,10 +46,9 @@
             </form>
         </div>
     </main>
-
-
-    <script src="<?php echo URLROOT; ?>css/sweetalert2.min.css"></script>
+    
     <script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
     <script src="<?php echo URLROOT; ?>js/editorial.js"></script>
+  
 
     <?php require_once APPROOT . "/views/inc/footer.php" ?>

@@ -13,3 +13,11 @@ $(document).ready(function () {
         ],
     });
 });
+
+alert("hola")
+
+/*  let registrar=document.getElementById('Registrar');
+
+ registrar.addEventListener('click',()=>{
+    alert("hola")
+ }) */
