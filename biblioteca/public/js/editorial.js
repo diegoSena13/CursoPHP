@@ -14,10 +14,10 @@ $(document).ready(function () {
     });
 });
 
-alert("hola")
-
-/*  let registrar=document.getElementById('Registrar');
-
- registrar.addEventListener('click',()=>{
-    alert("hola")
- }) */
+function saludar(){
+    Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+    )
+}

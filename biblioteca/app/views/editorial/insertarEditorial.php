@@ -40,10 +40,12 @@
                             <input type="text" name="ubicacion" class="form-control" placeholder="Ubicación" aria-label="ubicacion">
                         </div>
                     </div><br>
-                    <input type="submit" class="btn btn-danger" value="Registrar" id="Registrar">
+                    
+                    <input type="submit" class="btn btn-danger" onclick="saludar()" value="Registrar" id="Registrar">
             </div>
 
             </form>
+            <button class="btn btn-success" onclick="saludar()" id="Registrar">Registrar</button>
         </div>
     </main>
     
