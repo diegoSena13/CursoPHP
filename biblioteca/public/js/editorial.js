@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#tblEditorial").DataTable({
+ var table= $("#tblEditorial").DataTable({
     autoWidth: false,
     ajax: {
       url: "http://localhost/CursoPHP/Biblioteca/Editorial/dataTable",
@@ -26,7 +26,8 @@ $(document).ready(function () {
   
   $("#tblEditorial tbody").on("click", "#editar", function () {
     let data = table.row($(this).parents("tr")).data();
-    alert(data.nit, data.nombre);
+    modalEditar(data.nit,data.nombre)
+    //alert(data);
     //alert(data.idItem + "'s salary is: " + data.descripcion);
   });
 });
@@ -35,10 +36,11 @@ function modalEditar(nit, nombre) {
   let preguntaEditar = document.getElementById("preguntaEditar");
   let fila = `
     <form action="" method="post" >
-        <p>deseas editar la editorial ${nombre},${nit}?</p>
+        <p>deseas editar la editorial ${nombre}?</p>
+        <input type="hidden" value="${nit}">
         <button type="submit" class="btn btn-primary">Confirmar</button>
         <button type="reset" class="btn btn-danger">Cancelar</button>   
     </form>
     `;
-  preguntaEditar.innerHTML += fila;
+  preguntaEditar.innerHTML = fila;
 }
