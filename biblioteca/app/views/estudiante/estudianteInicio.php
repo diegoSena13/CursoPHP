@@ -32,6 +32,8 @@
               <th>correo</th>
               <th>telefono</th>
               <th>direccion</th>
+              <th>editar</th>
+              <th>eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +44,8 @@
                 <th>correo</th>
                 <th>telefono</th>
                 <th>direccion</th>
+                <th>editar</th>
+                <th>eliminar</th>
               </tr>
             </tfoot>
           </tbody>

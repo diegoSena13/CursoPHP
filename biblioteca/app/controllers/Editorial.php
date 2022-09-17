@@ -89,38 +89,36 @@ class Editorial extends Controller
      * @param  mixed $nit
      * @return void
      */
-    public function editarEditorial($nit)
+    public function editarEditorial()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = [
-                'nit' => $nit,  //$id
-                'nombre' => $_POST['nombre'],
-                'generosProduce' => $_POST['generosProduce'],
-                'tipo' => $_POST['tipo'],
-                'ubicacion' => $_POST['ubicacion']
-            ];
-             // editamos la data 
-            if ($this->EditorialModel->EditarEditorial($data)) {
-                $data = [];
-                // renderisamos la vista 
-                $this->renderView('dashboard/dashboard', $data);
-            } else {
-                die('ocurrió un error en la inserción !');
-            };
-        } else {
-            $editorial = $this->EditorialModel->getOne($nit);
-            $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
-            ];
-            // renderisamos la vista 
-            $this->renderView('editorial/editarEditorial', $data);
-        }
+        $nit=$_POST["nit"];
+        
+        $editorial = $this->EditorialModel->getOne($nit);
+        $data = [
+            'nit' => $editorial->nit,
+            'nombre' => $editorial->nombre,
+            'generosProduce' => $editorial->generosProduce,
+            'tipo' => $editorial->tipo,
+            'ubicacion' => $editorial->ubicacion
+        ]; 
+        // renderisamos la vista  
+        echo json_encode($data);
     }
+
+    public function editarEditorial1()
+    {
+        $nit=$_POST["nit"];
+        $nombre=$_POST["nombre"];
+        $generosProduce=$_POST["generosProduce"];
+        $tipo=$_POST["tipo"];
+        $ubicacion=$_POST["ubicacion"];
+
+        $editorial=$this->EditorialModel->EditarEditorial($nit,$nombre,$generosProduce,$tipo,$ubicacion);
+
+        echo json_encode($editorial);
+
+    }
+    
 
     //    
     /**
@@ -129,35 +127,14 @@ class Editorial extends Controller
      * @param  mixed $nit
      * @return void
      */
-    public function eliminarEditorial($nit)
+    public function eliminarEditorial()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = [
-                'nit' => $nit
-            ];
-            // eliminamos la data
-            if ($this->EditorialModel->EliminarEditorial($data)) {
-                // echo 'borrado';
-                $data = [];
-                // renderisamos la vista 
-                $this->renderView('dashboard/dashboard', $data);
-            } else {
-                die('ocurrió un error !');
-            };
-        } else {
-            $editorial = $this->EditorialModel->getOne($nit);
-            $data = [
-                'nit' => $editorial->nit,
-                'nombre' => $editorial->nombre,
-                'generosProduce' => $editorial->generosProduce,
-                'tipo' => $editorial->tipo,
-                'ubicacion' => $editorial->ubicacion
-            ];
-            // renderisamos la vista 
-            $this->renderView('editorial/eliminarEditorial', $data);
-        }
+        $nit=$_POST["nit"];
+        $editorial = $this->EditorialModel->EliminarEditorial($nit);
+        echo json_encode($editorial);
     }
+
+    
     //  
     /**
      * imprimirReporte

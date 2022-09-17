@@ -33,6 +33,8 @@
               <th>categoria</th>
               <th>cantidad</th>
               <th>existencia</th>
+              <th>editar</th>
+              <th>eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +46,8 @@
                 <th>categoria</th>
                 <th>cantidad</th>
                 <th>existencia</th>
+                <th>editar</th>
+                <th>eliminar</th>
               </tr>
             </tfoot>
           </tbody>

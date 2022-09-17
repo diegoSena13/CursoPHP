@@ -18,12 +18,6 @@
           </a>
         </div>
         <br>
-        <form action="<?php echo URLROOT; ?>Editorial/search" method="POST">
-          <div class="input-group mb-2 w-50">
-            <input type="text" class="form-control form-control-sm " placeholder="Nombre ..." aria-label="Recipient's username" aria-describedby="button-addon2" name="nombre">
-            <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
-          </div>
-        </form>
         <table class="table table-responsive" id="tblEditorial">
           <thead>
             <tr>
@@ -53,7 +47,7 @@
         </table>
       </div>
     </div>
-    
+
 
     <!--  <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
@@ -80,15 +74,38 @@
 
         </div>
         <div class="modal-footer">
+          <button type="" class="btn btn-primary" id="confirmarEdit">Confirmar</button>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>
   </div>
 
+    <!-- Modal eliminar-->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Editorial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="preguntaEliminar">
+
+        </div>
+        <div class="modal-footer">
+          <button type="" class="btn btn-primary" id="confirmarDelete">Confirmar</button>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </main>
 <script src="<?php echo URLROOT; ?>js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo URLROOT; ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="<?php echo URLROOT; ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
 <script src="<?php echo URLROOT; ?>js/editorial.js"></script>
 
 <?php require_once APPROOT . "/views/inc/footer.php" ?>

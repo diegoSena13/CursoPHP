@@ -70,18 +70,18 @@ class EditorialModel
      * @param  mixed $data
      * @return void
      */
-    public function EditarEditorial($data)
+    public function EditarEditorial($nit,$nombre,$generosProduce,$tipo,$ubicacion)
     {
         $this->db->query('UPDATE editorial SET nombre=:nombre,
         generosProduce=:generosProduce,tipo=:tipo,
         ubicacion=:ubicacion WHERE nit=:nit       
         ');
         //vinculacion de los datos
-        $this->db->bind(':nit', $data['nit']);
-        $this->db->bind(':nombre', $data['nombre']);
-        $this->db->bind(':generosProduce', $data['generosProduce']);
-        $this->db->bind(':tipo', $data['tipo']);
-        $this->db->bind(':ubicacion', $data['ubicacion']);
+        $this->db->bind(':nit', $nit);
+        $this->db->bind(':nombre', $nombre);
+        $this->db->bind(':generosProduce', $generosProduce);
+        $this->db->bind(':tipo', $tipo);
+        $this->db->bind(':ubicacion', $ubicacion);
 
         // ejecucion de la consulta
 
@@ -97,11 +97,11 @@ class EditorialModel
      * @param  mixed $data
      * @return void
      */
-    public function EliminarEditorial($data)
+    public function EliminarEditorial($nit)
     {
         $this->db->query('DELETE FROM editorial WHERE nit = :nit');
         //vinculacion de los datos
-        $this->db->bind(':nit', $data['nit']);
+        $this->db->bind(':nit', $nit);
 
         // ejecucion de la consulta
 
