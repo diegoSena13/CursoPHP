@@ -10,9 +10,7 @@
         <h1 class="text-center">EDITORIAL</h1>
         <br>
         <div>
-          <a class="btn btn-sm btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/addForm"><i class="bi bi-person-plus"></i>
-            Insertar
-          </a>
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-target='#exampleModal2' data-bs-toggle='modal' id=""><i class="bi bi-person-plus"></i> Insertar</button>
           <a class="btn btn-sm btn-outline-secondary" href="<?php echo URLROOT; ?>Editorial/imprimirReporte"><i class="bi bi-filetype-pdf"></i>
             Reporte
           </a>
@@ -81,7 +79,7 @@
     </div>
   </div>
 
-    <!-- Modal eliminar-->
+  <!-- Modal eliminar-->
   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -94,6 +92,53 @@
         </div>
         <div class="modal-footer">
           <button type="" class="btn btn-primary" id="confirmarDelete">Confirmar</button>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal insertar -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Insertar Editorial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="">
+          <form action="" id="frmInsertar" method="post">
+            <div class="row">
+              <div class="col">
+                <input type="text" name="nit" class="form-control" placeholder="NIT" aria-label="nit">
+              </div>
+              <div class="col">
+                <input type="text" name="nombre" class="form-control" placeholder="Nombre" aria-label="nombre">
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col">
+                <input type="text" name="generosProduce" class="form-control" placeholder="Generos Produce" aria-label="GeneroProduce">
+              </div>
+              <div class="col">
+                <label for="formGroupExampleInput" class="form-label">Seleccione Tipo</label>
+                <select class="form-select" name="tipo" aria-label="tipo">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col">
+                <input type="text" name="ubicacion" class="form-control" placeholder="Ubicación" aria-label="ubicacion">
+              </div>
+            </div><br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="" class="btn btn-primary" id="btnInsertar">Confirmar</button>
           <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </div>

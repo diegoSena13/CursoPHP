@@ -10,9 +10,7 @@
         <h1 class="text-center">LIBROS</h1>
         <br>
         <div>
-          <a class="btn btn-sm btn-outline-secondary" href="<?php echo URLROOT; ?>libro/addLibro"><i class="bi bi-person-plus"></i>
-            Insertar
-          </a>
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-target='#exampleModal2' data-bs-toggle='modal' id=""><i class="bi bi-person-plus"></i> Insertar</button>
           <a class="btn btn-sm btn-outline-secondary" href="<?php echo URLROOT; ?>Libro/imprimirReporte"><i class="bi bi-filetype-pdf"></i>
             Reporte
           </a>
@@ -27,6 +25,7 @@
         <table class="table table-striped" id="tblLibro">
           <thead>
             <tr>
+              <th>id</th>
               <th>titulo</th>
               <th>autor</th>
               <th>descripcion</th>
@@ -38,18 +37,19 @@
             </tr>
           </thead>
           <tbody>
-            <tfoot>
-              <tr>
-                <th>titulo</th>
-                <th>autor</th>
-                <th>descripcion</th>
-                <th>categoria</th>
-                <th>cantidad</th>
-                <th>existencia</th>
-                <th>editar</th>
-                <th>eliminar</th>
-              </tr>
-            </tfoot>
+          <tfoot>
+            <tr>
+              <th>id</th>
+              <th>titulo</th>
+              <th>autor</th>
+              <th>descripcion</th>
+              <th>categoria</th>
+              <th>cantidad</th>
+              <th>existencia</th>
+              <th>editar</th>
+              <th>eliminar</th>
+            </tr>
+          </tfoot>
           </tbody>
         </table>
       </div>
@@ -66,12 +66,135 @@
           </button>
         </div> -->
   </div>
+  <!-- Modal editar -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Editorial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="preguntaEditar">
+
+        </div>
+        <div class="modal-footer">
+          <button type="" class="btn btn-primary" id="confirmarEdit">Confirmar</button>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal eliminar-->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Editorial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="preguntaEliminar">
+
+        </div>
+        <div class="modal-footer">
+          <button type="" class="btn btn-primary" id="confirmarDelete">Confirmar</button>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal insertar -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Insertar Editorial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="">
+          <form action="" id="frmInsertar" method="post">
+            <div class="row">
+              <div class="col">
+                <input type="text" name="id" id="id" class="form-control" placeholder="ID" aria-label="id">
+              </div>
+              <div class="col">
+                <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo" aria-label="titulo">
+              </div>
+
+            </div><br>
+            <div class="row">
+              <div class="col">
+                <input type="text" name="autor" id="autor" class="form-control" placeholder="Autor" aria-label="autor">
+              </div>
+              <div class="col">
+                <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripción" aria-label="descripcion">
+              </div>
+
+            </div><br>
+            <div class="row">
+              <div class="col">
+                <label for="formGroupExampleInput" class="form-label">Seleccione Categoría</label>
+                <select name="categoria" id="categoria" class="form-select" aria-label="categoria">
+                  <option value="">Científicos</option>
+                  <option value="">Literatura y lingüísticos</option>
+                  <option value="">De viaje</option>
+                  <option value="">Biografías</option>
+                  <option value="">Libro de texto</option>
+                  <option value="">Libros de gran formato (coffee table book)</option>
+                  <option value="">De referencia o consulta</option>
+                  <option value="">Monografías</option>
+                  <option value="">Recreativos</option>
+                  <option value="">Poéticos</option>
+                  <option value="">Juveniles</option>
+                  <option value="">Ficción</option>
+                  <option value="">Comedia</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="formGroupExampleInput" class="form-label">Seleccione el Editorial</label>
+                <select name="editorial" id="editorial" class="form-select" aria-label="editorial">
+                  <option value=""></option>
+                </select>
+              </div>
+
+            </div><br>
+            <div class="row">
+              <div class="col">
+                <label for="formGroupExampleInput" class="form-label">Fecha de Lanzamiento</label>
+                <input type="date" name="fechaSalidadLibro" id="fechaSalidadLibro">
+              </div>
+              <div class="col">
+                <input type="text" name="cantidad" id="cantidad" class="form-control" placeholder="Cantidad" aria-label="cantidad">
+              </div>
+
+            </div><br>
+            <div class="row">
+              <div class="col">
+                <input type="text" name="existencia" id="existencia" class="form-control" placeholder="Existencia" aria-label="existencia">
+              </div>
+              <div class="col">
+                <label for="formGroupExampleInput" class="form-label">Seleccione NIT del Editorial</label>
+                <select name="editorial_nit" class="form-select" aria-label="NitEditorial">
+                    <option value=""></option>
+                </select>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="" class="btn btn-primary" id="btnInsertar">Confirmar</button>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </main>
 <script src="<?php echo URLROOT; ?>js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo URLROOT; ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="<?php echo URLROOT; ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
 <script src="<?php echo URLROOT; ?>js/libro.js"></script>
 
 

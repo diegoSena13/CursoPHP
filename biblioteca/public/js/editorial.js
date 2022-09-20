@@ -42,8 +42,6 @@ $(document).ready(function () {
   });
 });
 
-
-
 //funcion para abrir el modal de editar con la pregunta de confirmacion
 function modalEditar(nit, nombre) {
   let preguntaEditar = document.getElementById("preguntaEditar");
@@ -55,8 +53,6 @@ function modalEditar(nit, nombre) {
     `;
   preguntaEditar.innerHTML = fila;
 }
-
-
 
 //funcion para abrir el modal editar con el formulario para editar
 function modalEditar2(nit, nombre, generos, tipo, ubicacion) {
@@ -78,7 +74,7 @@ function modalEditar2(nit, nombre, generos, tipo, ubicacion) {
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Seleccione Tipo</label>
                             <select class="form-select" name="tipo" aria-label="tipo">
-                                <option value="${tipo}"</option>
+                                <option value="${tipo}">${tipo}</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -97,7 +93,7 @@ function modalEditar2(nit, nombre, generos, tipo, ubicacion) {
   preguntaEditar.innerHTML = fila;
 }
 
-//funcion para abrir el modal de editar con la pregunta de confirmacion
+//funcion para abrir el modal de eliminar con la pregunta de confirmacion
 function modalEliminar(nit, nombre) {
   let preguntaEditar = document.getElementById("preguntaEliminar");
   let fila = `
@@ -111,7 +107,6 @@ function modalEliminar(nit, nombre) {
 
 //boton  de el modal
 let confirmarEdit = document.getElementById("confirmarEdit");
-
 
 //esta parte envia el nit de la editorial por el metodo post y devuelve todos los datos de la editorial en un formulario para editar
 confirmarEdit.addEventListener("click", (e) => {
@@ -150,13 +145,13 @@ confirmarEdit.addEventListener("click", (e) => {
   })
     .then(function (response) {
       if (response.ok) {
-        return response.ok
+        return response.ok;
       } else {
         throw "Error en la llamada Ajax";
       }
     })
     .then(function (ok) {
-      alertEdit()
+      alertEdit();
     })
     .catch(function (err) {
       console.log(err);
@@ -180,7 +175,7 @@ confirmarDelete.addEventListener("click", (e) => {
       }
     })
     .then(function (ok) {
-      alertDelete()
+      alertDelete();
     })
     .catch(function (err) {
       console.log(err);
@@ -188,31 +183,70 @@ confirmarDelete.addEventListener("click", (e) => {
 });
 
 
+//boton del modal insertar para enviar los datos
+let btnInsertar = document.getElementById("btnInsertar");
+//evento click para enviar los datos a el controlador
+btnInsertar.addEventListener("click", (e) => {
+  let datos = new FormData(document.getElementById("frmInsertar"));
+  fetch("http://localhost/CursoPHP/Biblioteca/Editorial/cargarEditorial", {
+    method: "POST",
+    body: datos,
+  })
+    .then(function (response) {
+      if (response.ok) {
+        return response.ok;
+      } else {
+        throw "Error en la llamada Ajax";
+      }
+    })
+    .then(function (ok) {
+      alertInsert();
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+});
 
-function alertEdit(){
+function alertEdit() {
   Swal.fire({
-    title: 'Buen trabajo',
-    text: 'Editorial editada',
-    icon: 'success',
-    confirmButtonText: 'ok',
+    title: "Buen trabajo",
+    text: "Editorial editada",
+    icon: "success",
+    confirmButtonText: "ok",
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-      location.reload()
+      location.reload();
     }
-  })
+  });
 }
 
-function alertDelete(){
+
+
+function alertDelete() {
   Swal.fire({
-    title: 'Buen trabajo',
-    text: 'Editorial eliminada',
-    icon: 'success',
-    confirmButtonText: 'ok',
+    title: "Buen trabajo",
+    text: "Editorial eliminada",
+    icon: "success",
+    confirmButtonText: "ok",
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-      location.reload()
+      location.reload();
     }
-  })
+  });
+}
+
+function alertInsert() {
+  Swal.fire({
+    title: "Buen trabajo",
+    text: "Editorial Insertada",
+    icon: "success",
+    confirmButtonText: "ok",
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      location.reload();
+    }
+  });
 }

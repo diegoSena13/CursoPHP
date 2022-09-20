@@ -48,14 +48,14 @@ class EditorialModel
      * @param  mixed $data
      * @return void
      */
-    public function InsertarEditorial($data)
+    public function InsertarEditorial($nit,$nombre,$generosProduce,$tipo,$ubicacion)
     {
         $this->db->query("insert into editorial (nit,nombre,generosProduce,tipo,ubicacion) values (:nit,:nombre,:generosProduce,:tipo,:ubicacion)");
-        $this->db->bind(':nit', $data['nit']);
-        $this->db->bind(':nombre', $data['nombre']);
-        $this->db->bind(':generosProduce', $data['generosProduce']);
-        $this->db->bind(':tipo', $data['tipo']);
-        $this->db->bind(':ubicacion', $data['ubicacion']);
+        $this->db->bind(':nit', $nit);
+        $this->db->bind(':nombre', $nombre);
+        $this->db->bind(':generosProduce', $generosProduce);
+        $this->db->bind(':tipo', $tipo);
+        $this->db->bind(':ubicacion', $ubicacion);
 
         if ($this->db->execute()) {
             return true;

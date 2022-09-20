@@ -43,35 +43,19 @@ class Estudiante extends Controller
      */
     public function cargarEstudiante()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $data = [
-                'idUsuario' => $_POST['idUsuario'],
-                'nombre' => $_POST['nombre'],
-                'apellido1' => $_POST['apellido1'],
-                'apellido2' => $_POST['apellido2'],
-                'correo' => $_POST['correo'],
-                'telefono' => $_POST['telefono'],
-                'direccion' => $_POST['direccion']
-            ];
-            // insertamos la data
-            $resultado = $this->EstudianteModel->insertarEstudiante($data);
-            if ($resultado) {
-                $data = [
-                    'mensaje' => 'insercion exitosa'
-                ];
-                // renderisamos la vista
-                $this->renderView('Estudiante/insertarEstudiante', $data);
-            } else {
-                $data = [
-                    'mensaje' => 'error en la insercion'
-                ];
-                // renderisamos la vista
-                $this->renderView('Estudiante/insertarEstudiante', $data);
-            }
-        } else {
-            echo 'Atención! los datos no fueron enviados de un formulario';
-        }
+       //cogemos todos los datos que llegan por el post
+       $id=$_POST["idUsuario"];
+        $nombre=$_POST["nombre"];
+        $apellido1=$_POST["apellido1"];
+        $apellido2=$_POST["apellido2"];
+        $correo=$_POST["correo"];
+        $telefono=$_POST["telefono"];
+        $direccion=$_POST["direccion"];
+
+       //los mandamos a el model
+       $estudiante=$this->EstudianteModel->insertarEstudiante($id,$nombre,$apellido1,$apellido2,$correo,$telefono,$direccion);
+
+       echo json_encode($estudiante);
     }   
     /**
      * editarEstudiante
@@ -79,78 +63,49 @@ class Estudiante extends Controller
      * @param  mixed $idUsuario
      * @return void
      */
-    public function editarEstudiante($idUsuario)
+    public function editarEstudiante()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = [
-                'idUsuario' => $_POST['idUsuario'],
-                'nombre' => $_POST['nombre'],
-                'apellido1' => $_POST['apellido1'],
-                'apellido2' => $_POST['apellido2'],
-                'correo' => $_POST['correo'],
-                'telefono' => $_POST['telefono'],
-                'direccion' => $_POST['direccion']
-            ];
-            // editamos la data
-            if ($this->EstudianteModel->editarEstudiante($data)) {
-                $data = [];
-                // renderisamos la vista
-                $this->renderView('dashboard/dashboard', $data);
-            } else {
-                die('ocurrió un error en la inserción !');
-            };
-        } else {
-            $estudiante = $this->EstudianteModel->getOne($idUsuario);
-            $data = [
-                'idUsuario' => $estudiante->idUsuario,
-                'nombre' => $estudiante->nombre,
-                'apellido1' => $estudiante->apellido1,
-                'apellido2' => $estudiante->apellido2,
-                'correo' => $estudiante->correo,
-                'telefono' => $estudiante->telefono,
-                'direccion' => $estudiante->direccion
-            ];
-            // renderisamos la vista
-            $this->renderView('estudiante/editarEstudiante', $data);
-        }
-    }      
+        $id=$_POST["idUsuario"];
+        
+        $estudiante = $this->EstudianteModel->getOne($id);
+        $data = [
+            'idUsuario' => $estudiante->idUsuario,
+            'nombre' => $estudiante->nombre,
+            'apellido1' => $estudiante->apellido1,
+            'apellido2' => $estudiante->apellido2,
+            'correo' => $estudiante->correo,
+            'direccion' => $estudiante->direccion,
+            'telefono' => $estudiante->telefono
+        ]; 
+        echo json_encode($data);
+    } 
+    
+    public function editarEstudiante1()
+    {
+        $id=$_POST["idUsuario"];
+        $nombre=$_POST["nombre"];
+        $apellido1=$_POST["apellido1"];
+        $apellido2=$_POST["apellido2"];
+        $correo=$_POST["correo"];
+        $telefono=$_POST["telefono"];
+        $direccion=$_POST["direccion"];
+
+        $estudiante=$this->EstudianteModel->editarEstudiante($id,$nombre,$apellido1,$apellido2,$correo,$telefono,$direccion);
+
+        echo json_encode($estudiante);
+
+    }
     /**
      * eliminarEstudiante
      * función para eliminar un estudiante
      * @param  mixed $idUsuario
      * @return void
      */
-    public function eliminarEstudiante($idUsuario)
+    public function eliminarEstudiante()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = [
-                'idUsuario' => $idUsuario
-            ];
-            // eliminamos la data
-            if ($this->EstudianteModel->eliminarEstudiante($data)) {
-                // echo 'borrado';
-                $data = [];
-                // renderisamos la vista
-                $this->renderView('dashboard/dashboard', $data);
-            } else {
-                die('ocurrió un error !');
-            };
-        } else {
-            $estudiante = $this->EstudianteModel->getOne($idUsuario);
-            $data = [
-                'idUsuario' => $estudiante->idUsuario,
-                'nombre' => $estudiante->nombre,
-                'apellido1' => $estudiante->apellido1,
-                'apellido2' => $estudiante->apellido2,
-                'correo' => $estudiante->correo,
-                'telefono' => $estudiante->telefono,
-                'direccion' => $estudiante->direccion
-            ];
-            // renderisamos la vista
-            $this->renderView('estudiante/eliminarEstudiante', $data);
-        }
+        $id=$_POST["idUsuario"];
+        $estudiante = $this->EstudianteModel->eliminarEstudiante($id);
+        echo json_encode($estudiante);
     } 
     /**
      * imprimirReporte

@@ -54,33 +54,17 @@ class Editorial extends Controller
      */
     public function cargarEditorial()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $data = [
-                'nit' => $_POST['nit'],
-                'nombre' => $_POST['nombre'],
-                'generosProduce' => $_POST['generosProduce'],
-                'tipo' => $_POST['tipo'],
-                'ubicacion' => $_POST['ubicacion']
-            ];
-            // insertamos la data 
-            $resultado = $this->EditorialModel->InsertarEditorial($data);
-            if ($resultado) {
-                $data = [
-                    'mensaje' => 'insercion exitosa'
-                ];
-                // renderisamos la vista 
-                $this->renderView('editorial/insertarEditorial', $data);
-            } else {
-                $data = [
-                    'mensaje' => 'error en la insercion'
-                ];
-                // renderisamos la vista 
-                $this->renderView('editorial/insertarEditorial', $data);
-            }
-        } else {
-            echo 'Atención! los datos no fueron enviados de un formulario';
-        }
+        //cogemos todos los datos que llegan por el post
+        $nit=$_POST["nit"];
+        $nombre=$_POST["nombre"];
+        $generosProduce=$_POST["generosProduce"];
+        $tipo=$_POST["tipo"];
+        $ubicacion=$_POST["ubicacion"];
+
+        //los mandamos a el model
+        $editorial=$this->EditorialModel->InsertarEditorial($nit,$nombre,$generosProduce,$tipo,$ubicacion);
+
+        echo json_encode($editorial);
     }
 //    
     /**

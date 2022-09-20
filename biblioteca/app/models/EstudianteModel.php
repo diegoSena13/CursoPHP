@@ -20,7 +20,7 @@ class EstudianteModel
     }  
     public function getTable()
     {
-        $this->db->query("SELECT nombre,apellido1,correo,telefono,direccion FROM `cliente`");
+        $this->db->query("SELECT idUsuario,nombre,correo,telefono,direccion FROM `cliente`");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
@@ -43,17 +43,17 @@ class EstudianteModel
      * @param  mixed $data
      * @return void
      */
-    public function insertarEstudiante($data)
+    public function insertarEstudiante($id,$nombre,$apellido1,$apellido2,$correo,$telefono,$direccion)
     {
         $this->db->query("INSERT INTO cliente(idUsuario,nombre,apellido1,apellido2,correo,telefono,direccion) VALUES (:idUsuario,:nombre,:apellido1,:apellido2,:correo,:telefono,:direccion) ");
         //bindiamos
-        $this->db->bind(':idUsuario', $data['idUsuario']);
-        $this->db->bind(':nombre', $data['apellido1']);
-        $this->db->bind(':apellido1', $data['apellido1']);
-        $this->db->bind(':apellido2', $data['apellido2']);
-        $this->db->bind(':correo', $data['correo']);
-        $this->db->bind(':telefono', $data['telefono']);
-        $this->db->bind(':direccion', $data['direccion']);
+        $this->db->bind(':idUsuario', $id);
+        $this->db->bind(':nombre', $nombre);
+        $this->db->bind(':apellido1', $apellido1);
+        $this->db->bind(':apellido2', $apellido2);
+        $this->db->bind(':correo', $correo);
+        $this->db->bind(':telefono', $telefono);
+        $this->db->bind(':direccion', $direccion);
         //verificamos la ejecucion correcta del query
         if ($this->db->execute()) {
             return true;
@@ -68,20 +68,20 @@ class EstudianteModel
      * @param  mixed $data
      * @return void
      */
-    public function editarEstudiante($data)
+    public function editarEstudiante($id,$nombre,$apellido1,$apellido2,$correo,$telefono,$direccion)
     {
         $this->db->query('UPDATE cliente SET idUsuario=:idUsuario,
         nombre=:nombre,apellido1=:apellido1,
         apellido2=:apellido2,correo=:correo,telefono=:telefono,direccion=:direccion WHERE idUsuario=:idUsuario      
         ');
         //vinculacion de los datos
-        $this->db->bind(':idUsuario', $data['idUsuario']);
-        $this->db->bind(':nombre', $data['nombre']);
-        $this->db->bind(':apellido1', $data['apellido1']);
-        $this->db->bind(':apellido2', $data['apellido2']);
-        $this->db->bind(':correo', $data['correo']);
-        $this->db->bind(':telefono', $data['telefono']);
-        $this->db->bind(':direccion', $data['direccion']);
+        $this->db->bind(':idUsuario', $id);
+        $this->db->bind(':nombre', $nombre);
+        $this->db->bind(':apellido1', $apellido1);
+        $this->db->bind(':apellido2', $apellido2);
+        $this->db->bind(':correo', $correo);
+        $this->db->bind(':telefono', $telefono);
+        $this->db->bind(':direccion', $direccion);
 
         // ejecucion de la consulta
 
@@ -97,11 +97,11 @@ class EstudianteModel
      * @param  mixed $data
      * @return void
      */
-    public function eliminarEstudiante($data)
+    public function eliminarEstudiante($id)
     {
         $this->db->query('DELETE FROM cliente WHERE idUsuario = :idUsuario');
         //vinculacion de los datos
-        $this->db->bind(':idUsuario', $data['idUsuario']);
+        $this->db->bind(':idUsuario', $id);
 
         // ejecucion de la consulta
 

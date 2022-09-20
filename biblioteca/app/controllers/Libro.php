@@ -46,38 +46,22 @@ class Libro extends Controller
      */
     public function cargarLibro()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $data = [
-                'id' => $_POST['id'],
-                'titulo' => $_POST['titulo'],
-                'autor' => $_POST['autor'],
-                'descripcion' => $_POST['descripcion'],
-                'categoria' => $_POST['categoria'],
-                'editorial' => $_POST['editorial'],
-                'fechaSalidadLibro' => $_POST['fechaSalidadLibro'],
-                'cantidad' => $_POST['cantidad'],
-                'existencia' => $_POST['existencia'],
-                'editorial_nit' => $_POST['editorial_nit']
-            ];
-            // insertamos la data
-            $resultado = $this->LibroModel->InsertarLibro($data);
-            if ($resultado) {
-                $data = [
-                    'mensaje' => 'insercion exitosa'
-                ];
-                // renderisamos la vista
-                $this->renderView('Libro/insertarLibro', $data);
-            } else {
-                $data = [
-                    'mensaje' => 'error en la insercion'
-                ];
-                // renderisamos la vista
-                $this->renderView('Libro/insertarLibro', $data);
-            }
-        } else {
-            echo 'Atención! los datos no fueron enviados de un formulario';
-        }
+         //cogemos todos los datos que llegan por el post
+       $id=$_POST["id"];
+       $titulo=$_POST["titulo"];
+       $autor=$_POST["autor"];
+       $descripcion=$_POST["descripcion"];
+       $categoria=$_POST["categoria"];
+       $editorial=$_POST["editorial"];
+       $fechaSalidad=$_POST["fechaSalidaLibro"];
+       $cantidad=$_POST["cantidad"];
+       $existencia=$_POST["existencia"];
+       $editorial_nit=$_POST["editorial_nit"];
+
+      //los mandamos a el model
+      $libro=$this->LibroModel->InsertarLibro($id,$titulo,$autor,$descripcion,$categoria,$editorial,$fechaSalidad,$cantidad,$existencia,$editorial_nit);
+
+      echo json_encode($libro);
     }
     // 
     /**
@@ -86,47 +70,24 @@ class Libro extends Controller
      * @param  mixed $id
      * @return void
      */
-    public function editarLibro($id)
+    public function editarLibro()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = [
-                'id' => $id,  //$id
-                'titulo' => $_POST['titulo'],
-                'autor' => $_POST['autor'],
-                'descripcion' => $_POST['descripcion'],
-                'categoria' => $_POST['categoria'],
-                'editorial' => $_POST['editorial'],
-                'fechaSalidadLibro' => $_POST['fechaSalidadLibro'],
-                'cantidad' => $_POST['cantidad'],
-                'existencia' => $_POST['existencia'],
-                'editorial_nit' => $_POST['editorial_nit']
-            ];
-            // editamos la data
-            if ($this->LibroModel->EditarLibro($data)) {
-                $data = [];
-                // renderisamos la vista
-                $this->renderView('dashboard/dashboard', $data);
-            } else {
-                die('ocurrió un error en la inserción !');
-            };
-        } else {
-            $libro = $this->LibroModel->getOne($id);
-            $data = [
-                'id' => $libro->id,
-                'titulo' => $libro->titulo,
-                'autor' => $libro->autor,
-                'descripcion' => $libro->descripcion,
-                'categoria' => $libro->categoria,
-                'editorial' => $libro->editorial,
-                'fechaSalidadLibro' => $libro->fechaSalidadLibro,
-                'cantidad' => $libro->cantidad,
-                'existencia' => $libro->existencia,
-                'editorial_nit' => $libro->editorial_nit
-            ];
-            // renderisamos la vista
-            $this->renderView('Libro/editarLibro', $data);
-        }
+        $id=$_POST["id"];
+        
+        $libro = $this->LibroModel->getOne($id);
+
+        $data = [
+            'id' => $libro->id,
+            'titulo' => $libro->titulo,
+            'autor' => $libro->autor,
+            'descripcion' => $libro->descripcion,
+            'editorial' => $libro->editorial,
+            'fechaSalida' => $libro->fechaSalida,
+            'cantidad' => $libro->cantidad,
+            'existencia' => $libro->existencia,
+            'editorial_nit' => $libro->editorial_nit
+        ]; 
+        echo json_encode($data);
     }
 
     //    
@@ -136,39 +97,11 @@ class Libro extends Controller
      * @param  mixed $id
      * @return void
      */
-    public function eliminarLibro($id)
+    public function eliminarLibro()
     {
-        // verificamos el metodo POST y traemos la data
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = [
-                'id' => $id
-            ];
-            // eliminamos la data
-            if ($this->LibroModel->Eliminarlibro($data)) {
-                // echo 'borrado';
-                $data = [];
-                // renderisamos la vista
-                $this->renderView('dashboard/dashboard', $data);
-            } else {
-                die('ocurrió un error !');
-            };
-        } else {
-            $libro = $this->LibroModel->getOne($id);
-            $data = [
-                'id' => $libro->id,
-                'titulo' => $libro->titulo,
-                'autor' => $libro->autor,
-                'descripcion' => $libro->descripcion,
-                'categoria' => $libro->categoria,
-                'editorial' => $libro->editorial,
-                'fechaSalidadLibro' => $libro->fechaSalidadLibro,
-                'cantidad' => $libro->cantidad,
-                'existencia' => $libro->existencia,
-                'editorial_nit' => $libro->editorial_nit
-            ];
-            // renderisamos la vista
-            $this->renderView('Libro/eliminarLibro', $data);
-        }
+        $id=$_POST["id"];
+        $libro = $this->LibroModel->Eliminarlibro($id);
+        echo json_encode($libro);
     }
     //     
     /**

@@ -32,7 +32,7 @@ class LibroModel
     }
     public function getTable()
     {
-        $this->db->query("SELECT titulo,autor,descripcion,categoria,cantidad,existencia FROM `libro`");
+        $this->db->query("SELECT id,titulo,autor,descripcion,categoria,cantidad,existencia FROM `libro`");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
@@ -57,18 +57,18 @@ class LibroModel
      * @param  mixed $data
      * @return void
      */
-    public function InsertarLibro($data){
+    public function InsertarLibro($id,$titulo,$autor,$descripcion,$categoria,$editorial,$fechaSalidad,$cantidad,$existencia,$editorial_nit){
         $this->db->query("insert into libro (id,titulo,autor,descripcion,categoria,editorial,fechaSalidadLibro,cantidad,existencia,editorial_nit) values (:id,:titulo,:autor,:descripcion,:categoria,:editorial,:fechaSalidadLibro,:cantidad,:existencia,:editorial_nit)");
-        $this->db->bind(':id', $data['id']);
-        $this->db->bind(':titulo', $data['titulo']);
-        $this->db->bind(':autor', $data['autor']);
-        $this->db->bind(':descripcion', $data['descripcion']);
-        $this->db->bind(':categoria', $data['categoria']);
-        $this->db->bind(':editorial', $data['editorial']);
-        $this->db->bind(':fechaSalidadLibro', $data['fechaSalidadLibro']);
-        $this->db->bind(':cantidad', $data['cantidad']);
-        $this->db->bind(':existencia', $data['existencia']);
-        $this->db->bind(':editorial_nit', $data['editorial_nit']);
+        $this->db->bind(':id', $id);
+        $this->db->bind(':titulo', $titulo);
+        $this->db->bind(':autor', $autor);
+        $this->db->bind(':descripcion', $descripcion);
+        $this->db->bind(':categoria', $categoria);
+        $this->db->bind(':editorial', $editorial);
+        $this->db->bind(':fechaSalidadLibro', $fechaSalidad);
+        $this->db->bind(':cantidad', $cantidad);
+        $this->db->bind(':existencia', $existencia);
+        $this->db->bind(':editorial_nit', $editorial_nit);
 
         if ($this->db->execute()) {
             return true;
@@ -115,10 +115,10 @@ class LibroModel
      * @param  mixed $data
      * @return void
      */
-    public function Eliminarlibro($data){
+    public function Eliminarlibro($id){
         $this->db->query('DELETE FROM libro WHERE id = :id');
         //vinculacion de los datos
-        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':id', $id);
 
         // ejecucion de la consulta
 
