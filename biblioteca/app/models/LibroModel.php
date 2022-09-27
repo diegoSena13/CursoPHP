@@ -26,7 +26,7 @@ class LibroModel
      * @return void
      */
     public function fk(){
-        $this->db->query("SELECT * FROM editorial");
+        $this->db->query("SELECT nit, nombre FROM editorial");
         $resultSet= $this->db->getAll();
         return $resultSet;
     }

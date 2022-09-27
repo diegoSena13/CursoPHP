@@ -3,17 +3,17 @@
 
 <!-- <div class="container-fluid">
   <div class="row"> -->
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<main id="main" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <div class="card">
       <div class="card-body">
         <h1 class="text-center">LIBROS</h1>
         <br>
         <div>
-          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-target='#exampleModal2' data-bs-toggle='modal' id=""><i class="bi bi-person-plus"></i> Insertar</button>
-          <a class="btn btn-sm btn-outline-secondary" href="<?php echo URLROOT; ?>Libro/imprimirReporte"><i class="bi bi-filetype-pdf"></i>
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-target='#exampleModal2' data-bs-toggle='modal' id="btnIniciarModal"><i class="bi bi-person-plus"></i> Insertar</button>
+          <button type="button" id="btnImprimir" class="btn btn-sm btn-outline-secondary" href=""><i class="bi bi-filetype-pdf"></i>
             Reporte
-          </a>
+          </button>
         </div>
         <br>
         <form action="<?php echo URLROOT; ?>Libro/search" method="POST">
@@ -109,7 +109,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Insertar Editorial</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Insertar libro</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="">
@@ -136,25 +136,25 @@
               <div class="col">
                 <label for="formGroupExampleInput" class="form-label">Seleccione Categoría</label>
                 <select name="categoria" id="categoria" class="form-select" aria-label="categoria">
-                  <option value="">Científicos</option>
-                  <option value="">Literatura y lingüísticos</option>
-                  <option value="">De viaje</option>
-                  <option value="">Biografías</option>
-                  <option value="">Libro de texto</option>
-                  <option value="">Libros de gran formato (coffee table book)</option>
-                  <option value="">De referencia o consulta</option>
-                  <option value="">Monografías</option>
-                  <option value="">Recreativos</option>
-                  <option value="">Poéticos</option>
-                  <option value="">Juveniles</option>
-                  <option value="">Ficción</option>
-                  <option value="">Comedia</option>
+                  <option value="Científicos">Científicos</option>
+                  <option value="Literatura y lingüísticos">Literatura y lingüísticos</option>
+                  <option value="De viaje">De viaje</option>
+                  <option value="Biografías">Biografías</option>
+                  <option value="Libro de texto">Libro de texto</option>
+                  <option value="Libros de gran formato (coffee table book)">Libros de gran formato (coffee table book)</option>
+                  <option value="De referencia o consulta">De referencia o consulta</option>
+                  <option value="Monografías">Monografías</option>
+                  <option value="Recreativos">Recreativos</option>
+                  <option value="Poéticos">Poéticos</option>
+                  <option value="Juveniles">Juveniles</option>
+                  <option value="Ficción">Ficción</option>
+                  <option value="Comedia">Comedia</option>
                 </select>
               </div>
               <div class="col">
                 <label for="formGroupExampleInput" class="form-label">Seleccione el Editorial</label>
                 <select name="editorial" id="editorial" class="form-select" aria-label="editorial">
-                  <option value=""></option>
+
                 </select>
               </div>
 
@@ -175,8 +175,8 @@
               </div>
               <div class="col">
                 <label for="formGroupExampleInput" class="form-label">Seleccione NIT del Editorial</label>
-                <select name="editorial_nit" class="form-select" aria-label="NitEditorial">
-                    <option value=""></option>
+                <select name="editorial_nit" id="editorial_nit" class="form-select" aria-label="NitEditorial">
+
                 </select>
               </div>
           </form>

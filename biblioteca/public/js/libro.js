@@ -151,7 +151,7 @@ function modalEliminar(id, titulo) {
   let fila = `
       <p>deseas eliminar la editorial ${titulo}?</p>
       <form action="#" method="post" id="frmEliminar" >
-          <input type="hidden" id="id" name="id" value="${id}">  
+          <input type="hidden" id="id" name="idLibro" value="${id}">  
       </form>
       `;
   preguntaEditar.innerHTML = fila;
@@ -162,7 +162,7 @@ let confirmarEdit = document.getElementById("confirmarEdit");
 
 //esta parte envia el id de el libro por el metodo post y devuelve todos los datos de el libro en un formulario para editar
 confirmarEdit.addEventListener("click", (e) => {
-  let datos = new FormData(document.getElementById("frmEditar"));
+  let datos = document.getElementById("id");
   fetch("http://localhost/CursoPHP/Biblioteca/Libro/editarLibro", {
     method: "POST",
     body: datos,
@@ -249,7 +249,7 @@ btnInsertar.addEventListener("click", (e) => {
   })
     .then(function (response) {
       if (response.ok) {
-        alert(response)
+        alert(response.ok)
       } else {
         throw "Error en la llamada Ajax";
       }
@@ -261,6 +261,53 @@ btnInsertar.addEventListener("click", (e) => {
       console.log(err);
     });
 });
+
+
+//poner el nit y la editorial en el formulario agregar
+let btnIniciarModal = document.getElementById("btnIniciarModal");
+
+btnIniciarModal.addEventListener("click", function () {
+  // fetch usando el GET
+  let url1 = "http://localhost/CursoPHP/Biblioteca/Libro/fk";
+
+  fetch(url1)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      let editorial = document.getElementById("editorial");
+      let editorial_nit = document.getElementById("editorial_nit");
+      for (let i = 0; i < data.length; i++) {
+        editorial.innerHTML+=`<option value="${data[i].nombre}">${data[i].nombre}</option>`
+        editorial_nit.innerHTML+=`<option value="${data[i].nit}">${data[i].nit}</option>`
+      }
+    })
+    .catch((error) => {
+      console.log("error: ", error);
+    });
+});
+
+
+
+
+//traer los datos y enviarlos a la vista imprimir
+btnImprimir.addEventListener("click", function () {
+  // fetch usando el GET
+  let url1 = "http://localhost/CursoPHP/Biblioteca/Libro/imprimirReporte";
+
+  fetch(url1)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data.json())
+    })
+    .catch((error) => {
+      console.log("error: ", error);
+    });
+});
+
+
 
 
 

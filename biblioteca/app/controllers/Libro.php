@@ -61,7 +61,7 @@ class Libro extends Controller
       //los mandamos a el model
       $libro=$this->LibroModel->InsertarLibro($id,$titulo,$autor,$descripcion,$categoria,$editorial,$fechaSalidad,$cantidad,$existencia,$editorial_nit);
 
-      echo json_encode($libro);
+      echo ($libro);
     }
     // 
     /**
@@ -72,7 +72,7 @@ class Libro extends Controller
      */
     public function editarLibro()
     {
-        $id=$_POST["id"];
+        $id=$_POST["idLibro"];
         
         $libro = $this->LibroModel->getOne($id);
 
@@ -89,6 +89,23 @@ class Libro extends Controller
         ]; 
         echo json_encode($data);
     }
+
+
+    //    
+    /**
+     * fk
+     * función para buscar el nit y loa nombres de las editoriales
+     * @param  mixed $id
+     * @return void
+     */
+    public function fk()
+    {
+        
+        $libro = $this->LibroModel->fk();
+        echo json_encode($libro);
+    }
+
+
 
     //    
     /**
@@ -111,11 +128,15 @@ class Libro extends Controller
      */
     public function imprimirReporte()
     {
-        // traemos la data
-        $data = $this->LibroModel->listarLibro();
-        //$data = [];
-        // renderisamos la vista
-        $this->renderView('libro/rptLibro', $data);
+        if ($libro=$this->LibroModel->getTable()) {
+            
+            $data =$libro;
+            echo json_encode($data);
+            $this->renderView('libro/rptLibro', $data);
+
+        }else{
+            echo "error";
+        }
     }
     
     /**
