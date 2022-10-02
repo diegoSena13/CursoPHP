@@ -11,7 +11,7 @@ class Prestamo extends Controller
     {
         //$data=[];
         $data = $this->EditorialModel->listarEditorial();  //temporal porque no hay datos
-        $this->renderView('editorial/editorialInicio', $data);
+        $this->renderView('prestamos/insertarPrestamo', $data);
     }
     public function addForm()
     {

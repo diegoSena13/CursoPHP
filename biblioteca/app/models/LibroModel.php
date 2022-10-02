@@ -32,7 +32,7 @@ class LibroModel
     }
     public function getTable()
     {
-        $this->db->query("SELECT id,titulo,autor,descripcion,categoria,cantidad,existencia FROM `libro`");
+        $this->db->query("SELECT id,titulo,autor,descripcion,categoria,cantidad,existencia,editorial FROM `libro`");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
