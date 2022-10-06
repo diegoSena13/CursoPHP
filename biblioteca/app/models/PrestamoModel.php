@@ -38,20 +38,34 @@ class PrestamoModel
      * @param  mixed $data
      * @return void
      */
-    public function InsertarPrestamo($data)
+    public function add($data)
     {
-        $this->db->query("insert into encabezadoprestamo (consecutivo,fecha,nombreCliente,correoCliente,telefonoCliente,DireccionCliente,usuario_idUsuario) values (:idPenalizacion,:estado,:nombreCliente,:correoCliente)");
-        $this->db->bind(':idPenalizacion', $data['idPenalizacion']);
-        $this->db->bind(':estado', $data['estado']);
-        $this->db->bind(':nombreCliente', $data['nombreCliente']);
-        $this->db->bind(':correoCliente', $data['correoCliente']);
-
+        $this->db->query("INSERT INTO `encabezadoprestamo`(`fecha`, `nombreCliente`, `correoCliente`, `telefonoCliente`, `direccionCliente`, `usuario_idUsuario`) VALUES (:fecha,:nombre,:correo,:telefono,:direccion,:identificacion);");
+        //bindiamos
+        $this->db->bind(':fecha', $data['fecha']);
+        $this->db->bind(':nombre', $data['nombre']);
+        $this->db->bind(':correo', $data['correo']);
+        $this->db->bind(':telefono', $data['telefono']);
+        $this->db->bind(':direccion', $data['direccion']);
+        $this->db->bind(':identificacion', $data['identificacion']);
+        //verificamos la ejecucion correcta del query 
         if ($this->db->execute()) {
             return true;
         } else {
             return false;
         }
-    }   
+    }
+
+
+    public function getLast()
+    {
+        $ultimo = $this->db->lastInsertId();
+        return $ultimo;
+    }
+    
+    
+
+
     /**
      * EditarPenalizacion
      * función para editar una penalización 

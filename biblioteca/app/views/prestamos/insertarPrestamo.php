@@ -18,30 +18,30 @@
                         <div class="row">
                             <div class="col-4">
                                 <label for="exampleFormControlInput1" class="form-label">fecha</label>
-                                <input type="date" class="form-control" id="fecha" placeholder="fecha">
+                                <input type="date" class="form-control" name="fecha" id="fecha" placeholder="fecha">
                             </div>
                             <div class="col-4">
                                 <label for="exampleFormControlInput1" class="form-label">nombre</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="nombre">
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
                             </div>
                             <div class="col-4">
                                 <label for="exampleFormControlInput1" class="form-label">correo</label>
-                                <input type="email" class="form-control" id="correo" placeholder="correo">
+                                <input type="email" class="form-control" name="correo" id="correo" placeholder="correo">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-4">
                                 <label for="exampleFormControlInput1" class="form-label">telefono</label>
-                                <input type="text" class="form-control" id="telefono" placeholder="telefono">
+                                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono">
                             </div>
                             <div class="col-4">
                                 <label for="exampleFormControlInput1" class="form-label">direccion</label>
-                                <input type="text" class="form-control" id="direccion" placeholder="direccion">
+                                <input type="text" class="form-control" name="direccion" id="direccion" placeholder="direccion">
                             </div>
                             <div class="col-4">
                                 <label for="exampleFormControlInput1" class="form-label">identificacion</label>
-                                <input type="text" class="form-control" id="identificacion" placeholder="identificacion">
+                                <input type="text" class="form-control" name="identificacion" id="identificacion" placeholder="identificacion">
                             </div>
                             <div class="col-4">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#usuario" class="btn btn-sm btn-outline-secondary" data-bs-target='#exampleModal2' data-bs-toggle='modal' id="btnIniciarModal"><i class="bi bi-person-plus"></i> Insertar Usuario</button>
@@ -72,7 +72,7 @@
                         <br>
                         <div class="row">
                             <div class="col text-center">
-                            <button type="button" class="btn btn-success">Registrar</button>
+                            <button type="submit" id="" class="btn btn-success">Registrar</button>
                             </div>
                         </div>
                     </form>
