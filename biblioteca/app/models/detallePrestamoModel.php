@@ -24,13 +24,14 @@ class detallePrestamoModel
     {
         $numeroFilas = 0;
         while ($numeroFilas < count($data['titulo'])) {
-            $this->db->query("INSERT INTO `detalleprestamo`(`tituloLibro`, `autorLibro`, `categoriaLibro`, `fechaSalida`, `fechaEntrega`, `encabezadoPrestamo_consecutivo`) VALUES (:titulo,:autor,:categoria,:fechaSalida,:fechaEntrega,:consecutivo)");
+            $this->db->query("INSERT INTO `detalleprestamo`(`tituloLibro`, `autorLibro`, `categoriaLibro`, `fechaSalida`, `fechaEntrega`, `libro_id`, `encabezadoPrestamo_consecutivo`) VALUES (:titulo,:autor,:categoria,:fechaSalida,:fechaEntrega,:idLibro,:consecutivo)");
             //vinculamos las variables del array con los parametros de la consulta
             $this->db->bind(':titulo', $data['titulo'][$numeroFilas]);
             $this->db->bind(':autor', $data['autor'][$numeroFilas]);
             $this->db->bind(':categoria', $data['categoria'][$numeroFilas]);
             $this->db->bind(':fechaSalida', $data['fechaSalida'][$numeroFilas]);
             $this->db->bind(':fechaEntrega', $data['fechaEntrega'][$numeroFilas]);
+            $this->db->bind(':idLibro', $data['id'][$numeroFilas]);
             $this->db->bind(':consecutivo', $numFormula);
             
             $resulset = $this->db->execute();

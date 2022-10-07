@@ -183,6 +183,8 @@ confirmarDelete.addEventListener("click", (e) => {
 });
 
 
+//---------------------------------------------Insertar----------------------------
+
 //boton del modal insertar para enviar los datos
 let btnInsertar = document.getElementById("btnInsertar");
 //evento click para enviar los datos a el controlador
@@ -206,6 +208,9 @@ btnInsertar.addEventListener("click", (e) => {
       console.log(err);
     });
 });
+
+
+//---------------------------Alertas----------------------------------------
 
 function alertEdit() {
   Swal.fire({

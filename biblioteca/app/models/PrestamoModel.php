@@ -7,7 +7,7 @@ class PrestamoModel
     public function __construct()
     {
         $this->db = new Dbase;
-    }   
+    }
     /**
      * listarPrestamo
      * función para traer el emcabezado del prestamo 
@@ -18,7 +18,7 @@ class PrestamoModel
         $this->db->query("SELECT * FROM `encabezadoprestamo` INNER JOIN `encabezadoprestamo` ON encabezadoprestamo.consecutivo =detalleprestamo .consecutivo;");
         $resultSet = $this->db->getAll();
         return $resultSet;
-    }     
+    }
     /**
      * getOne
      * función para traer una penalización
@@ -31,7 +31,7 @@ class PrestamoModel
         $this->db->bind(':consecutivo', $consecutivo);
         $resultSet = $this->db->getOne();
         return $resultSet;
-    }     
+    }
     /**
      * InsertarPrestamo
      * función para insertar una penalización
@@ -40,7 +40,7 @@ class PrestamoModel
      */
     public function add($data)
     {
-        $this->db->query("INSERT INTO `encabezadoprestamo`(`fecha`, `nombreCliente`, `correoCliente`, `telefonoCliente`, `direccionCliente`, `usuario_idUsuario`) VALUES (:fecha,:nombre,:correo,:telefono,:direccion,:identificacion);");
+        $this->db->query("INSERT INTO `encabezadoprestamo`(`fecha`, `nombreCliente`, `correoCliente`, `telefonoCliente`, `direccionCliente`,`usuario_idUsuario`) VALUES (:fecha,:nombre,:correo,:telefono,:direccion,:identificacion);");
         //bindiamos
         $this->db->bind(':fecha', $data['fecha']);
         $this->db->bind(':nombre', $data['nombre']);
@@ -62,8 +62,8 @@ class PrestamoModel
         $ultimo = $this->db->lastInsertId();
         return $ultimo;
     }
-    
-    
+
+
 
 
     /**
@@ -91,7 +91,7 @@ class PrestamoModel
         } else {
             return false;
         }
-    }   
+    }
     /**
      * EliminarPenalizacion
      * función para eliminar una penalización  

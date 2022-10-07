@@ -81,16 +81,17 @@ let tblLibros = $("#tblLibros").DataTable({
 //selecciona el  item para agregarlo al detalle de la formula
 $("#tblLibros tbody").on("click", "#agregarLibro", function () {
   var data = tblLibros.row($(this).parents("tr")).data(); //captura la fila
-  agregarLibro(data.titulo, data.autor, data.descripcion);
+  agregarLibro(data.id,data.titulo, data.autor, data.descripcion);
 });
 //});
 
 //agrega el item al detalle de la formula
 
-function agregarLibro(titulo, autor, categoria) {
+function agregarLibro(id,titulo, autor, categoria) {
   detalle = document.getElementById("tblDetalleLibro");
   fila = `  
     <tr id='filas' > 
+    <td><input type="text" name="id[]" id="id[]" value ='${id}' class="form-control form-control-sm" readonly></td>
     <td><input type="text" name="titulo[]" id="titulo[]" value ='${titulo}' class="form-control form-control-sm" readonly></td>
     <td><input type="text" name="autor[]"  id="autor[]" value ='${autor}' class="form-control form-control-sm" readonly></td>
     <td><input type="text" name="categoria[]"  id="categoria[]" value ='${categoria}' class="form-control form-control-sm" readonly></td>

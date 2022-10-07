@@ -30,6 +30,7 @@ class Prestamo extends Controller
                 'telefono' => $_POST["telefono"],
                 'direccion' => $_POST["direccion"],
                 'identificacion' => $_POST["identificacion"],
+                'id' => $_POST["id"],
                 'titulo' => $_POST["titulo"],
                 'autor' => $_POST["autor"],
                 'categoria' => $_POST["categoria"],

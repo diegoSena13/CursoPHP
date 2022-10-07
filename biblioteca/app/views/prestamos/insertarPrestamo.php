@@ -53,6 +53,7 @@
                             <table class="table" id="tblDetalleLibro">
                                 <thead>
                                     <tr>
+                                        <th scope="col">id</th>
                                         <th scope="col">Libro</th>
                                         <th scope="col">Autor</th>
                                         <th scope="col">descripcion</th>
