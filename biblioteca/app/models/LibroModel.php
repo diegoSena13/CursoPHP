@@ -91,11 +91,11 @@ class LibroModel
         //vinculacion de los datos
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':titulo', $data['titulo']);
-        $this->db->bind(':autor', $data['autor']);
+        $this->db->bind(':autor', $data['autor']); 
         $this->db->bind(':descripcion', $data['descripcion']);
         $this->db->bind(':categoria', $data['categoria']);
         $this->db->bind(':editorial', $data['editorial']);
-        $this->db->bind(':fechaSalidadLibro', $data['fechaSalidadLibro']);
+        $this->db->bind(':fechaSalidadLibro', $data['fechaSalida']);
         $this->db->bind(':cantidad', $data['cantidad']);
         $this->db->bind(':existencia', $data['existencia']);
         $this->db->bind(':editorial_nit', $data['editorial_nit']);
