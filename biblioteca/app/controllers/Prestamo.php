@@ -12,12 +12,12 @@ class Prestamo extends Controller
     {
         $data=[];
         //$data = $this->EditorialModel->listarEditorial();  //temporal porque no hay datos
-        $this->renderView('prestamos/insertarPrestamo', $data);
+        $this->renderView('prestamos/prestamoInicio', $data);
     }
     public function addForm()
     {
         $data = [];  //temporal porque no hay datos
-        $this->renderView('prestamo/insertarPrestamo', $data);
+        $this->renderView('prestamos/insertarPrestamo', $data);
     }
 
     public function guardar()

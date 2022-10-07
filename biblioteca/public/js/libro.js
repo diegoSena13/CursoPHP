@@ -48,7 +48,7 @@ function modalEditar(id, titulo) {
   let fila = `
       <p>deseas editar el libro ${titulo}?</p>
       <form action="#" method="post" id="frmEditar" >
-          <input type="hidden" id="id" name="id" value="${id}">  
+          <input type="text" id="id" name="id" value="${id}">  
       </form>
       `;
   preguntaEditar.innerHTML = fila;
@@ -60,6 +60,7 @@ function modalEditar2(
   titulo,
   autor,
   descripcion,
+  categoria,
   editorial,
   fechaSalida,
   cantidad,
@@ -91,7 +92,7 @@ function modalEditar2(
                         <div class="col">
                             <label for="formGroupExampleInput"  class="form-label">Seleccione Categoría</label>
                             <select name="categoria" id="categoria" class="form-select" aria-label="categoria">
-                                <option value="">Científicos</option>
+                                <option value="${categoria}">${categoria}</option>
                                 <option value="">Literatura y lingüísticos</option>
                                 <option value="">De viaje</option>
                                 <option value="">Biografías</option>
@@ -109,7 +110,7 @@ function modalEditar2(
                         <div class="col">
                             <label for="formGroupExampleInput" class="form-label">Seleccione el Editorial</label>
                             <select name="editorial" id="editorial" class="form-select" aria-label="editorial">
-                                <option value="">${editorial}</option>
+                                <option value="${editorial}">${editorial}</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -151,18 +152,19 @@ function modalEliminar(id, titulo) {
   let fila = `
       <p>deseas eliminar la editorial ${titulo}?</p>
       <form action="#" method="post" id="frmEliminar" >
-          <input type="hidden" id="id" name="idLibro" value="${id}">  
+          <input type="hidden" id="id" name="id" value="${id}">  
       </form>
       `;
   preguntaEditar.innerHTML = fila;
 }
-
+//-------------------------------------------------------------------------------------------------------
 //boton  de el modal
 let confirmarEdit = document.getElementById("confirmarEdit");
 
 //esta parte envia el id de el libro por el metodo post y devuelve todos los datos de el libro en un formulario para editar
 confirmarEdit.addEventListener("click", (e) => {
-  let datos = document.getElementById("id");
+  let frmEditar=document.getElementById("frmEditar");
+  let datos = new FormData(frmEditar);
   fetch("http://localhost/CursoPHP/Biblioteca/Libro/editarLibro", {
     method: "POST",
     body: datos,
@@ -180,6 +182,7 @@ confirmarEdit.addEventListener("click", (e) => {
         json["titulo"],
         json["autor"],
         json["descripcion"],
+        json["categoria"],
         json["editorial"],
         json["fechaSalida"],
         json["cantidad"],
@@ -195,7 +198,7 @@ confirmarEdit.addEventListener("click", (e) => {
 //evento para editar la editoriasl con el formulario
 confirmarEdit.addEventListener("click", (e) => {
   let datos = new FormData(document.getElementById("frmEditar2"));
-  fetch("http://localhost/CursoPHP/Biblioteca/Editorial/editarEditorial1", {
+  fetch("http://localhost/CursoPHP/Biblioteca/Libro/editarLibro1", {
     method: "POST",
     body: datos,
   })
@@ -213,7 +216,7 @@ confirmarEdit.addEventListener("click", (e) => {
       console.log(err);
     });
 });
-
+//-------------------------------------------------------------------------------------------
 //boton del modal eliminar para enviar el nit
 let confirmarDelete = document.getElementById("confirmarDelete");
 //evento click para enviar el nit a el controlador
@@ -237,7 +240,7 @@ confirmarDelete.addEventListener("click", (e) => {
       console.log(err);
     });
 });
-
+//-------------------------------------------------------------------------------------------
 //boton del modal insertar para enviar los datos
 let btnInsertar = document.getElementById("btnInsertar");
 //evento click para enviar los datos a el controlador
@@ -249,13 +252,13 @@ btnInsertar.addEventListener("click", (e) => {
   })
     .then(function (response) {
       if (response.ok) {
-        alert(response.ok)
+        return(response.ok)
       } else {
         throw "Error en la llamada Ajax";
       }
     })
     .then(function (ok) {
-      alertInsert();
+      alertInsert()
     })
     .catch(function (err) {
       console.log(err);

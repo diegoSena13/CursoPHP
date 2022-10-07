@@ -67,7 +67,7 @@ class Estudiante extends Controller
     {
         $id=$_POST["idUsuario"];
         
-        $estudiante = $this->EstudianteModel->getOne($id);
+        $estudiante = $this->EstudianteModel->getOne($id); 
         $data = [
             'idUsuario' => $estudiante->idUsuario,
             'nombre' => $estudiante->nombre,
