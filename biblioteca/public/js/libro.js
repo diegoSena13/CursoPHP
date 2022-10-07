@@ -1,7 +1,9 @@
+const URL="https://apipruebapy.000webhostapp.com/"
+
 $(document).ready(function () {
   var table = $("#tblLibro").DataTable({
     ajax: {
-      url: "http://localhost/CursoPHP/Biblioteca/Libro/dataTable",
+      url: URL+"Libro/dataTable",
       dataSrc: "",
     },
     columns: [
@@ -165,7 +167,7 @@ let confirmarEdit = document.getElementById("confirmarEdit");
 confirmarEdit.addEventListener("click", (e) => {
   let frmEditar=document.getElementById("frmEditar");
   let datos = new FormData(frmEditar);
-  fetch("http://localhost/CursoPHP/Biblioteca/Libro/editarLibro", {
+  fetch(URL+"Libro/editarLibro", {
     method: "POST",
     body: datos,
   })
@@ -198,7 +200,7 @@ confirmarEdit.addEventListener("click", (e) => {
 //evento para editar la editoriasl con el formulario
 confirmarEdit.addEventListener("click", (e) => {
   let datos = new FormData(document.getElementById("frmEditar2"));
-  fetch("http://localhost/CursoPHP/Biblioteca/Libro/editarLibro1", {
+  fetch(URL+"Libro/editarLibro1", {
     method: "POST",
     body: datos,
   })
@@ -222,7 +224,7 @@ let confirmarDelete = document.getElementById("confirmarDelete");
 //evento click para enviar el nit a el controlador
 confirmarDelete.addEventListener("click", (e) => {
   let datos = new FormData(document.getElementById("frmEliminar"));
-  fetch("http://localhost/CursoPHP/Biblioteca/Libro/eliminarLibro", {
+  fetch(URL+"Libro/eliminarLibro", {
     method: "POST",
     body: datos,
   })
@@ -246,7 +248,7 @@ let btnInsertar = document.getElementById("btnInsertar");
 //evento click para enviar los datos a el controlador
 btnInsertar.addEventListener("click", (e) => {
   let datos = new FormData(document.getElementById("frmInsertar"));
-  fetch("http://localhost/CursoPHP/Biblioteca/Libro/cargarLibro", {
+  fetch(URL+"Libro/cargarLibro", {
     method: "POST",
     body: datos,
   })
@@ -271,7 +273,7 @@ let btnIniciarModal = document.getElementById("btnIniciarModal");
 
 btnIniciarModal.addEventListener("click", function () {
   // fetch usando el GET
-  let url1 = "http://localhost/CursoPHP/Biblioteca/Libro/fk";
+  let url1 = URL+"Libro/fk";
 
   fetch(url1)
     .then((response) => {
@@ -296,7 +298,7 @@ btnIniciarModal.addEventListener("click", function () {
 //traer los datos y enviarlos a la vista imprimir
 btnImprimir.addEventListener("click", function () {
   // fetch usando el GET
-  let url1 = "http://localhost/CursoPHP/Biblioteca/Libro/imprimirReporte";
+  let url1 = URL+"Libro/imprimirReporte";
 
   fetch(url1)
     .then((response) => {
