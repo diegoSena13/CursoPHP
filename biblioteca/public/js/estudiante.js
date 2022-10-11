@@ -61,7 +61,7 @@ function modalEditar2(id, nombre,apellido1,apellido2, correo, dirrecion, telefon
   <form action="" method="POST" id="frmEditar2">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" name="idUsuario" placeholder="# Identificación" value="${id}" aria-label="identificacion">
+                            <input type="text" readonly class="form-control" name="idUsuario" placeholder="# Identificación" value="${id}" aria-label="identificacion">
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="${nombre}" aria-label="nombre">

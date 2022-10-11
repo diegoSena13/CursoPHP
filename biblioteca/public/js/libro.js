@@ -3,7 +3,7 @@ const URL="https://apipruebapy.000webhostapp.com/"
 $(document).ready(function () {
   var table = $("#tblLibro").DataTable({
     ajax: {
-      url: URL+"Libro/dataTable",
+      url:"http://localhost/CursoPHP/Biblioteca/Libro/dataTable",
       dataSrc: "",
     },
     columns: [
@@ -50,7 +50,7 @@ function modalEditar(id, titulo) {
   let fila = `
       <p>deseas editar el libro ${titulo}?</p>
       <form action="#" method="post" id="frmEditar" >
-          <input type="text" id="id" name="id" value="${id}">  
+          <input type="hidden" id="id" name="id" value="${id}">  
       </form>
       `;
   preguntaEditar.innerHTML = fila;
@@ -95,18 +95,18 @@ function modalEditar2(
                             <label for="formGroupExampleInput"  class="form-label">Seleccione Categoría</label>
                             <select name="categoria" id="categoria" class="form-select" aria-label="categoria">
                                 <option value="${categoria}">${categoria}</option>
-                                <option value="">Literatura y lingüísticos</option>
-                                <option value="">De viaje</option>
-                                <option value="">Biografías</option>
-                                <option value="">Libro de texto</option>
-                                <option value="">Libros de gran formato (coffee table book)</option>
-                                <option value="">De referencia o consulta</option>
-                                <option value="">Monografías</option>
-                                <option value="">Recreativos</option>
-                                <option value="">Poéticos</option>
-                                <option value="">Juveniles</option>
-                                <option value="">Ficción</option>
-                                <option value="">Comedia</option>
+                                <option value="Literatura y lingüísticos">Literatura y lingüísticos</option>
+                                <option value="De viaje">De viaje</option>
+                                <option value="Biografías">Biografías</option>
+                                <option value="Libro de texto">Libro de texto</option>
+                                <option value="Libros de gran formato (coffee table book)">Libros de gran formato (coffee table book)</option>
+                                <option value="De referencia o consulta">De referencia o consulta</option>
+                                <option value="Monografías">Monografías</option>
+                                <option value="Recreativos">Recreativos</option>
+                                <option value="Poéticos">Poéticos</option>
+                                <option value="Juveniles">Juveniles</option>
+                                <option value="Ficción">Ficción</option>
+                                <option value="Comedia">Comedia</option>
                             </select>
                         </div>
                         <div class="col">
@@ -167,7 +167,7 @@ let confirmarEdit = document.getElementById("confirmarEdit");
 confirmarEdit.addEventListener("click", (e) => {
   let frmEditar=document.getElementById("frmEditar");
   let datos = new FormData(frmEditar);
-  fetch(URL+"Libro/editarLibro", {
+  fetch("http://localhost/CursoPHP/Biblioteca/Libro/editarLibro", {
     method: "POST",
     body: datos,
   })
@@ -200,7 +200,7 @@ confirmarEdit.addEventListener("click", (e) => {
 //evento para editar la editoriasl con el formulario
 confirmarEdit.addEventListener("click", (e) => {
   let datos = new FormData(document.getElementById("frmEditar2"));
-  fetch(URL+"Libro/editarLibro1", {
+  fetch("http://localhost/CursoPHP/Biblioteca/Libro/editarLibro1", {
     method: "POST",
     body: datos,
   })
@@ -224,7 +224,7 @@ let confirmarDelete = document.getElementById("confirmarDelete");
 //evento click para enviar el nit a el controlador
 confirmarDelete.addEventListener("click", (e) => {
   let datos = new FormData(document.getElementById("frmEliminar"));
-  fetch(URL+"Libro/eliminarLibro", {
+  fetch("http://localhost/CursoPHP/Biblioteca/Libro/eliminarLibro", {
     method: "POST",
     body: datos,
   })
@@ -248,7 +248,7 @@ let btnInsertar = document.getElementById("btnInsertar");
 //evento click para enviar los datos a el controlador
 btnInsertar.addEventListener("click", (e) => {
   let datos = new FormData(document.getElementById("frmInsertar"));
-  fetch(URL+"Libro/cargarLibro", {
+  fetch("http://localhost/CursoPHP/Biblioteca/Libro/cargarLibro", {
     method: "POST",
     body: datos,
   })
@@ -273,7 +273,7 @@ let btnIniciarModal = document.getElementById("btnIniciarModal");
 
 btnIniciarModal.addEventListener("click", function () {
   // fetch usando el GET
-  let url1 = URL+"Libro/fk";
+  let url1 = "http://localhost/CursoPHP/Biblioteca/Libro/fk";
 
   fetch(url1)
     .then((response) => {
@@ -298,7 +298,7 @@ btnIniciarModal.addEventListener("click", function () {
 //traer los datos y enviarlos a la vista imprimir
 btnImprimir.addEventListener("click", function () {
   // fetch usando el GET
-  let url1 = URL+"Libro/imprimirReporte";
+  let url1 = "http://localhost/CursoPHP/Biblioteca/Libro/imprimirReporte";
 
   fetch(url1)
     .then((response) => {
