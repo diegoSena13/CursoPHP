@@ -24,7 +24,7 @@ class Libro extends Controller
     public function dataTable()
     {
         $libro=$this->LibroModel->getTable();
-        echo json_encode($libro);
+        echo json_encode($libro); 
     }
     //    
     /**

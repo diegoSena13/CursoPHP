@@ -19,6 +19,16 @@ class PrestamoModel
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
+
+    public function getTable()
+    {
+        $this->db->query("SELECT tituloLibro,autorLibro,categoriaLibro,fechaSalida,fechaEntrega,encabezadoPrestamo_consecutivo FROM `detalleprestamo`");
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
+
+
+
     /**
      * getOne
      * función para traer una penalización

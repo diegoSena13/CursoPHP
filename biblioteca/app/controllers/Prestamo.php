@@ -14,6 +14,15 @@ class Prestamo extends Controller
         //$data = $this->EditorialModel->listarEditorial();  //temporal porque no hay datos
         $this->renderView('prestamos/prestamoInicio', $data);
     }
+
+    public function dataTable()
+    {
+        $prestamo=$this->PrestamoModel->getTable();
+        echo json_encode($prestamo);
+    }
+
+
+
     public function addForm()
     {
         $data = [];  //temporal porque no hay datos

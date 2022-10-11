@@ -1,5 +1,4 @@
 
-
 let frmFormula = document.getElementById("frmFormula");
 
 //Carga Inicial de las interacciones
@@ -131,5 +130,8 @@ function guardar(e) {
 
 //cargamos todo
 init();
+
+
+
 
 
